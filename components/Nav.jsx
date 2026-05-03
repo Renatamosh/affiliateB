@@ -16,6 +16,7 @@ const NAV_ITEMS = [
     { label: 'Practice Boards', href: '/practice-boards/' },
     { label: 'Bidding Quiz', href: '/bidding-quiz/' },
   ]},
+  { label: 'Articles', href: '/articles/' },
   { label: 'Community', href: '/community/' },
   { label: 'Glossary', href: '/glossary/' },
   { label: 'Platform Reviews', sub: [

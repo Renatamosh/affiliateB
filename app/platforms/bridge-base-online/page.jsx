@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import BBOClient from './BBOClient';
 
 export const metadata = {
@@ -7,5 +9,6 @@ export const metadata = {
 };
 
 export default function BBOPage() {
-  return <BBOClient />;
+  const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content/platforms/bbo.json'), 'utf8'));
+  return <BBOClient data={data} />;
 }

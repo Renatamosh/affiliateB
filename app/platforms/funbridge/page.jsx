@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import FunbridgeClient from './FunbridgeClient';
 
 export const metadata = {
@@ -7,5 +9,6 @@ export const metadata = {
 };
 
 export default function FunbridgePage() {
-  return <FunbridgeClient />;
+  const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content/platforms/funbridge.json'), 'utf8'));
+  return <FunbridgeClient data={data} />;
 }

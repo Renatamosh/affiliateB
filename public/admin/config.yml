@@ -29,3 +29,87 @@ collections:
       - { label: Meta Description, name: metaDescription, widget: text, required: false }
       - { label: Featured Image, name: featuredImage, widget: image, required: false }
       - { label: Body, name: body, widget: markdown }
+
+  - name: platforms
+    label: Platform Reviews
+    files:
+      - name: bbo
+        label: Bridge Base Online
+        file: content/platforms/bbo.json
+        format: json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Badge, name: badge, widget: string }
+          - { label: Overall Rating (1-5), name: rating, widget: number, min: 1, max: 5, step: 1 }
+          - { label: Price, name: price, widget: string }
+          - { label: Tagline, name: tagline, widget: text }
+          - { label: Overview, name: overview, widget: text }
+          - name: sections
+            label: Review Sections
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: Verdict, name: verdict, widget: text }
+          - name: scores
+            label: Ratings
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Score (1-5), name: n, widget: number, min: 1, max: 5, step: 1 }
+          - { label: Visit URL, name: visitUrl, widget: string }
+          - { label: Best For, name: bestFor, widget: string }
+
+      - name: funbridge
+        label: Funbridge
+        file: content/platforms/funbridge.json
+        format: json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Badge, name: badge, widget: string }
+          - { label: Overall Rating (1-5), name: rating, widget: number, min: 1, max: 5, step: 1 }
+          - { label: Price, name: price, widget: string }
+          - { label: Tagline, name: tagline, widget: text }
+          - { label: Overview, name: overview, widget: text }
+          - name: sections
+            label: Review Sections
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: Verdict, name: verdict, widget: text }
+          - name: scores
+            label: Ratings
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Score (1-5), name: n, widget: number, min: 1, max: 5, step: 1 }
+          - { label: Visit URL, name: visitUrl, widget: string }
+          - { label: Best For, name: bestFor, widget: string }
+
+      - name: realbridge
+        label: RealBridge
+        file: content/platforms/realbridge.json
+        format: json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Badge, name: badge, widget: string }
+          - { label: Overall Rating (1-5), name: rating, widget: number, min: 1, max: 5, step: 1 }
+          - { label: Price, name: price, widget: string }
+          - { label: Tagline, name: tagline, widget: text }
+          - { label: Overview, name: overview, widget: text }
+          - name: sections
+            label: Review Sections
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: Verdict, name: verdict, widget: text }
+          - name: scores
+            label: Ratings
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Score (1-5), name: n, widget: number, min: 1, max: 5, step: 1 }
+          - { label: Visit URL, name: visitUrl, widget: string }
+          - { label: Best For, name: bestFor, widget: string }

@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import RealBridgeClient from './RealBridgeClient';
 
 export const metadata = {
@@ -7,5 +9,6 @@ export const metadata = {
 };
 
 export default function RealBridgePage() {
-  return <RealBridgeClient />;
+  const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content/platforms/realbridge.json'), 'utf8'));
+  return <RealBridgeClient data={data} />;
 }

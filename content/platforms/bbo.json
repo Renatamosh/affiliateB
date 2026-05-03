@@ -1,0 +1,26 @@
+{
+  "name": "Bridge Base Online (BBO)",
+  "shortName": "BBO",
+  "rating": 5,
+  "badge": "Most Popular",
+  "price": "Free (premium from $9.99/month)",
+  "tagline": "The world's largest online bridge platform — free, vast and always busy.",
+  "overview": "Bridge Base Online, universally known as BBO, is the dominant force in online bridge. With over seven million registered users and thousands of live tables running at every hour, it is the closest thing the bridge world has to a central hub. Founded by Fred Gitelman in 2001, BBO has been the platform of choice for everything from casual club games to the world's highest-profile tournaments. The Bermuda Bowl and World Bridge Championships are broadcast live on BBO every two years.",
+  "sections": [
+    { "title": "Getting Started on BBO", "body": "Registering on BBO is free and takes under two minutes. Visit bridgebase.com and create an account with an email address and username. Once registered, the platform opens to a lobby showing all available game types. New players should start with 'BBO Stars' robot games — these are well-calibrated, available immediately and let you play at your own pace with no pressure." },
+    { "title": "The Interface: What to Expect", "body": "BBO's interface is functional rather than beautiful. It reflects years of incremental development rather than a ground-up redesign, and first-time users often find it slightly overwhelming. The key areas are the main lobby (find live games), the 'Casual' section (unrated games at any level), 'BBO Stars' (robot games), and the 'Competitive' section (rated pairs and team events). Give it a few sessions and the layout becomes intuitive." },
+    { "title": "Robot Play: BBO Stars", "body": "BBO offers robot games through its BBO Stars feature. You play as South with robot partners and opponents. The robots play to a solid intermediate standard and are excellent for practising declarer play. The robots bid SAYC (Standard American) by default, which can be adjusted in settings. Robot games are completely free and available at any time." },
+    { "title": "Live Play: Finding a Game", "body": "BBO's greatest strength is the sheer volume of live games at all hours. The lobby typically shows hundreds of open tables at any time, ranging from beginner-level casual tables to expert tournament events. The 'Speedball' format (each hand timed) is extremely popular for quick sessions. Finding a live game within 30 seconds is entirely realistic at almost any time of day." },
+    { "title": "Pricing: Is BBO Worth Paying For?", "body": "The free version of BBO is genuinely usable for most players. Premium features include 'BB$' (BBO's virtual currency, used for tournament entry fees), a few premium robot game modes, and some analytical tools. For casual play and club games, the free account is entirely sufficient. Most experienced BBO players spend $9.99–$19.99 per month on BB$ for tournament entry fees." }
+  ],
+  "verdict": "BBO is indispensable. Its sheer scale — the volume of games, the quality of broadcasts, the range of events — makes it the default home of online bridge. The interface is not the most welcoming for beginners, but the community is unmatched.",
+  "scores": [
+    { "label": "Ease of Use", "n": 3 },
+    { "label": "AI Opponents", "n": 4 },
+    { "label": "Live Community", "n": 5 },
+    { "label": "Value for Money", "n": 5 },
+    { "label": "Mobile App", "n": 3 }
+  ],
+  "visitUrl": "https://www.bridgebase.com",
+  "bestFor": "Regular players wanting a massive live community"
+}
