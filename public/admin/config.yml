@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: Renatamosh/affiliateB
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: articles
+    label: Articles
+    folder: content/articles
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - label: Category
+        name: category
+        widget: select
+        options: [Features, Reviews, Guides, News]
+      - { label: Date, name: date, widget: date, format: YYYY-MM-DD }
+      - label: Status
+        name: status
+        widget: select
+        options: [published, draft]
+        default: draft
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Meta Title, name: metaTitle, widget: string, required: false }
+      - { label: Meta Description, name: metaDescription, widget: text, required: false }
+      - { label: Featured Image, name: featuredImage, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }

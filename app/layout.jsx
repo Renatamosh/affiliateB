@@ -28,6 +28,18 @@ export default function RootLayout({ children }) {
           gtag('js', new Date());
           gtag('config', 'G-LBLEDSBS2V');
         `}</Script>
+        <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" strategy="afterInteractive" />
+        <Script id="netlify-identity-redirect" strategy="afterInteractive">{`
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                });
+              }
+            });
+          }
+        `}</Script>
       </head>
       <body>
         <ThemeProvider>
