@@ -1,0 +1,28 @@
+{
+  "name": "RealBridge",
+  "shortName": "RealBridge",
+  "rating": 4.4,
+  "badge": "Best Video Bridge — ACBL Sanctioned",
+  "price": "Free for players · Clubs pay ~$3–$5 per player per session",
+  "tagline": "See and hear your partner — the closest online experience to a live club night, ACBL-sanctioned since 2024.",
+  "overview": "RealBridge takes a fundamentally different approach from every other bridge platform. Rather than focusing on competitive metrics or AI quality, RealBridge's design philosophy centres on recreating the social experience of physical bridge. Every session includes video and audio for all four players — you can see and hear your partner and opponents throughout, just as you would across a real table. The platform was founded during the 2020 lockdown and has matured into the default video-bridge solution for clubs in the UK, North America, and Australia. Critically for North American players, the ACBL granted full sanction in 2024 — masterpoints flow on sanctioned events.",
+  "sections": [
+    { "title": "How RealBridge Works", "body": "RealBridge runs in any modern web browser — no download required. Visit realbridge.online, create a free account, and you can join a session immediately. The platform also offers pre-scheduled club games that anyone can join, making it easy to find other players even without an established group." },
+    { "title": "Who Pays — The Club Pricing Model Explained", "body": "Players never pay RealBridge directly. The club director — the person organising the session — pays approximately $3–$5 per player per session, billed to the director and recovered through the club's normal table fee, exactly as a brick-and-mortar club recovers its rent. In practice, a player joining a regular RealBridge club night typically pays the same table fee they would pay at the club's face-to-face equivalent. For a club director making the comparison: RealBridge is significantly cheaper than maintaining a physical clubroom, and offers the social experience BBO doesn't." },
+    { "title": "ACBL Masterpoints on RealBridge", "body": "RealBridge has been ACBL-sanctioned since 2024 — masterpoints flow on sanctioned events, which makes RealBridge a serious option alongside BBO for North American players who want to earn masterpoints online. Sanctioned events award online masterpoints (the colored category created for online play in 2020). Major NABC events run on RealBridge award the same color points as their face-to-face equivalents." },
+    { "title": "The Video and Audio Experience", "body": "Video and audio quality on RealBridge is genuinely good, and the layout — four player video feeds arranged around a virtual card table — feels natural after the first few minutes. A wired Ethernet connection is recommended over Wi-Fi for stability; on a poor connection the game itself continues but video quality degrades. A USB headset with a microphone (rather than the laptop's built-in mic) is the equipment upgrade that makes the biggest difference." },
+    { "title": "How RealBridge Compares to BBO", "body": "BBO and RealBridge solve different problems even though both support ACBL-sanctioned play. BBO is for tournament play with people you don't know — pickup partners, large fields, lower per-event costs. The interface is text-and-cards. RealBridge is for club play with people you do know — your regular partners, a club night you'd attend in person if it were running. The interface is video. A typical serious player uses both: BBO for ACBL national events; RealBridge for a regular club session." },
+    { "title": "For Club Directors — What to Know", "body": "RealBridge is the default club-night solution for clubs that want online video play. Club directors set up sessions, invite members, and pay the per-player session fee. The platform's built-in director functions handle scoring and results. Compared to running a session on BBO (which is free to clubs and players but is not video), RealBridge costs more — but the social experience is the trade-off, and most clubs report higher attendance retention." }
+  ],
+  "verdict": "RealBridge is unmatched for video bridge — the closest online experience to a face-to-face club night, free for players, and ACBL-sanctioned since 2024. Less suitable for solo practice or pickup tournament play, but as a club-night replacement it is extraordinarily good. Pair with BBO for solo and ACBL national events.",
+  "scores": [
+    { "label": "Ease of Use", "n": 4 },
+    { "label": "AI Opponents", "n": 1 },
+    { "label": "Live Community", "n": 4 },
+    { "label": "ACBL Masterpoints", "n": 4 },
+    { "label": "Mobile App", "n": 3 }
+  ],
+  "visitUrl": "https://www.realbridge.online",
+  "bestFor": "Club nights, regular partnerships, players who want video bridge with people they know",
+  "lastVerified": "May 2026"
+}

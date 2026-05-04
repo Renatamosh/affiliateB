@@ -1,0 +1,90 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# === URL RESTRUCTURE 301 REDIRECTS ===
+# Permanent redirects from old paths to the new keyword-rich, cluster-based
+# URLs. force = true ensures Netlify intercepts before serving any static
+# file at the old path (so the old folders can stay until you delete them).
+#
+# Pricing/audience updates: May 2026.
+
+[[redirects]]
+  from = "/platforms"
+  to = "/reviews/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/"
+  to = "/reviews/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/bridge-base-online"
+  to = "/reviews/bridge-base-online-bbo-review/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/bridge-base-online/"
+  to = "/reviews/bridge-base-online-bbo-review/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/funbridge"
+  to = "/reviews/funbridge-review/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/funbridge/"
+  to = "/reviews/funbridge-review/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/realbridge"
+  to = "/reviews/realbridge-review/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/platforms/realbridge/"
+  to = "/reviews/realbridge-review/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/funbridge-vs-bbo"
+  to = "/compare/bbo-vs-funbridge-2026/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/articles/funbridge-vs-bbo/"
+  to = "/compare/bbo-vs-funbridge-2026/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-to-play"
+  to = "/how-to-play-bridge-online/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-to-play/"
+  to = "/how-to-play-bridge-online/"
+  status = 301
+  force = true
+
+# === 404 FALLBACK (must remain LAST) ===
+# Netlify processes redirects top-to-bottom. The /* catch-all must stay last
+# or it will swallow all the specific 301s above.
+[[redirects]]
+  from = "/*"
+  to = "/404/index.html"
+  status = 404
