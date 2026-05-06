@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bridgeplaybook.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://bridgeplaybook.com/how-to-play/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bridgeplaybook.com/bidding-basics/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bridgeplaybook.com/reviews/</loc><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://bridgeplaybook.com/reviews/bridge-base-online-bbo-review/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bridgeplaybook.com/reviews/funbridge-review/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bridgeplaybook.com/reviews/realbridge-review/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bridgeplaybook.com/compare/bbo-vs-funbridge-2026/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bridgeplaybook.com/how-to-play-bridge-online/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bridgeplaybook.com/bidding-basics/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://bridgeplaybook.com/card-play-strategy/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/rules/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/practice-boards/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/bidding-quiz/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/glossary/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/platforms/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bridgeplaybook.com/platforms/bridge-base-online/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/platforms/funbridge/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/platforms/realbridge/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://bridgeplaybook.com/community/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bridgeplaybook.com/glossary/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://bridgeplaybook.com/rules/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bridgeplaybook.com/practice-boards/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bridgeplaybook.com/bidding-quiz/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bridgeplaybook.com/articles/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bridgeplaybook.com/community/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bridgeplaybook.com/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

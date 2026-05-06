@@ -6,8 +6,15 @@ import { BridgePlaybookLogo } from './Logo';
 import { useTheme } from './ThemeProvider';
 
 const NAV_ITEMS = [
+  { label: 'Platform Reviews', sub: [
+    { label: 'All Platforms 2026', href: '/reviews/' },
+    { label: 'Bridge Base Online (BBO)', href: '/reviews/bridge-base-online-bbo-review/' },
+    { label: 'Funbridge', href: '/reviews/funbridge-review/' },
+    { label: 'RealBridge', href: '/reviews/realbridge-review/' },
+    { label: 'BBO vs Funbridge', href: '/compare/bbo-vs-funbridge-2026/' },
+  ]},
   { label: 'Learn Bridge', sub: [
-    { label: 'How to Play', href: '/how-to-play/' },
+    { label: 'How to Play Bridge Online', href: '/how-to-play-bridge-online/' },
     { label: 'Bidding Basics', href: '/bidding-basics/' },
     { label: 'Card Play Strategy', href: '/card-play-strategy/' },
     { label: 'Rules & Laws', href: '/rules/' },
@@ -16,19 +23,13 @@ const NAV_ITEMS = [
     { label: 'Practice Boards', href: '/practice-boards/' },
     { label: 'Bidding Quiz', href: '/bidding-quiz/' },
   ]},
+  { label: 'Glossary', href: '/glossary/' },
   { label: 'Articles', href: '/articles/' },
   { label: 'Community', href: '/community/' },
-  { label: 'Glossary', href: '/glossary/' },
-  { label: 'Platform Reviews', sub: [
-    { label: 'All Platforms', href: '/platforms/' },
-    { label: 'Bridge Base Online', href: '/platforms/bridge-base-online/' },
-    { label: 'Funbridge', href: '/platforms/funbridge/' },
-    { label: 'RealBridge', href: '/platforms/realbridge/' },
-  ]},
   { label: 'About', href: '/about/' },
 ];
 
-function useMobile(breakpoint = 768) {
+function useMobile(breakpoint = 900) {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < breakpoint);
@@ -98,7 +99,7 @@ export function Nav() {
                     </button>
                   )}
                   {item.sub && openMenu === item.label && (
-                    <div style={{ position: 'absolute', top: '100%', left: 0, background: dropBg, border: `1px solid ${border}`, borderRadius: 10, minWidth: 210, boxShadow: '0 8px 32px rgba(0,0,0,0.22)', padding: 8, zIndex: 300 }}>
+                    <div style={{ position: 'absolute', top: '100%', left: 0, background: dropBg, border: `1px solid ${border}`, borderRadius: 10, minWidth: 240, boxShadow: '0 8px 32px rgba(0,0,0,0.22)', padding: 8, zIndex: 300 }}>
                       {item.sub.map(s => (
                         <Link key={s.label} href={s.href} onClick={() => setOpenMenu(null)}>
                           <div style={{ display: 'block', background: pathname === s.href ? 'rgba(212,168,67,0.15)' : 'none', color: pathname === s.href ? gold : fg, fontSize: 15, padding: '11px 16px', fontFamily: "'Source Sans 3', sans-serif", borderRadius: 6, fontWeight: pathname === s.href ? 700 : 400 }}>{s.label}</div>

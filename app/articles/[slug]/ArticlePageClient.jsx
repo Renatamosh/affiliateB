@@ -68,7 +68,7 @@ export default function ArticlePageClient({ article }) {
             {renderMarkdown(article.content)}
           </div>
           <div style={{ marginTop: 48, paddingTop: 24, borderTop: `1px solid ${bdr}` }}>
-            <Link href="/platforms/" style={{ color: gold, fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, fontSize: 16 }}>← Back to articles</Link>
+            <Link href="/articles/" style={{ color: gold, fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, fontSize: 16 }}>← Back to articles</Link>
           </div>
         </div>
       </div>

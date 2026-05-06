@@ -9,9 +9,25 @@ export function Footer() {
   const bg = theme === 'deep' ? '#060d1a' : '#0f1d3a';
 
   const links = [
-    ['Learn', [['How to Play Bridge', '/how-to-play/'], ['Bidding Basics', '/bidding-basics/'], ['Card Play Strategy', '/card-play-strategy/'], ['Rules & Laws', '/rules/']]],
-    ['Practice & Reviews', [['Practice Boards', '/practice-boards/'], ['Bidding Quiz', '/bidding-quiz/'], ['All Platform Reviews', '/platforms/'], ['Bridge Base Online', '/platforms/bridge-base-online/'], ['Funbridge', '/platforms/funbridge/']]],
-    ['Community', [['Community Hub', '/community/'], ['Glossary', '/glossary/'], ['About Bridge Playbook', '/about/']]],
+    ['Learn', [
+      ['How to Play Bridge Online', '/how-to-play-bridge-online/'],
+      ['Bidding Basics', '/bidding-basics/'],
+      ['Card Play Strategy', '/card-play-strategy/'],
+      ['Rules & Laws', '/rules/'],
+    ]],
+    ['Reviews & Compare', [
+      ['All Platform Reviews', '/reviews/'],
+      ['Bridge Base Online', '/reviews/bridge-base-online-bbo-review/'],
+      ['Funbridge', '/reviews/funbridge-review/'],
+      ['RealBridge', '/reviews/realbridge-review/'],
+      ['BBO vs Funbridge 2026', '/compare/bbo-vs-funbridge-2026/'],
+    ]],
+    ['Community', [
+      ['Glossary', '/glossary/'],
+      ['Articles', '/articles/'],
+      ['Community Hub', '/community/'],
+      ['About Bridge Playbook', '/about/'],
+    ]],
   ];
 
   return (
@@ -20,8 +36,8 @@ export function Footer() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 36, marginBottom: 48 }}>
           <div>
             <Link href="/"><BridgePlaybookLogo size="lg" variant="dark" showTagline={false} style={{ marginBottom: 14 }} /></Link>
-            <p style={{ fontSize: 15, lineHeight: 1.7, margin: '0 0 16px', opacity: 0.8 }}>Your friendly, trusted guide to online bridge. Independent reviews, beginner guides, and a welcoming community for players of all levels.</p>
-            <div style={{ fontSize: 13, opacity: 0.4 }}>Some links are affiliate links.</div>
+            <p style={{ fontSize: 15, lineHeight: 1.7, margin: '0 0 16px', opacity: 0.8 }}>Independent guide to online bridge platforms, conventions, ACBL masterpoints, and bridge cruises. Pricing verified quarterly.</p>
+            <div style={{ fontSize: 13, opacity: 0.4 }}>Pricing verified May 2026.</div>
           </div>
           {links.map(([heading, items]) => (
             <div key={heading}>
@@ -38,7 +54,7 @@ export function Footer() {
           </div>
         </div>
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, fontSize: 13, opacity: 0.4 }}>
-          <span>© 2026 BridgePlaybook.com — Independent Online Bridge Guide. Affiliate links help support this free site.</span>
+          <span>© 2026 BridgePlaybook.com — Independent Online Bridge Guide. Affiliate disclosure: as of May 2026, no platform affiliate deals are active.</span>
           <span>♠ ♥ ♦ ♣</span>
         </div>
       </div>

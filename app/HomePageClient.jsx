@@ -25,29 +25,29 @@ function HeroSection() {
       <div style={{ maxWidth: 1280, margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 420px', gap: isMobile ? 32 : 48, alignItems: 'center' }}>
         <div>
           <div style={{ display: 'inline-flex', gap: 8, background: 'rgba(212,168,67,0.15)', border: '1px solid rgba(212,168,67,0.4)', borderRadius: 24, padding: '6px 18px', marginBottom: 20 }}>
-            <span style={{ color: gold, fontSize: 13, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif" }}>♠ ♥ ♦ ♣ &nbsp; Independent · Trusted · Free</span>
+            <span style={{ color: gold, fontSize: 13, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif" }}>♠ ♥ ♦ ♣ &nbsp; Independent · Pricing Verified May 2026</span>
           </div>
           <h1 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 34 : 52, fontWeight: 700, lineHeight: 1.18, margin: '0 0 20px', color: '#fff' }}>
-            Your Guide to <span style={{ color: gold }}>Online Bridge</span>
+            The Independent <span style={{ color: gold }}>Online Bridge</span> Guide
           </h1>
-          <p style={{ fontSize: isMobile ? 17 : 20, lineHeight: 1.75, margin: '0 0 28px', opacity: 0.88, fontFamily: "'Source Sans 3', sans-serif", maxWidth: 560 }}>Whether you're new to bridge or a seasoned player, Bridge Playbook helps you learn the game, practise your skills, and find the best online platforms to play with friends worldwide.</p>
+          <p style={{ fontSize: isMobile ? 17 : 20, lineHeight: 1.75, margin: '0 0 28px', opacity: 0.88, fontFamily: "'Source Sans 3', sans-serif", maxWidth: 560 }}>Platform reviews, convention guides, and ACBL masterpoint information for intermediate and advanced players in the US, UK, Australia and Canada. All platform pricing verified May 2026.</p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <Link href="/how-to-play/"><button style={{ background: gold, color: navy, border: 'none', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Start Learning →</button></Link>
-            <Link href="/platforms/"><button style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '2px solid rgba(255,255,255,0.35)', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 600, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Find a Platform</button></Link>
+            <Link href="/reviews/"><button style={{ background: gold, color: navy, border: 'none', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Compare Platforms →</button></Link>
+            <Link href="/how-to-play-bridge-online/"><button style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '2px solid rgba(255,255,255,0.35)', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 600, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>New to Bridge?</button></Link>
           </div>
-          <div style={{ display: 'flex', gap: isMobile ? 24 : 40, marginTop: 32, flexWrap: 'wrap' }}>
-            {[['50,000+','Players helped'],['12','Top platforms reviewed'],['200+','Practice deals']].map(([n, l]) => (
-              <div key={l}><div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 26 : 32, color: gold, fontWeight: 700 }}>{n}</div><div style={{ fontSize: 14, opacity: 0.7, fontFamily: "'Source Sans 3', sans-serif" }}>{l}</div></div>
-            ))}
+          <div style={{ display: 'flex', gap: isMobile ? 16 : 32, marginTop: 32, flexWrap: 'wrap', alignItems: 'center' }}>
+            <div><div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 22 : 28, color: gold, fontWeight: 700 }}>6</div><div style={{ fontSize: 14, opacity: 0.7, fontFamily: "'Source Sans 3', sans-serif" }}>Platforms reviewed</div></div>
+            <div><div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 22 : 28, color: gold, fontWeight: 700 }}>May 2026</div><div style={{ fontSize: 14, opacity: 0.7, fontFamily: "'Source Sans 3', sans-serif" }}>Pricing last verified</div></div>
+            <div><div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 22 : 28, color: gold, fontWeight: 700 }}>Independent</div><div style={{ fontSize: 14, opacity: 0.7, fontFamily: "'Source Sans 3', sans-serif" }}>No platform deals signed</div></div>
           </div>
         </div>
         <div style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 16, padding: isMobile ? 22 : 32, backdropFilter: 'blur(10px)' }}>
           <div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 17, color: gold, marginBottom: 16 }}>Where would you like to start?</div>
           {[
-            { icon: '🎓', title: 'Complete Beginner', desc: 'Never played bridge? Start here — step by step.', href: '/how-to-play/' },
-            { icon: '📖', title: 'Learn the Rules', desc: 'Bidding, scoring, laws — all explained simply.', href: '/rules/' },
-            { icon: '🃏', title: 'Practice a Hand', desc: 'Try a real bridge deal right now.', href: '/practice-boards/' },
-            { icon: '💻', title: 'Explore Platforms', desc: 'Find the best site to play online.', href: '/platforms/' },
+            { icon: '🏆', title: 'Compare Platforms', desc: 'BBO, Funbridge, RealBridge — pricing & masterpoints.', href: '/reviews/' },
+            { icon: '📚', title: 'Convention Guides', desc: 'Stayman, Jacoby Transfers, Blackwood RKCB.', href: '/bidding-basics/' },
+            { icon: '⭐', title: 'Earn Masterpoints', desc: 'ACBL online masterpoints — colors and ranks explained.', href: '/articles/' },
+            { icon: '🚢', title: 'Bridge Cruises 2026', desc: 'Larry Cohen, Silversea, river cruises with bridge.', href: '/articles/' },
           ].map(item => (
             <Link key={item.href} href={item.href}>
               <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.08)', cursor: 'pointer' }}>
@@ -75,7 +75,7 @@ function TrustBar() {
     <div style={{ background: bg, borderBottom: `1px solid ${isDeep ? '#1a2e50' : '#e0d8cc'}`, padding: '14px 24px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
         <span style={{ fontSize: 13, color: textC, fontFamily: "'Source Sans 3', sans-serif", marginRight: 4, flexShrink: 0 }}>Platforms reviewed:</span>
-        {['Bridge Base Online', 'Funbridge', 'RealBridge', 'Bridge Winners', 'OK Bridge'].map(p => (
+        {['Bridge Base Online', 'Funbridge', 'RealBridge', 'No Fear Bridge', 'Trickster', 'Bridge Baron'].map(p => (
           <span key={p} style={{ fontSize: 14, color: chipText, background: chipBg, border: `1px solid ${chipBorder}`, borderRadius: 20, padding: '4px 16px', fontFamily: "'Source Sans 3', sans-serif" }}>{p}</span>
         ))}
       </div>
@@ -93,12 +93,12 @@ function ContentSection() {
   const textC = isDeep ? 'rgba(255,255,255,0.7)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
   const cards = [
-    { suit: '♠', suitColor: isDeep ? '#a0b8d8' : '#1a1a2e', title: 'How to Play Bridge', desc: 'A gentle, step-by-step introduction perfect for complete beginners — from the deal to scoring.', href: '/how-to-play/', tag: 'Beginner' },
+    { suit: '♠', suitColor: isDeep ? '#a0b8d8' : '#1a1a2e', title: 'How to Play Bridge', desc: 'A gentle, step-by-step introduction perfect for complete beginners — from the deal to scoring.', href: '/how-to-play-bridge-online/', tag: 'Beginner' },
     { suit: '♥', suitColor: red, title: 'Bidding Basics', desc: 'Master the language of bridge. Learn to communicate with your partner through the auction.', href: '/bidding-basics/', tag: 'Essential' },
     { suit: '♦', suitColor: red, title: 'Card Play Strategy', desc: 'Finessing, hold-up plays and more — techniques that win contracts and defeat opponents.', href: '/card-play-strategy/', tag: 'Intermediate' },
     { suit: '♣', suitColor: isDeep ? '#a0b8d8' : '#1a1a2e', title: 'Rules & Laws', desc: 'All the official rules explained in plain English, with a searchable interactive accordion.', href: '/rules/', tag: 'Reference' },
     { suit: '🃏', suitColor: gold, title: 'Practice Boards', desc: 'Play through real bridge hands with our interactive deal viewer and expert commentary.', href: '/practice-boards/', tag: 'Interactive' },
-    { suit: '🏆', suitColor: gold, title: 'Best Online Platforms', desc: 'Honest, independent reviews of the top bridge platforms — compare features and pricing.', href: '/platforms/', tag: 'Reviews' },
+    { suit: '🏆', suitColor: gold, title: 'Best Online Platforms', desc: 'Honest, independent reviews of the top bridge platforms — compare features and pricing.', href: '/reviews/', tag: 'Reviews' },
   ];
   return (
     <section style={{ background: bg, padding: isMobile ? '52px 20px' : '72px 24px' }}>
@@ -178,17 +178,17 @@ function HowItWorksSection() {
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
   const stepBg = isDeep ? '#0f1d3a' : '#f5f3ee';
   const steps = [
-    { n: '01', title: 'Read Our Beginner Guide', body: 'Start with our step-by-step "How to Play Bridge" guide. Written in plain English with no jargon, it takes you from the very first deal to playing a complete hand.', cta: 'Start the guide →', href: '/how-to-play/' },
-    { n: '02', title: 'Choose Your Platform', body: 'Browse our honest, independent reviews of the top online bridge platforms. We\'ll help you find the right fit — whether you want free play, polished design or video with friends.', cta: 'See reviews →', href: '/platforms/' },
-    { n: '03', title: 'Start Playing Today', body: 'Create a free account on your chosen platform and start playing immediately. Every platform offers solo games against AI opponents — perfect for learning at your own pace.', cta: 'Browse platforms →', href: '/platforms/' },
+    { n: '01', title: 'Compare the Platforms', body: 'Start with our independent platform comparison. We rank BBO, Funbridge, RealBridge, No Fear Bridge, Trickster and Bridge Baron by verified pricing, ACBL masterpoint eligibility, bidding system support and audience fit.', cta: 'Compare platforms →', href: '/reviews/' },
+    { n: '02', title: 'Pick Based on What You Want', body: 'Live human play and ACBL masterpoints? Use BBO or RealBridge. Solo AI training? Use Funbridge. Structured curriculum? No Fear Bridge. Casual free play? Trickster. Most serious players use two platforms — typically BBO plus one trainer.', cta: 'See full comparison →', href: '/reviews/' },
+    { n: '03', title: 'Try Before You Subscribe', body: 'Every major platform offers a free tier or free trial. BBO+ has a 30-day trial. Funbridge Premium has a 1-month trial. RealBridge is free for players. No Fear Bridge has a 2-week trial. Test before committing.', cta: 'Browse reviews →', href: '/reviews/' },
   ];
   return (
     <section style={{ background: bg, padding: isMobile ? '52px 20px' : '72px 24px', borderTop: `1px solid ${bdr}` }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: isMobile ? 36 : 52 }}>
           <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: gold, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Getting Started</div>
-          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>Playing Bridge Online in 3 Simple Steps</h2>
-          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>From complete beginner to playing your first online hand — it's easier than you think.</p>
+          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>How to Choose Your Online Bridge Platform</h2>
+          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 540, margin: '0 auto', lineHeight: 1.7 }}>Three steps. Compare verified data, match the platform to how you actually want to play, and try before you subscribe.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: isMobile ? 16 : 24 }}>
           {steps.map((s, i) => (
@@ -217,11 +217,12 @@ function PlatformComparisonSection() {
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
   const rowAlt = isDeep ? 'rgba(255,255,255,0.025)' : '#faf8f5';
   const platforms = [
-    { name: 'Bridge Base Online', badge: 'Most Popular', free: true, ai: true, video: false, mobile: true, bf: '★★★', rating: 5, href: '/platforms/bridge-base-online/' },
-    { name: 'Funbridge', badge: 'Best for Beginners', free: 'Trial', ai: true, video: false, mobile: true, bf: '★★★★★', rating: 4, href: '/platforms/funbridge/' },
-    { name: 'RealBridge', badge: 'Best Club Feel', free: 'Trial', ai: false, video: true, mobile: 'Browser', bf: '★★★★', rating: 4, href: '/platforms/realbridge/' },
-    { name: 'Bridge Winners', badge: 'Community Hub', free: true, ai: false, video: false, mobile: true, bf: '★★★', rating: 4, href: '/platforms/' },
-    { name: 'OK Bridge', badge: 'Classic', free: false, ai: true, video: false, mobile: 'Limited', bf: '★★★', rating: 3, href: '/platforms/' },
+    { name: 'Bridge Base Online', badge: 'Best Live Play & Masterpoints', free: true, ai: true, video: false, mobile: true, bf: 'ACBL', rating: 4.5, href: '/reviews/bridge-base-online-bbo-review/' },
+    { name: 'Funbridge', badge: 'Best for Solo Improvement', free: 'Limited', ai: true, video: false, mobile: true, bf: 'AI training', rating: 4.3, href: '/reviews/funbridge-review/' },
+    { name: 'RealBridge', badge: 'Best Video Bridge — ACBL Sanctioned', free: true, ai: false, video: true, mobile: 'Browser', bf: 'ACBL', rating: 4.4, href: '/reviews/realbridge-review/' },
+    { name: 'No Fear Bridge', badge: 'Best Structured Learning', free: 'Trial', ai: true, video: false, mobile: true, bf: 'Curriculum', rating: 4.0, href: '/reviews/' },
+    { name: 'Trickster', badge: 'Best Free Casual Play', free: true, ai: true, video: false, mobile: true, bf: 'Free play', rating: 3.8, href: '/reviews/' },
+    { name: 'Bridge Baron', badge: 'Best for Offline Analysis', free: false, ai: true, video: false, mobile: true, bf: '130+ conv', rating: 3.5, href: '/reviews/' },
   ];
   const tick = (v) => {
     if (v === true) return <span style={{ color: '#27ae60', fontSize: 18 }}>✓</span>;
@@ -233,8 +234,8 @@ function PlatformComparisonSection() {
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: isMobile ? 32 : 48 }}>
           <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: gold, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Platform Comparison</div>
-          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>Which Platform Is Right for You?</h2>
-          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>A quick side-by-side comparison of the five major online bridge platforms.</p>
+          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>The 6 Online Bridge Platforms That Matter in 2026</h2>
+          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 580, margin: '0 auto', lineHeight: 1.7 }}>BBO, Funbridge, RealBridge, No Fear Bridge, Trickster and Bridge Baron — pricing verified May 2026, ACBL masterpoint eligibility flagged.</p>
         </div>
         {isMobile ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -242,12 +243,12 @@ function PlatformComparisonSection() {
               <div key={p.name} style={{ background: tableBg, border: `1px solid ${bdr}`, borderRadius: 12, padding: '18px 20px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
                   <div><div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 17, color: headC, marginBottom: 4 }}>{p.name}</div><div style={{ fontSize: 12, background: isDeep ? 'rgba(212,168,67,0.12)' : '#eef2fa', color: isDeep ? gold : navy, borderRadius: 12, padding: '2px 10px', display: 'inline-block', fontWeight: 600 }}>{p.badge}</div></div>
-                  <div style={{ display: 'flex', gap: 1 }}>{[1,2,3,4,5].map(n => <span key={n} style={{ color: n <= p.rating ? gold : bdr, fontSize: 14 }}>★</span>)}</div>
+                  <div style={{ display: 'flex', gap: 1 }}>{[1,2,3,4,5].map(n => <span key={n} style={{ color: n <= Math.round(p.rating) ? gold : bdr, fontSize: 14 }}>★</span>)}</div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 16px', marginBottom: 14, fontSize: 14, color: textC }}>
                   <div>Free: {tick(p.free)}</div><div>AI: {tick(p.ai)}</div>
                   <div>Video: {tick(p.video)}</div><div>Mobile: {tick(p.mobile)}</div>
-                  <div style={{ gridColumn: '1/3' }}>Beginner: <span style={{ color: gold }}>{p.bf}</span></div>
+                  <div style={{ gridColumn: '1/3' }}>Best for: <span style={{ color: gold }}>{p.bf}</span></div>
                 </div>
                 <Link href={p.href}><button style={{ width: '100%', background: 'none', border: `1px solid ${gold}`, color: gold, borderRadius: 8, padding: '10px', fontSize: 14, fontWeight: 700, cursor: 'pointer' }}>Read Full Review →</button></Link>
               </div>
@@ -259,7 +260,7 @@ function PlatformComparisonSection() {
               <thead>
                 <tr style={{ background: navy }}>
                   <th style={{ padding: '14px 20px', textAlign: 'left', color: gold, fontWeight: 700, fontSize: 13, letterSpacing: '0.06em' }}>Platform</th>
-                  {['Free Play','AI Robots','Video','Mobile','Beginner Friendly','Rating'].map(h => (
+                  {['Free Play','AI Robots','Video','Mobile','Best For','Rating'].map(h => (
                     <th key={h} style={{ padding: '14px 16px', textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontWeight: 600, fontSize: 13 }}>{h}</th>
                   ))}
                   <th style={{ padding: '14px 16px' }}></th>
@@ -276,8 +277,8 @@ function PlatformComparisonSection() {
                     <td style={{ textAlign: 'center', padding: 16 }}>{tick(p.ai)}</td>
                     <td style={{ textAlign: 'center', padding: 16 }}>{tick(p.video)}</td>
                     <td style={{ textAlign: 'center', padding: 16 }}>{tick(p.mobile)}</td>
-                    <td style={{ textAlign: 'center', padding: 16, color: gold, fontSize: 16 }}>{p.bf}</td>
-                    <td style={{ textAlign: 'center', padding: 16 }}>{[1,2,3,4,5].map(n => <span key={n} style={{ color: n <= p.rating ? gold : bdr, fontSize: 14 }}>★</span>)}</td>
+                    <td style={{ textAlign: 'center', padding: 16, color: gold, fontSize: 14, fontWeight: 600 }}>{p.bf}</td>
+                    <td style={{ textAlign: 'center', padding: 16 }}>{[1,2,3,4,5].map(n => <span key={n} style={{ color: n <= Math.round(p.rating) ? gold : bdr, fontSize: 14 }}>★</span>)}</td>
                     <td style={{ padding: '16px 18px 16px 10px' }}><Link href={p.href}><button style={{ background: 'none', border: `1px solid ${gold}`, color: gold, borderRadius: 6, padding: '6px 14px', fontSize: 13, fontWeight: 700, cursor: 'pointer' }}>Review →</button></Link></td>
                   </tr>
                 ))}
@@ -286,7 +287,7 @@ function PlatformComparisonSection() {
           </div>
         )}
         <div style={{ textAlign: 'center', marginTop: 24 }}>
-          <Link href="/platforms/"><button style={{ background: navy, color: gold, border: 'none', borderRadius: 8, padding: '14px 32px', fontSize: 16, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Read Full Platform Reviews →</button></Link>
+          <Link href="/reviews/"><button style={{ background: navy, color: gold, border: 'none', borderRadius: 8, padding: '14px 32px', fontSize: 16, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Read Full Platform Reviews →</button></Link>
         </div>
       </div>
     </section>
@@ -330,12 +331,12 @@ function HomeFAQSection() {
   const border = isDeep ? '#1e3255' : '#e5e0d8';
   const [open, setOpen] = useState(null);
   const faqs = [
-    { q: 'What is Bridge Playbook and who is it for?', a: 'Bridge Playbook is an independent guide to online bridge. We review the major online bridge platforms, explain the rules and strategy, and host a community for players of all levels. We are particularly focused on helping players over 60 who are new to online bridge or returning after a break.' },
-    { q: 'Do I need to pay to use Bridge Playbook?', a: 'No — everything on Bridge Playbook is completely free. Our guides, reviews, quizzes, glossary and community forum are all free to read and use. We earn a small affiliate commission when readers sign up to certain platforms through our links, but this never affects our editorial independence or ratings.' },
-    { q: 'Which online bridge platform do you recommend for a complete beginner?', a: 'For complete beginners, we most often recommend Funbridge for its clean design, excellent AI opponents and built-in learning path. Bridge Base Online (BBO) is our top pick for free play and for finding live opponents quickly. For players who want the social feel of a real club, RealBridge (with video) is outstanding.' },
-    { q: 'Can I play bridge online without any prior experience?', a: 'Absolutely. All major platforms offer games against robot (AI) opponents, which are ideal for beginners. You can take your time, make mistakes without pressure, and learn the game at your own pace. We recommend reading our "How to Play Bridge" guide before you start, then jumping straight into robot games.' },
-    { q: 'Is online bridge suitable for older players?', a: 'Yes — online bridge has become increasingly accessible, and many of our most enthusiastic readers are in their 60s, 70s and beyond. Platforms like Funbridge and RealBridge are particularly well-designed for ease of use. We recommend starting on a tablet (larger screen, larger touch targets) rather than a smartphone.' },
-    { q: 'How do I get started — what should I do first?', a: 'Step one: read our "How to Play Bridge" beginner guide. Step two: browse our Platform Reviews to find the site that suits you best. Step three: create a free account and play a few robot games. Step four: join our forum and introduce yourself — the community will be glad to help!' },
+    { q: 'What is the best online bridge platform in 2026?', a: 'For most intermediate and advanced players in 2026, Bridge Base Online (BBO) is the default choice — free at its core with BBO+ at $5.99/month, the largest live community, and the home of online ACBL-sanctioned masterpoints. Funbridge ($15.99/month Premium) is the strongest solo AI training platform. RealBridge is the best video-bridge experience and ACBL-sanctioned since 2024. The platform you choose depends on whether you want live human play, solo training, or video-bridge club nights.' },
+    { q: 'Which platforms award ACBL masterpoints in 2026?', a: 'Two platforms reliably award ACBL masterpoints in 2026: Bridge Base Online (BBO) and RealBridge (sanctioned since 2024). Both award online masterpoints — a separate ACBL category created in 2020 that counts toward Life Master and other ranks. Funbridge does not award ACBL masterpoints on standard play; the eBridge Cup partnership with BBO is the single exception.' },
+    { q: 'How much does BBO cost in 2026?', a: 'The BBO free tier is genuinely complete — full access to live tables, Vugraph kibitz, casual games, and tournament entry (some events require BB$ virtual currency). BBO+ at $5.99 per month adds an ad-free experience, advanced robots, and the digital Bridgerama+ magazine, with a 30-day free trial. Robot tournament entries cost approximately $2 per event. Pricing verified May 2026.' },
+    { q: 'Is Funbridge worth the subscription?', a: 'Funbridge Premium at $15.99/month (or $159.99/year — about 17% cheaper) is worth it for any intermediate-to-advanced player who plays more than ~10 deals per week and wants the strongest AI training in online bridge. The Argine engine is the best commercial bridge AI in 2026. Skip it if you primarily play with humans for ACBL masterpoints — use BBO instead.' },
+    { q: 'How does Bridge Playbook make money?', a: 'Bridge Playbook earns through affiliate commissions on platform subscriptions and Amazon Associates links to bridge books and equipment. Every link is clearly labelled — affiliate links are disclosed at the link itself and at the page footer. As of May 2026 we have not signed any platform affiliate deals, so all platform links are informational only. We never recommend a platform we wouldn\'t recommend without commission.' },
+    { q: 'Are the reviews on Bridge Playbook independent?', a: 'Yes. Every platform pricing figure on this site is verified directly from the platform\'s billing page within the last 30 days, every review is written by a player with verifiable ACBL credentials, and every recommendation is filtered for our actual audience: intermediate-to-advanced players in the US, UK, Australia and Canada. We don\'t publish ranked comparisons of platforms we haven\'t personally used.' },
   ];
   return (
     <section style={{ background: bg, padding: '72px 24px' }}>
@@ -373,11 +374,11 @@ export default function HomePageClient() {
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
 
   const seoParagraphs = [
-    "Bridge has endured for over a century as one of the world's most beloved card games — and with good reason. No other game combines strategic depth, memory, logic and the remarkable challenge of communicating with a partner without revealing your hand.",
-    "The move to online bridge has been transformative, particularly for players over 60. Today, you can open your laptop, tablet or smartphone, and within seconds find a game on one of several major platforms — playing against real opponents from across the globe or practising solo against sophisticated artificial intelligence.",
-    "Choosing the right online platform is one of the first and most important decisions any new online player faces. The major options — Bridge Base Online (BBO), Funbridge, RealBridge, Bridge Winners and OK Bridge — each have distinct strengths and weaknesses.",
-    "At Bridge Playbook, our purpose is to make those choices easier. We are an independent website — not affiliated with any single platform — and every review we publish reflects genuine, unsponsored experience with the product.",
-    "Beyond platform reviews, Bridge Playbook offers comprehensive guides to bridge rules and strategy, written in plain English for players of all levels. Our beginner section assumes no prior knowledge and takes you from the very first deal through to understanding the auction, planning a contract and keeping score.",
+    "Online bridge in 2026 is no longer a smaller sibling of the live game. The American Contract Bridge League (ACBL) reports approximately 128,000 active members, and BBO alone draws an estimated 11.6 million monthly visits — a player base no single live tournament could rival. The question for most players is no longer whether to play online, but which platform to play on, which conventions to add to your card, and how to actually earn the masterpoints that count toward your ACBL rank.",
+    "Bridge Playbook is an independent guide to those decisions. We don't run tournaments, sell subscriptions, or take recommendation fees on platforms we haven't personally used. Every review on this site is written by a working player with verifiable ACBL credentials, every pricing figure is verified directly from the platform's billing page within the last 30 days, and every recommendation is filtered for the audience this site exists for: intermediate and advanced players who already know what a Stayman bid is and now want to compare which online environment is worth their subscription.",
+    "The six platforms that matter in 2026 are Bridge Base Online (BBO), Funbridge, RealBridge, No Fear Bridge, Trickster, and Bridge Baron. BBO is the default for live human play and online ACBL masterpoints. Funbridge is the strongest solo AI trainer with the Argine engine. RealBridge is video bridge — ACBL-sanctioned since 2024 and the closest online experience to a live club night. No Fear Bridge is the most structured learning environment for intermediate improvers. Trickster is the best free option for casual play with friends. Bridge Baron is the strongest offline analysis tool with 130+ supported conventions.",
+    "If you're choosing between platforms, our reviews cover verified pricing, ACBL masterpoint eligibility, bidding system support, mobile experience and the honest pros and cons. If you're shopping conventions to add to your partnership, our convention guides cover Stayman, Jacoby Transfers, Blackwood and Roman Key Card Blackwood (RKCB), Negative Doubles, Michaels, Lebensohl, and the major card-play and defensive techniques.",
+    "Bridge Playbook is independent, intermediate-and-advanced focused, US/UK/AU/CA in scope, and quarterly verified. If you've never played a hand of bridge in your life, our How to Play Bridge guide will walk you through it — but everything else on this site assumes you already know the basics.",
   ];
 
   return (
@@ -400,7 +401,7 @@ export default function HomePageClient() {
           <div style={{ paddingTop: 8 }}>
             <div style={{ background: isDeep ? '#111f35' : '#f8f6f2', border: `1px solid ${bdr}`, borderRadius: 14, padding: 24, marginBottom: 20 }}>
               <div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 18, color: gold, marginBottom: 16 }}>Quick Start Guide</div>
-              {[['Complete beginner?', 'Start with How to Play →', '/how-to-play/'], ['Know the rules?', 'Browse Platform Reviews →', '/platforms/'], ['Looking for community?', 'Join our Forum →', '/community/'], ['Want to improve?', 'Read Strategy Guides →', '/bidding-basics/']].map(([step, action, href]) => (
+              {[['Choosing a platform?', 'Compare 6 platforms →', '/reviews/'], ['Earn ACBL masterpoints?', 'BBO and RealBridge →', '/reviews/bridge-base-online-bbo-review/'], ['Solo AI training?', 'Funbridge review →', '/reviews/funbridge-review/'], ['New to bridge?', 'How to Play guide →', '/how-to-play-bridge-online/']].map(([step, action, href]) => (
                 <div key={step} style={{ padding: '10px 0', borderBottom: `1px solid ${bdr}`, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15 }}>
                   <div style={{ color: textC, marginBottom: 2 }}>{step}</div>
                   <Link href={href}><div style={{ color: gold, fontWeight: 700, cursor: 'pointer' }}>{action}</div></Link>
@@ -409,7 +410,7 @@ export default function HomePageClient() {
             </div>
             <div style={{ background: navy, borderRadius: 14, padding: 24, color: '#fff' }}>
               <div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 18, color: gold, marginBottom: 10 }}>✉ Free Weekly Tips</div>
-              <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, opacity: 0.8, lineHeight: 1.6, marginBottom: 16 }}>Join 12,000+ players. Bridge tips, platform news and practice hands every Tuesday. Free forever.</p>
+              <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, opacity: 0.8, lineHeight: 1.6, marginBottom: 16 }}>Bridge tips, platform pricing updates and convention guides every Tuesday. Independent. Free forever.</p>
               <input type="email" placeholder="your@email.com" style={{ width: '100%', padding: '11px 14px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: 15, boxSizing: 'border-box', marginBottom: 10 }} />
               <button style={{ width: '100%', background: gold, color: navy, border: 'none', borderRadius: 8, padding: '12px', fontSize: 15, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Subscribe Free</button>
             </div>

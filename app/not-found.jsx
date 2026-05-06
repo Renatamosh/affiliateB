@@ -16,10 +16,10 @@ export default function NotFound() {
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 32 }}>
           <Link href="/" style={{ background: navy, color: gold, padding: '14px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, fontSize: 16 }}>← Home</Link>
-          <Link href="/how-to-play/" style={{ background: 'none', border: `2px solid ${navy}`, color: navy, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, fontSize: 16 }}>How to Play</Link>
+          <Link href="/how-to-play-bridge-online/" style={{ background: 'none', border: `2px solid ${navy}`, color: navy, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, fontSize: 16 }}>How to Play</Link>
         </div>
         <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
-          {[['Bidding Basics', '/bidding-basics/'], ['Practice Boards', '/practice-boards/'], ['Glossary', '/glossary/'], ['Platforms', '/platforms/']].map(([label, href]) => (
+          {[['Bidding Basics', '/bidding-basics/'], ['Practice Boards', '/practice-boards/'], ['Glossary', '/glossary/'], ['Platforms', '/reviews/']].map(([label, href]) => (
             <Link key={href} href={href} style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: gold, textDecoration: 'none' }}>{label}</Link>
           ))}
         </div>

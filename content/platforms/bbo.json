@@ -1,26 +1,28 @@
 {
   "name": "Bridge Base Online (BBO)",
   "shortName": "BBO",
-  "rating": 5,
-  "badge": "Most Popular",
-  "price": "Free (premium from $9.99/month)",
-  "tagline": "The world's largest online bridge platform — free, vast and always busy.",
-  "overview": "Bridge Base Online, universally known as BBO, is the dominant force in online bridge. With over seven million registered users and thousands of live tables running at every hour, it is the closest thing the bridge world has to a central hub. Founded by Fred Gitelman in 2001, BBO has been the platform of choice for everything from casual club games to the world's highest-profile tournaments. The Bermuda Bowl and World Bridge Championships are broadcast live on BBO every two years.",
+  "rating": 4.5,
+  "badge": "Best for Live Play & Masterpoints",
+  "price": "Free / BBO+ at $5.99/month",
+  "tagline": "The world's largest online bridge platform — the default for live human play and online ACBL-sanctioned masterpoints.",
+  "overview": "Bridge Base Online, universally known as BBO, is the dominant force in online bridge in 2026. With approximately 11.6 million monthly visits, it is the closest thing the bridge world has to a central hub — and the default home for online ACBL-sanctioned games. Founded in 1990, BBO has been the platform of choice for everything from casual club games to the world's highest-profile tournaments. Founder Fred Gitelman was inducted into the ACBL Hall of Fame in 2018. The Bermuda Bowl and World Bridge Championships are broadcast live on BBO every two years.",
   "sections": [
-    { "title": "Getting Started on BBO", "body": "Registering on BBO is free and takes under two minutes. Visit bridgebase.com and create an account with an email address and username. Once registered, the platform opens to a lobby showing all available game types. New players should start with 'BBO Stars' robot games — these are well-calibrated, available immediately and let you play at your own pace with no pressure." },
-    { "title": "The Interface: What to Expect", "body": "BBO's interface is functional rather than beautiful. It reflects years of incremental development rather than a ground-up redesign, and first-time users often find it slightly overwhelming. The key areas are the main lobby (find live games), the 'Casual' section (unrated games at any level), 'BBO Stars' (robot games), and the 'Competitive' section (rated pairs and team events). Give it a few sessions and the layout becomes intuitive." },
-    { "title": "Robot Play: BBO Stars", "body": "BBO offers robot games through its BBO Stars feature. You play as South with robot partners and opponents. The robots play to a solid intermediate standard and are excellent for practising declarer play. The robots bid SAYC (Standard American) by default, which can be adjusted in settings. Robot games are completely free and available at any time." },
-    { "title": "Live Play: Finding a Game", "body": "BBO's greatest strength is the sheer volume of live games at all hours. The lobby typically shows hundreds of open tables at any time, ranging from beginner-level casual tables to expert tournament events. The 'Speedball' format (each hand timed) is extremely popular for quick sessions. Finding a live game within 30 seconds is entirely realistic at almost any time of day." },
-    { "title": "Pricing: Is BBO Worth Paying For?", "body": "The free version of BBO is genuinely usable for most players. Premium features include 'BB$' (BBO's virtual currency, used for tournament entry fees), a few premium robot game modes, and some analytical tools. For casual play and club games, the free account is entirely sufficient. Most experienced BBO players spend $9.99–$19.99 per month on BB$ for tournament entry fees." }
+    { "title": "Getting Started on BBO", "body": "Registering on BBO is free and takes under two minutes. Visit bridgebase.com and create an account with an email address and username. Once registered, the platform opens to a lobby showing all available game types. Most intermediate and advanced players head straight for the partnership desk to find a pickup partner, the competitive section for ACBL-sanctioned events, or the Vugraph theatre to follow live world-class bridge." },
+    { "title": "The Interface: Functional Over Beautiful", "body": "BBO's interface is functional rather than beautiful. It reflects years of incremental development rather than a ground-up redesign, and first-time users often find it slightly overwhelming. The key areas are the main lobby (find live games), the 'Casual' section (unrated games at any level), 'BBO Stars' (robot games), and the 'Competitive' section (rated pairs and team events including ACBL-sanctioned tournaments). After a few sessions the layout becomes intuitive." },
+    { "title": "Robot Play: GIB and the Advanced Robots", "body": "BBO offers robot games through its GIB engine and, on BBO+, the Advanced Robots. You play as South with robot partners and opponents. The robots play to a solid intermediate standard and are excellent for declarer-play practice. They bid SAYC by default, with extensive system support including Acol, 2/1, EHAA, Polish Club and Precision in settings. Free-tier robot games are unlimited; paid robot tournaments cost approximately $2 per event, paid through BB$ virtual currency." },
+    { "title": "Live Play: Finding a Game", "body": "BBO's greatest strength is the sheer volume of live games at all hours. The lobby typically shows hundreds of open tables at any time, ranging from beginner-level casual tables to expert tournament events. The 'Speedball' format (each hand timed) is extremely popular for quick sessions. Daylongs (one event spread across 24 hours) are the most common format for online ACBL masterpoints. Finding a live game within 30 seconds is realistic at almost any time of day." },
+    { "title": "ACBL Masterpoints on BBO", "body": "BBO is the default platform for online ACBL-sanctioned games. Most events award online masterpoints — a separate masterpoint category created in 2020 that counts toward Life Master and other ACBL ranks but is reported separately from face-to-face points. Some major events also award black, silver, red, or gold points. NABC online events typically award the same color points as their face-to-face equivalent." },
+    { "title": "Pricing: Free vs BBO+ at $5.99/month", "body": "The free tier of BBO is genuinely complete for most players — full access to live tables, Vugraph kibitz, casual games, and tournament entry (some events require BB$). BBO+ at $5.99 per month removes ads, unlocks the advanced robots, and includes the digital Bridgerama+ magazine, with a 30-day free trial. Most casual and club players never need to upgrade. BBO+ is worth it if you read Bridgerama+ in print or if you play robot games heavily and the ads break your concentration." }
   ],
-  "verdict": "BBO is indispensable. Its sheer scale — the volume of games, the quality of broadcasts, the range of events — makes it the default home of online bridge. The interface is not the most welcoming for beginners, but the community is unmatched.",
+  "verdict": "BBO is indispensable for any North American player working toward ACBL masterpoints and the default choice for live human bridge online in 2026. The interface is dated but the community is unmatched — millions of registered users, sanctioned virtual clubs, the partnership desk, and the Vugraph theatre. The $5.99/month BBO+ subscription is reasonably priced and the free tier is genuinely complete.",
   "scores": [
     { "label": "Ease of Use", "n": 3 },
     { "label": "AI Opponents", "n": 4 },
     { "label": "Live Community", "n": 5 },
-    { "label": "Value for Money", "n": 5 },
+    { "label": "ACBL Masterpoints", "n": 5 },
     { "label": "Mobile App", "n": 3 }
   ],
   "visitUrl": "https://www.bridgebase.com",
-  "bestFor": "Regular players wanting a massive live community"
+  "bestFor": "Intermediate and advanced players who want live human play and online ACBL masterpoints",
+  "lastVerified": "May 2026"
 }

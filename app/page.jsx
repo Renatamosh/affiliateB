@@ -1,9 +1,9 @@
 import HomePageClient from './HomePageClient';
 
 export const metadata = {
-  title: 'Bridge Playbook — Your Online Bridge Guide | BridgePlaybook.com',
-  description: 'Bridge Playbook is your independent, trusted guide to online bridge. Compare platforms, learn to play with beginner guides, and join a community of players over 60.',
-  openGraph: { title: 'Bridge Playbook — Online Bridge for Everyone', description: 'Independent reviews of online bridge platforms, beginner guides, bidding tips, practice boards and a welcoming community. Completely free.', url: 'https://bridgeplaybook.com/' },
+  title: 'Independent Online Bridge Guide 2026 — Platforms, Conventions & Masterpoints | Bridge Playbook',
+  description: 'Independent reviews of the best online bridge platforms 2026 — BBO ($5.99/mo), Funbridge ($15.99/mo), RealBridge, No Fear Bridge. Convention guides, ACBL masterpoints and bridge cruise comparisons. Pricing verified May 2026.',
+  openGraph: { title: 'Bridge Playbook — Independent Guide to Online Bridge', description: 'Independent reviews of online bridge platforms, convention guides, ACBL masterpoint information and bridge cruise comparisons. Verified pricing, intermediate-and-advanced focus.', url: 'https://bridgeplaybook.com/' },
   alternates: { canonical: 'https://bridgeplaybook.com/' },
 };
 

@@ -1,26 +1,28 @@
 {
   "name": "Funbridge",
   "shortName": "Funbridge",
-  "rating": 4,
-  "badge": "Best for Beginners",
-  "price": "Free basic / from £9.99/month",
-  "tagline": "The most polished, beginner-friendly bridge app on the market.",
-  "overview": "Funbridge, published by Goto Games, has positioned itself as the premium bridge app for players who want a polished, well-designed experience. Originally French (it remains dominant in France), Funbridge has grown into a genuinely international platform with a particular strength among beginners and improvers. Its interface is consistently rated as the most intuitive of any bridge platform, and its AI opponents are widely considered the most realistic.",
+  "rating": 4.3,
+  "badge": "Best for Solo Improvement",
+  "price": "Free 2 deals/day · Premium $15.99/mo · Premium+ $24.99/mo",
+  "tagline": "The strongest solo AI bridge trainer on the market — Argine engine, replay-the-same-deals format, and approximately 170,000 active users in 2026.",
+  "overview": "Funbridge, published by Goto Games, is the premium solo training platform for bridge in 2026 — approximately 170,000 active users, the proprietary Argine bidding engine, and a unique replay-the-same-deals format that lets you compare your score against the rest of the platform. Originally French (it remains dominant in France), Funbridge is now genuinely international and particularly strong among intermediate-to-advanced improvers who want structured training without partner pressure. Important caveat for North American players: standard Funbridge play does not award ACBL masterpoints. The eBridge Cup (an annual partnership with BBO) is the single exception.",
   "sections": [
-    { "title": "Getting Started on Funbridge", "body": "Download the Funbridge app from the App Store or Google Play, or access it through a web browser. Registration is free and takes one minute. The app opens with a tutorial section that walks new players through the basics — this is genuinely excellent and we strongly recommend completing it before your first game. The main game modes are immediately visible and labelled clearly." },
-    { "title": "The Interface: Clean and Modern", "body": "Funbridge's interface is comfortably the most modern and intuitive of any major bridge platform. Cards are large and clearly rendered. The bidding box is easy to use on both desktop and touchscreen. The game flow — bidding, play, then analysis — is smooth and logical. New players from other card game apps will feel immediately at home." },
-    { "title": "AI Opponents: The Best Available", "body": "Funbridge's AI opponents — called 'Thomas' (the default robot) — are widely considered the most realistic available on any platform. They bid and play to a consistent intermediate-to-advanced standard, making them excellent for practice. More importantly, they are designed to make the same kinds of errors that human players make, which means your practice against them transfers well to real play." },
-    { "title": "Competitive Deals: The Funbridge Challenge", "body": "Funbridge's signature feature is the competitive deal system. Each day, new deals are published — every subscriber plays the same hands against the same robots, and scores are compared across all players worldwide. This comparative element adds real motivation to each session and provides clear feedback on where your game sits relative to other players at your level." },
-    { "title": "Pricing: Is Funbridge Worth Paying For?", "body": "The free tier gives you a limited number of deals per day and access to basic features. For serious use, the premium subscription (approximately £9.99/month or £69.99/year) unlocks unlimited deals, full analysis tools and all competitive features. For a beginning or improving player who will use it regularly, the subscription represents good value. The annual plan brings the cost to under £6/month." }
+    { "title": "Getting Started on Funbridge", "body": "Download the Funbridge app from the App Store or Google Play, or access it through a web browser. Registration is free and takes one minute. The app opens with an onboarding flow that surfaces the daily competitive deals — this is the format you'll use most. New subscribers get a 1-month free trial of Premium." },
+    { "title": "The Interface: Best-in-Class Mobile-First Design", "body": "Funbridge's interface is the most modern and intuitive of any major bridge platform. Cards are large and clearly rendered. The bidding box is easy to use on both desktop and touchscreen. The game flow — bidding, play, then analysis — is smooth and logical. The mobile apps are designed mobile-first rather than as ports of a desktop client, which shows in the polish." },
+    { "title": "Argine: The Strongest AI in Online Bridge 2026", "body": "Funbridge's AI engine — Argine — is the strongest commercial bridge AI as of 2026. Bidding is consistent intermediate-to-advanced, regularly updated by the Funbridge team, and designed to make the kinds of errors that human players make so practice transfers to real play. SAYC is the default bidding system; Acol is supported but secondary in polish. 2/1 system support is limited compared to BBO." },
+    { "title": "The Replay Format: Why It Works for Improvement", "body": "Funbridge's signature feature is the daily competitive deal system. Each day, new deals are published — every Premium subscriber plays the same hands against the same robots, and scores are compared across all players worldwide. This comparative element makes improvement measurable in a way that no human-partnered platform can match. You can isolate exactly which decisions cost you points and how the rest of the platform handled the same situation." },
+    { "title": "ACBL Masterpoints and Funbridge — The Honest Answer", "body": "Funbridge does not award ACBL masterpoints on standard play. The single exception is the eBridge Cup, an annual partnership event with BBO that does award ACBL masterpoints. If masterpoint earning is your primary motivation for playing online, Funbridge is not the right primary platform — use BBO or RealBridge. If you're playing for skill development, the absence of masterpoints is irrelevant — the value is in the deal volume, the AI strength, and the replay-comparison format." },
+    { "title": "Pricing: Free vs Premium vs Premium+", "body": "The free tier offers 2 deals per day and basic AI play. Premium at $15.99/month (or $159.99/year — about 17% cheaper) unlocks unlimited deals, ad-free play, and full match formats. Premium+ at $24.99/month (or $249.99/year) adds the digital Bridgerama+ magazine and advanced post-game analysis. Choose Premium if you play more than ~10 deals per week. Choose Premium+ only if you actually read Bridgerama+ and use the advanced analysis. Deal Packs ($5.49 for 50 deals or $22.99 for 400) are an alternative for players who don't want a recurring subscription." }
   ],
-  "verdict": "Funbridge is the best starting point for most new online bridge players. Its polished interface, excellent AI, and structured competitive format make it uniquely motivating. The subscription cost is justified for regular use.",
+  "verdict": "Funbridge is the right platform for any intermediate-to-advanced player who wants to improve methodically without scheduling a partner. The Argine engine is the strongest AI in online bridge in 2026 and the replay format makes progress measurable. North American players should know that standard play does not award ACBL masterpoints — pair Funbridge with BBO if masterpoints matter to you.",
   "scores": [
     { "label": "Ease of Use", "n": 5 },
     { "label": "AI Opponents", "n": 5 },
-    { "label": "Live Community", "n": 3 },
-    { "label": "Value for Money", "n": 4 },
+    { "label": "Live Community", "n": 2 },
+    { "label": "ACBL Masterpoints", "n": 1 },
     { "label": "Mobile App", "n": 5 }
   ],
   "visitUrl": "https://www.funbridge.com",
-  "bestFor": "New players and solo practice"
+  "bestFor": "Intermediate-to-advanced players who want solo AI training and don't need ACBL masterpoints",
+  "lastVerified": "May 2026"
 }
