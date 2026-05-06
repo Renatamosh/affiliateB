@@ -6,110 +6,196 @@ media_folder: public/images
 public_folder: /images
 
 collections:
-  - name: articles
-    label: Articles
-    folder: content/articles
+  # ─────────────────────────────────────────────
+  # ⭐ PLATFORM REVIEWS
+  # ─────────────────────────────────────────────
+  - name: "reviews"
+    label: "⭐ Platform Reviews"
+    folder: "content/reviews"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "reviews/{{slug}}"
+    fields:
+      - { label: "Platform Name", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Auto-generated. Only edit if needed." }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false, hint: "Describe the image for accessibility and SEO. E.g. 'Funbridge app interface on iPad'" }
+      - { label: "Platform Logo", name: "platform_logo", widget: "image", required: false }
+      - { label: "Platform Logo Alt Text", name: "platform_logo_alt", widget: "string", required: false }
+      - { label: "Overall Rating (1–5)", name: "rating", widget: "number", value_type: "float", min: 1, max: 5, step: 0.5, required: true }
+      - { label: "Best For (one-liner)", name: "best_for", widget: "string", hint: "E.g. Solo AI training, ACBL masterpoints, Casual free play" }
+      - { label: "ACBL Masterpoints Available", name: "acbl_masterpoints", widget: "boolean", default: false }
+      - { label: "Free Trial Available", name: "free_trial", widget: "boolean", default: false }
+      - { label: "Last Verified Date", name: "last_verified", widget: "string", required: false, hint: "Date you last checked pricing and features, e.g. May 2026" }
+      - label: "Pricing Plans"
+        name: "pricing"
+        widget: "list"
+        summary: "{{fields.plan_name}} — {{fields.price}}"
+        fields:
+          - { label: "Plan Name", name: "plan_name", widget: "string" }
+          - { label: "Price", name: "price", widget: "string", hint: "E.g. $5.99/mo" }
+          - { label: "Billing Period", name: "billing", widget: "string", hint: "E.g. Monthly, Annual" }
+          - { label: "Notes", name: "notes", widget: "string", required: false }
+      - label: "Pros"
+        name: "pros"
+        widget: "list"
+        field: { label: "Pro", name: "pro", widget: "string" }
+      - label: "Cons"
+        name: "cons"
+        widget: "list"
+        field: { label: "Con", name: "con", widget: "string" }
+      - label: "Screenshots"
+        name: "screenshots"
+        widget: "list"
+        summary: "{{fields.alt}}"
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Describe the screenshot" }
+          - { label: "Caption", name: "caption", widget: "string", required: false }
+      - { label: "Affiliate CTA Button Label", name: "cta_label", widget: "string", hint: "E.g. Try Funbridge Free" }
+      - { label: "Affiliate CTA URL", name: "cta_url", widget: "string", hint: "Your affiliate link" }
+      - label: "Additional Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", default: true }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - { label: "Verdict / Editor Note", name: "verdict", widget: "text", hint: "Bottom-of-review summary block" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false, hint: "Defaults to Meta Title if blank" }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false, hint: "Defaults to Meta Description if blank" }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false, hint: "Defaults to Featured Image if blank" }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false, hint: "Only set if different from the page URL" }
+      - label: "Entity / Topic Tags (Semantic SEO)"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string", hint: "E.g. Funbridge, ACBL, AI bridge trainer, online bridge platform" }
+
+  # ─────────────────────────────────────────────
+  # 📝 ARTICLES
+  # ─────────────────────────────────────────────
+  - name: "articles"
+    label: "📝 Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "articles/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Features", "Reviews", "Guides", "News", "Strategy", "Community"]
+        required: false
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Excerpt / Summary", name: "excerpt", widget: "text", hint: "Used in article cards and as meta description fallback" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", default: true }
+      - label: "Internal Links / Related Articles"
+        name: "internal_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - label: "Entity / Topic Tags"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # 🗂️ CATEGORIES
+  # ─────────────────────────────────────────────
+  - name: "categories"
+    label: "🗂️ Categories"
+    folder: "content/categories"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Slug, name: slug, widget: string }
-      - label: Category
-        name: category
-        widget: select
-        options: [Features, Reviews, Guides, News]
-      - { label: Date, name: date, widget: date, format: YYYY-MM-DD }
-      - label: Status
-        name: status
-        widget: select
-        options: [published, draft]
-        default: draft
-      - { label: Excerpt, name: excerpt, widget: text }
-      - { label: Meta Title, name: metaTitle, widget: string, required: false }
-      - { label: Meta Description, name: metaDescription, widget: text, required: false }
-      - { label: Featured Image, name: featuredImage, widget: image, required: false }
-      - { label: Body, name: body, widget: markdown }
+      - { label: "Name", name: "name", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "SEO Title", name: "meta_title", widget: "string" }
+      - { label: "SEO Description", name: "meta_description", widget: "text" }
 
-  - name: platforms
-    label: Platform Reviews
+  # ─────────────────────────────────────────────
+  # 📄 PAGES
+  # ─────────────────────────────────────────────
+  - name: "pages"
+    label: "📄 Pages"
     files:
-      - name: bbo
-        label: Bridge Base Online
-        file: content/platforms/bbo.json
-        format: json
+      - label: "Homepage"
+        name: "home"
+        file: "content/home.md"
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Badge, name: badge, widget: string }
-          - { label: Overall Rating (1-5), name: rating, widget: number, min: 1, max: 5, step: 1 }
-          - { label: Price, name: price, widget: string }
-          - { label: Tagline, name: tagline, widget: text }
-          - { label: Overview, name: overview, widget: text }
-          - name: sections
-            label: Review Sections
-            widget: list
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Body, name: body, widget: text }
-          - { label: Verdict, name: verdict, widget: text }
-          - name: scores
-            label: Ratings
-            widget: list
-            fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Score (1-5), name: n, widget: number, min: 1, max: 5, step: 1 }
-          - { label: Visit URL, name: visitUrl, widget: string }
-          - { label: Best For, name: bestFor, widget: string }
-
-      - name: funbridge
-        label: Funbridge
-        file: content/platforms/funbridge.json
-        format: json
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero Subheading", name: "hero_subheading", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: true }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: true }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "About"
+        name: "about"
+        file: "content/about.md"
         fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Badge, name: badge, widget: string }
-          - { label: Overall Rating (1-5), name: rating, widget: number, min: 1, max: 5, step: 1 }
-          - { label: Price, name: price, widget: string }
-          - { label: Tagline, name: tagline, widget: text }
-          - { label: Overview, name: overview, widget: text }
-          - name: sections
-            label: Review Sections
-            widget: list
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Body, name: body, widget: text }
-          - { label: Verdict, name: verdict, widget: text }
-          - name: scores
-            label: Ratings
-            widget: list
-            fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Score (1-5), name: n, widget: number, min: 1, max: 5, step: 1 }
-          - { label: Visit URL, name: visitUrl, widget: string }
-          - { label: Best For, name: bestFor, widget: string }
-
-      - name: realbridge
-        label: RealBridge
-        file: content/platforms/realbridge.json
-        format: json
-        fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Badge, name: badge, widget: string }
-          - { label: Overall Rating (1-5), name: rating, widget: number, min: 1, max: 5, step: 1 }
-          - { label: Price, name: price, widget: string }
-          - { label: Tagline, name: tagline, widget: text }
-          - { label: Overview, name: overview, widget: text }
-          - name: sections
-            label: Review Sections
-            widget: list
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Body, name: body, widget: text }
-          - { label: Verdict, name: verdict, widget: text }
-          - name: scores
-            label: Ratings
-            widget: list
-            fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Score (1-5), name: n, widget: number, min: 1, max: 5, step: 1 }
-          - { label: Visit URL, name: visitUrl, widget: string }
-          - { label: Best For, name: bestFor, widget: string }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Meta Title", name: "meta_title", widget: "string" }
+          - { label: "Meta Description", name: "meta_description", widget: "text" }
