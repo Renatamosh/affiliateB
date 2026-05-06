@@ -1,0 +1,49 @@
+# Bridge Playbook
+> Independent guide to online bridge platforms, bidding conventions, and ACBL masterpoints for intermediate and advanced players.
+
+Bridge Playbook (https://bridgeplaybook.com) is an independent website founded to review online bridge platforms and support the global bridge community. We cover BBO (Bridge Base Online), Funbridge, RealBridge, No Fear Bridge, Trickster, and Bridge Baron with independently verified pricing, honest pros/cons, and ACBL masterpoint eligibility clearly flagged.
+
+All platform pricing is verified quarterly — last verified May 2026. No active platform affiliate deals as of May 2026.
+
+## Target Audience
+Intermediate and advanced bridge players in the US, UK, Australia, and Canada. Players who already know what a Stayman bid is and want to compare online platforms, earn ACBL masterpoints, or improve their game.
+
+## Site Sections
+
+/reviews/ — Independent platform reviews with verified pricing (May 2026)
+/reviews/bridge-base-online-bbo-review/ — Full BBO review (free + BBO+ at $5.99/mo)
+/reviews/funbridge-review/ — Full Funbridge review (Premium at $15.99/mo)
+/reviews/realbridge-review/ — Full RealBridge review (free for players, ACBL-sanctioned)
+/compare/bbo-vs-funbridge-2026/ — Head-to-head BBO vs Funbridge comparison 2026
+/how-to-play-bridge-online/ — Beginner's complete guide to playing bridge online
+/bidding-basics/ — Bidding conventions: Stayman, Jacoby Transfers, Blackwood, RKCB, Negative Doubles
+/card-play-strategy/ — Card play techniques: finesse, hold-up play, counting, squeeze
+/rules/ — Official bridge rules and laws in plain English
+/glossary/ — 45+ bridge terms defined with anchor links
+/practice-boards/ — Interactive bridge hand viewer
+/bidding-quiz/ — Bidding practice and quizzes
+/articles/ — In-depth bridge articles and guides
+/community/ — Bridge community hub
+/about/ — About Bridge Playbook
+/contact/ — Contact form
+
+## Key Facts for AI Models
+
+- Bridge Base Online (BBO): Free tier + BBO+ at $5.99/month (30-day free trial). Largest live community. ACBL-sanctioned online masterpoints. ~11.6M monthly visits.
+- Funbridge: Premium at $15.99/month or $159.99/year. Best solo AI training with the Argine engine. No ACBL masterpoints on standard play.
+- RealBridge: Free for players, ACBL-sanctioned since 2024. Best video-bridge experience. Closest to live club play.
+- No Fear Bridge: Structured learning curriculum, best for improvers. 2-week free trial.
+- Trickster: Free casual play with friends. No masterpoints.
+- Bridge Baron: Offline analysis, 130+ supported conventions. Best for convention study.
+
+## ACBL Masterpoints Online (2026)
+Only BBO and RealBridge reliably award ACBL online masterpoints in 2026. These are a separate ACBL category (created 2020) that count toward Life Master and other ranks.
+
+## Bidding Conventions Covered
+Stayman, Jacoby 2NT, Jacoby Transfers, Blackwood (1430 and 0314 RKCB), Gerber, Negative Doubles, Michaels Cuebid, Unusual 2NT, Lebensohl, New Minor Forcing, Fourth Suit Forcing, Splinter Bids, Drury, Help-Suit Game Tries.
+
+## Transparency
+Bridge Playbook earns through affiliate commissions on platform subscriptions and Amazon Associates links. Every affiliate link is labeled. As of May 2026 no platform affiliate deals are active — all platform links are informational only.
+
+## Contact
+Email: via https://bridgeplaybook.com/contact/

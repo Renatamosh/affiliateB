@@ -9,17 +9,31 @@ export const metadata = {
   title: { default: 'Independent Online Bridge Guide 2026 — Platforms, Conventions & Masterpoints | Bridge Playbook', template: '%s | Bridge Playbook' },
   description: 'Independent reviews of the best online bridge platforms 2026 — BBO ($5.99/mo), Funbridge ($15.99/mo), RealBridge, No Fear Bridge. Convention guides, ACBL masterpoints and bridge cruise comparisons for intermediate and advanced players.',
   robots: { index: true, follow: true },
-  openGraph: { siteName: 'Bridge Playbook', locale: 'en_US', type: 'website', images: [{ url: '/og-image.jpg' }] },
-  twitter: { card: 'summary_large_image' },
+  openGraph: {
+    siteName: 'Bridge Playbook',
+    locale: 'en_US',
+    type: 'website',
+    url: 'https://bridgeplaybook.com/',
+    images: [{ url: 'https://bridgeplaybook.com/og-image.jpg', width: 1200, height: 630, alt: 'Bridge Playbook — Independent Online Bridge Guide' }],
+  },
+  twitter: { card: 'summary_large_image', site: '@bridgeplaybook' },
+  keywords: ['online bridge', 'bridge platforms', 'BBO review', 'Funbridge review', 'ACBL masterpoints', 'bridge bidding conventions', 'how to play bridge online', 'RealBridge', 'bridge base online'],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+        {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+        {/* Mobile & theme */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0f1d3a" />
         <script
           type="application/ld+json"
@@ -41,7 +55,18 @@ export default function RootLayout({ children }) {
                   '@id': 'https://bridgeplaybook.com/#organization',
                   name: 'Bridge Playbook',
                   url: 'https://bridgeplaybook.com/',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://bridgeplaybook.com/og-image.jpg',
+                    width: 1200,
+                    height: 630,
+                  },
                   description: 'Independent guide to online bridge platforms, conventions, masterpoints and cruises. Focused on intermediate and advanced players in the US, UK, Australia and Canada. Pricing verified quarterly.',
+                  contactPoint: {
+                    '@type': 'ContactPoint',
+                    contactType: 'customer support',
+                    url: 'https://bridgeplaybook.com/contact/',
+                  },
                   sameAs: [],
                 },
               ],

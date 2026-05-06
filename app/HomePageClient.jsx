@@ -298,8 +298,28 @@ function NewsletterSection() {
   const { theme } = useTheme();
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#0d1e38' : '#1c2f5e';
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ 'form-name': 'newsletter', email }).toString(),
+      });
+      setSent(true);
+    } catch {
+      setSent(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section style={{ background: bg, padding: '72px 24px', color: '#fff' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', textAlign: 'center' }}>
@@ -309,11 +329,33 @@ function NewsletterSection() {
         {sent ? (
           <div style={{ background: 'rgba(212,168,67,0.2)', border: '2px solid #d4a843', borderRadius: 12, padding: '20px 32px', color: gold, fontSize: 18, fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600 }}>✓ Thank you! Your first issue arrives Tuesday.</div>
         ) : (
-          <div style={{ display: 'flex', gap: 12, maxWidth: 480, margin: '0 auto', flexWrap: 'wrap' }}>
-            <input type="email" placeholder="Enter your email address" value={email} onChange={e => setEmail(e.target.value)} onKeyDown={e => e.key === 'Enter' && email && setSent(true)}
-              style={{ flex: 1, minWidth: 200, padding: '15px 20px', borderRadius: 8, border: '2px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 17, fontFamily: "'Source Sans 3', sans-serif", outline: 'none' }} />
-            <button onClick={() => email && setSent(true)} style={{ background: gold, color: navy, border: 'none', borderRadius: 8, padding: '15px 28px', fontSize: 17, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif", whiteSpace: 'nowrap' }}>Subscribe Free</button>
-          </div>
+          <form
+            name="newsletter"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            style={{ display: 'flex', gap: 12, maxWidth: 480, margin: '0 auto', flexWrap: 'wrap' }}
+          >
+            <input type="hidden" name="form-name" value="newsletter" />
+            <p style={{ display: 'none' }}><label>Skip: <input name="bot-field" /></label></p>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email address"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              style={{ flex: 1, minWidth: 200, padding: '15px 20px', borderRadius: 8, border: '2px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 17, fontFamily: "'Source Sans 3', sans-serif", outline: 'none' }}
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              style={{ background: gold, color: navy, border: 'none', borderRadius: 8, padding: '15px 28px', fontSize: 17, fontWeight: 700, cursor: loading ? 'wait' : 'pointer', fontFamily: "'Source Sans 3', sans-serif", whiteSpace: 'nowrap', opacity: loading ? 0.7 : 1 }}
+            >
+              {loading ? 'Subscribing…' : 'Subscribe Free'}
+            </button>
+          </form>
         )}
         <p style={{ fontSize: 13, opacity: 0.45, marginTop: 16, fontFamily: "'Source Sans 3', sans-serif" }}>No spam. No card tricks. Just great bridge content.</p>
       </div>
@@ -372,6 +414,8 @@ export default function HomePageClient() {
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
+  const [sidebarEmail, setSidebarEmail] = useState('');
+  const [sidebarSent, setSidebarSent] = useState(false);
 
   const seoParagraphs = [
     "Online bridge in 2026 is no longer a smaller sibling of the live game. The American Contract Bridge League (ACBL) reports approximately 128,000 active members, and BBO alone draws an estimated 11.6 million monthly visits — a player base no single live tournament could rival. The question for most players is no longer whether to play online, but which platform to play on, which conventions to add to your card, and how to actually earn the masterpoints that count toward your ACBL rank.",
@@ -411,8 +455,18 @@ export default function HomePageClient() {
             <div style={{ background: navy, borderRadius: 14, padding: 24, color: '#fff' }}>
               <div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 18, color: gold, marginBottom: 10 }}>✉ Free Weekly Tips</div>
               <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, opacity: 0.8, lineHeight: 1.6, marginBottom: 16 }}>Bridge tips, platform pricing updates and convention guides every Tuesday. Independent. Free forever.</p>
-              <input type="email" placeholder="your@email.com" style={{ width: '100%', padding: '11px 14px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: 15, boxSizing: 'border-box', marginBottom: 10 }} />
-              <button style={{ width: '100%', background: gold, color: navy, border: 'none', borderRadius: 8, padding: '12px', fontSize: 15, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Subscribe Free</button>
+              {sidebarSent ? (
+                <div style={{ color: gold, fontSize: 14, padding: '8px 0' }}>✓ Subscribed — first issue Tuesday.</div>
+              ) : (
+                <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+                  onSubmit={async (e) => { e.preventDefault(); if (!sidebarEmail) return; try { await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'newsletter', email: sidebarEmail }).toString() }); } catch {} setSidebarSent(true); }}>
+                  <input type="hidden" name="form-name" value="newsletter" />
+                  <p style={{ display: 'none' }}><label>Skip: <input name="bot-field" /></label></p>
+                  <input type="email" name="email" required placeholder="your@email.com" value={sidebarEmail} onChange={e => setSidebarEmail(e.target.value)}
+                    style={{ width: '100%', padding: '11px 14px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: 15, boxSizing: 'border-box', marginBottom: 10 }} />
+                  <button type="submit" style={{ width: '100%', background: gold, color: navy, border: 'none', borderRadius: 8, padding: '12px', fontSize: 15, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Subscribe Free</button>
+                </form>
+              )}
             </div>
           </div>
         </div>

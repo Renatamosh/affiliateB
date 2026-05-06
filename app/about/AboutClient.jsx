@@ -31,8 +31,22 @@ export default function AboutClient() {
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
 
-  const handleSubmit = () => {
-    if (form.name && form.email && form.msg) setSent(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.msg) return;
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          name: form.name,
+          email: form.email,
+          message: form.msg,
+        }).toString(),
+      });
+    } catch {}
+    setSent(true);
   };
 
   return (
@@ -68,26 +82,34 @@ export default function AboutClient() {
                 ✓ Message sent — we'll be in touch within 2 working days.
               </div>
             ) : (
-              <div>
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p style={{ display: 'none' }}><label>Skip: <input name="bot-field" /></label></p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 16 }}>
                   {[['Name', 'name', 'text'], ['Email address', 'email', 'email']].map(([label, key, type]) => (
                     <div key={key}>
                       <label style={{ display: 'block', fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, color: headC, fontWeight: 600, marginBottom: 8 }}>{label}</label>
-                      <input type={type} value={form[key]} onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
+                      <input type={type} name={key} required value={form[key]} onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
                         style={{ width: '100%', padding: '13px 16px', borderRadius: 8, border: `2px solid ${bdr}`, fontSize: 17, fontFamily: "'Source Sans 3', sans-serif", boxSizing: 'border-box', outline: 'none', background: bg, color: headC }} />
                     </div>
                   ))}
                 </div>
                 <div style={{ marginBottom: 20 }}>
                   <label style={{ display: 'block', fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, color: headC, fontWeight: 600, marginBottom: 8 }}>Your message</label>
-                  <textarea rows={5} value={form.msg} onChange={e => setForm(f => ({ ...f, msg: e.target.value }))}
+                  <textarea name="message" rows={5} required value={form.msg} onChange={e => setForm(f => ({ ...f, msg: e.target.value }))}
                     style={{ width: '100%', padding: '13px 16px', borderRadius: 8, border: `2px solid ${bdr}`, fontSize: 17, fontFamily: "'Source Sans 3', sans-serif", boxSizing: 'border-box', resize: 'vertical', outline: 'none', background: bg, color: headC }} />
                 </div>
-                <button onClick={handleSubmit}
+                <button type="submit"
                   style={{ background: navy, color: gold, border: 'none', borderRadius: 8, padding: '14px 32px', fontSize: 17, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>
                   Send Message →
                 </button>
-              </div>
+              </form>
             )}
           </div>
         </div>

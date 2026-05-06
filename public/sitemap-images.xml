@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://bridgeplaybook.com/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>Bridge Playbook — Independent Online Bridge Guide 2026</image:title>
+      <image:caption>Independent reviews of BBO, Funbridge, RealBridge and more. Pricing verified May 2026.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/reviews/bridge-base-online-bbo-review/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>Bridge Base Online (BBO) Review 2026 — Pricing, Features & ACBL Masterpoints</image:title>
+      <image:caption>Independent BBO review: free tier plus BBO+ at $5.99/month. ACBL masterpoints, largest live bridge community.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/reviews/funbridge-review/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>Funbridge Review 2026 — Is Premium Worth $15.99/Month?</image:title>
+      <image:caption>Independent Funbridge review: AI training with the Argine engine. Premium at $15.99/month.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/reviews/realbridge-review/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>RealBridge Review 2026 — ACBL-Sanctioned Video Bridge</image:title>
+      <image:caption>Independent RealBridge review: ACBL-sanctioned video bridge since 2024. Free for players.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/compare/bbo-vs-funbridge-2026/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>BBO vs Funbridge 2026 — Head-to-Head Comparison</image:title>
+      <image:caption>BBO vs Funbridge 2026: pricing, masterpoints, AI quality and who should use which.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/how-to-play-bridge-online/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>How to Play Bridge Online — Complete Beginner's Guide 2026</image:title>
+      <image:caption>Step-by-step guide to playing bridge online. Platform setup, rules, first hand explained.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/bidding-basics/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>Bridge Bidding Basics — Conventions Guide 2026</image:title>
+      <image:caption>Stayman, Jacoby Transfers, Blackwood, RKCB and all major bridge bidding conventions explained.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://bridgeplaybook.com/glossary/</loc>
+    <image:image>
+      <image:loc>https://bridgeplaybook.com/og-image.jpg</image:loc>
+      <image:title>Bridge Glossary — 45+ Terms Defined</image:title>
+      <image:caption>Complete A–Z bridge glossary with 45+ terms explained in plain English.</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

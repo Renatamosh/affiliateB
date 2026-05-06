@@ -26,7 +26,10 @@ const NAV_ITEMS = [
   { label: 'Glossary', href: '/glossary/' },
   { label: 'Articles', href: '/articles/' },
   { label: 'Community', href: '/community/' },
-  { label: 'About', href: '/about/' },
+  { label: 'About', sub: [
+    { label: 'About Bridge Playbook', href: '/about/' },
+    { label: 'Contact Us', href: '/contact/' },
+  ]},
 ];
 
 function useMobile(breakpoint = 900) {
