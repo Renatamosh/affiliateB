@@ -4,36 +4,72 @@
       "label": "Platform Reviews",
       "href": "",
       "sub": [
-        { "label": "All Platforms 2026", "href": "/reviews/" },
-        { "label": "Bridge Base Online (BBO)", "href": "/reviews/bridge-base-online-bbo-review/" },
-        { "label": "Funbridge", "href": "/reviews/funbridge-review/" },
-        { "label": "RealBridge", "href": "/reviews/realbridge-review/" },
-        { "label": "BBO vs Funbridge", "href": "/compare/bbo-vs-funbridge-2026/" }
+        {
+          "label": "All Platforms 2026",
+          "href": "/reviews/"
+        },
+        {
+          "label": "Bridge Base Online (BBO)",
+          "href": "/reviews/bridge-base-online-bbo-review/"
+        },
+        {
+          "label": "Funbridge",
+          "href": "/reviews/funbridge-review/"
+        },
+        {
+          "label": "RealBridge",
+          "href": "/reviews/realbridge-review/"
+        },
+        {
+          "label": "BBO vs Funbridge",
+          "href": "/compare/bbo-vs-funbridge-2026/"
+        }
       ]
     },
     {
       "label": "Learn Bridge",
       "href": "",
       "sub": [
-        { "label": "How to Play Bridge Online", "href": "/how-to-play-bridge-online/" },
-        { "label": "Bidding Basics", "href": "/bidding-basics/" },
-        { "label": "Card Play Strategy", "href": "/card-play-strategy/" },
-        { "label": "Rules & Laws", "href": "/rules/" }
+        {
+          "label": "How to Play Bridge Online",
+          "href": "/how-to-play-bridge-online/"
+        },
+        {
+          "label": "Bidding Basics",
+          "href": "/bidding-basics/"
+        },
+        {
+          "label": "Card Play Strategy",
+          "href": "/card-play-strategy/"
+        },
+        {
+          "label": "Rules & Laws",
+          "href": "/rules/"
+        }
       ]
     },
     {
       "label": "Practice",
       "href": "",
       "sub": [
-        { "label": "Practice Boards", "href": "/practice-boards/" },
-        { "label": "Bidding Quiz", "href": "/bidding-quiz/" }
+        {
+          "label": "Practice Boards",
+          "href": "/practice-boards/"
+        },
+        {
+          "label": "Bidding Quiz",
+          "href": "/bidding-quiz/"
+        }
       ]
     },
     {
       "label": "Guides",
       "href": "",
       "sub": [
-        { "label": "Best Bridge Software for Mac", "href": "/guides/best-bridge-software-for-mac/" }
+        {
+          "label": "Best Bridge Software for Mac",
+          "href": "/guides/best-bridge-software-for-mac/"
+        }
       ]
     },
     {
@@ -47,16 +83,17 @@
       "sub": []
     },
     {
-      "label": "Community",
-      "href": "/community/",
-      "sub": []
-    },
-    {
       "label": "About",
       "href": "",
       "sub": [
-        { "label": "About Bridge Playbook", "href": "/about/" },
-        { "label": "Contact Us", "href": "/contact/" }
+        {
+          "label": "About Bridge Playbook",
+          "href": "/about/"
+        },
+        {
+          "label": "Contact Us",
+          "href": "/contact/"
+        }
       ]
     }
   ]
