@@ -43,7 +43,25 @@ import requests
 import yaml
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
-GITHUB_TOKEN  = "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"
+# Token is stored in .env (never committed to GitHub)
+# If you need to update your token, edit .env in the project folder.
+def _load_token():
+    env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
+    if os.path.exists(env_path):
+        with open(env_path, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith('GITHUB_TOKEN='):
+                    return line.split('=', 1)[1].strip().strip('"').strip("'")
+    token = os.environ.get('GITHUB_TOKEN', '')
+    if not token:
+        print("\n❌  No GitHub token found.")
+        print("    Create a file called .env in the project folder with this line:")
+        print("    GITHUB_TOKEN=your_token_here\n")
+        sys.exit(1)
+    return token
+
+GITHUB_TOKEN  = _load_token()
 GITHUB_OWNER  = "Renatamosh"
 GITHUB_REPO   = "affiliateB"
 GITHUB_BRANCH = "main"
