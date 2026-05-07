@@ -1,59 +1,60 @@
 ---
 title: How to Play Bridge Online With Friends (2026 Guide)
 slug: how-to-play-bridge-online-with-friends
-date: '2026-05-07'
-status: draft
+date: 2026-05-07
+status: published
 category: Guides
 tags:
-- online bridge
-- play bridge with friends
-- bridge online multiplayer
-- bridge platform
-- how to play bridge online
+  - online bridge
+  - play bridge with friends
+  - bridge online multiplayer
+  - bridge platform
+  - how to play bridge online
 featured_image: /images/how-to-play-bridge-online-with-friends.jpg
-featured_image_alt: Four friends playing bridge online together on laptops and tablets
-  from different locations
-excerpt: Want to play bridge online with friends who live far away? Here's exactly
-  how to set up a private game on BBO, Funbridge, or RealBridge in under 10 minutes
-  — no technical skills required.
+featured_image_alt: Four friends playing bridge online together on laptops and
+  tablets from different locations
+excerpt: Want to play bridge online with friends who live far away? Here's
+  exactly how to set up a private game on BBO, Funbridge, or RealBridge in under
+  10 minutes — no technical skills required.
 key_takeaways:
-- BBO (Bridge Base Online) is the easiest free option for setting up a private table
-  with friends
-- All four players need an account on the same platform — registration is free on
-  BBO and RealBridge
-- You can play in real time or asynchronously depending on the platform you choose
-- RealBridge offers the best video/audio experience if you want to recreate the club
-  feel
-- Funbridge is better for individual practice but has limited private multiplayer
-  options
+  - BBO (Bridge Base Online) is the easiest free option for setting up a private
+    table with friends
+  - All four players need an account on the same platform — registration is free
+    on BBO and RealBridge
+  - You can play in real time or asynchronously depending on the platform you
+    choose
+  - RealBridge offers the best video/audio experience if you want to recreate
+    the club feel
+  - Funbridge is better for individual practice but has limited private
+    multiplayer options
 affiliate_links:
-- label: Play on BBO Free
-  url: https://www.bridgebase.com
-  nofollow: true
-- label: Try RealBridge
-  url: https://realbridge.online
-  nofollow: true
+  - label: Play on BBO Free
+    url: https://www.bridgebase.com
+    nofollow: true
+  - label: Try RealBridge
+    url: https://realbridge.online
+    nofollow: true
 internal_links:
-- label: Bridge Base Online (BBO) Full Review
-  url: /reviews/bridge-base-online-bbo-review/
-- label: RealBridge Review
-  url: /reviews/realbridge-review/
-- label: Best Online Bridge Platforms 2026
-  url: /reviews/
+  - label: Bridge Base Online (BBO) Full Review
+    url: /reviews/bridge-base-online-bbo-review/
+  - label: RealBridge Review
+    url: /reviews/realbridge-review/
+  - label: Best Online Bridge Platforms 2026
+    url: /reviews/
 meta_title: How to Play Bridge Online With Friends (2026 Guide)
-meta_description: Set up a private bridge game with friends online in minutes. Step-by-step
-  guide for BBO, RealBridge & more — free options included.
-og_title: ''
-og_description: ''
-og_image: ''
-canonical: ''
+meta_description: Set up a private bridge game with friends online in minutes.
+  Step-by-step guide for BBO, RealBridge & more — free options included.
+og_title: ""
+og_description: ""
+og_image: ""
+canonical: ""
 entity_tags:
-- Bridge Base Online
-- RealBridge
-- Funbridge
-- online bridge
-- private bridge game
-- multiplayer bridge
+  - Bridge Base Online
+  - RealBridge
+  - Funbridge
+  - online bridge
+  - private bridge game
+  - multiplayer bridge
 ---
 
 Playing bridge online with friends has never been easier — or more necessary. Whether your regular partner moved cities, your club group got scattered, or you simply want to play more hands without leaving the house, a private online game can be up and running in under 10 minutes.
