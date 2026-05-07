@@ -10,12 +10,24 @@ USAGE:
   python push-content.py <path-to-content-file.md>
 
 EXAMPLES:
-  python push-content.py templates/my-new-article.md
+  python push-content.py templates/my-new-guide.md
   python push-content.py templates/funbridge-2026-review.md
 
 IMAGES:
   Place image files in the SAME folder as your .md file.
   The script auto-detects and uploads all images referenced in the file.
+
+CONTENT FOLDERS → LIVE URLs:
+  content/guides/       → bridgeplaybook.com/guides/slug
+  content/strategy/     → bridgeplaybook.com/strategy/slug
+  content/how-to/       → bridgeplaybook.com/how-to/slug
+  content/comparisons/  → bridgeplaybook.com/comparisons/slug
+  content/articles/     → bridgeplaybook.com/articles/slug  (misc/legacy)
+  content/reviews/      → bridgeplaybook.com/reviews/slug
+
+  The script reads the `category` field in your frontmatter and routes
+  to the correct folder automatically. Reviews are detected by the
+  presence of a `rating` or `verdict` field.
 
 REQUIREMENTS:
   pip install requests PyYAML
@@ -46,8 +58,26 @@ HEADERS = {
 
 # Where each collection's files live in the repo
 COLLECTION_PATHS = {
-    "articles": "content/articles",
-    "reviews":  "content/reviews",
+    "guides":      "content/guides",
+    "strategy":    "content/strategy",
+    "how-to":      "content/how-to",
+    "comparisons": "content/comparisons",
+    "articles":    "content/articles",   # misc / legacy
+    "reviews":     "content/reviews",
+}
+
+# Maps the `category` frontmatter value (lowercase) to a collection key
+CATEGORY_TO_COLLECTION = {
+    "guides":      "guides",
+    "guide":       "guides",
+    "strategy":    "strategy",
+    "how-to":      "how-to",
+    "how to":      "how-to",
+    "howto":       "how-to",
+    "comparisons": "comparisons",
+    "comparison":  "comparisons",
+    "compare":     "comparisons",
+    # anything else falls back to "articles"
 }
 
 
@@ -67,16 +97,27 @@ def parse_frontmatter(content):
 
 
 def detect_collection(frontmatter, filepath):
-    """Determine if this is an article or review based on fields present."""
+    """
+    Determine the target collection (= content folder) for this file.
+
+    Priority:
+      1. Reviews  — detected by the presence of `rating` or `verdict` fields
+      2. Category — read from the `category` frontmatter field and mapped to a folder
+      3. Fallback — "articles" (misc bucket)
+    """
+    # Reviews always go to content/reviews/
     if "rating" in frontmatter or "verdict" in frontmatter:
         return "reviews"
-    return "articles"
+
+    raw_category = str(frontmatter.get("category", "")).strip().lower()
+    collection = CATEGORY_TO_COLLECTION.get(raw_category, "articles")
+    return collection
 
 
 def get_slug(frontmatter, filepath):
     """Get slug from frontmatter or derive from filename."""
     if frontmatter.get("slug"):
-        return frontmatter["slug"]
+        return str(frontmatter["slug"]).strip()
     return os.path.splitext(os.path.basename(filepath))[0]
 
 
@@ -89,7 +130,7 @@ def find_images_in_content(content, frontmatter):
     # Images in frontmatter fields
     for key in ["featured_image", "platform_logo", "og_image"]:
         val = frontmatter.get(key, "")
-        if val and val.startswith("/images/"):
+        if val and str(val).startswith("/images/"):
             images.add(val)
     # Screenshots list
     for screenshot in frontmatter.get("screenshots", []):
@@ -124,9 +165,21 @@ def github_push_file(repo_path, content_bytes, message, sha=None):
     return r.json()
 
 
-def push_image(image_path_in_repo, local_dir, image_ref):
+def github_delete_file(repo_path, sha, message):
+    """Delete a file from GitHub."""
+    url = f"{GITHUB_API}/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{repo_path}"
+    payload = {
+        "message": message,
+        "sha": sha,
+        "branch": GITHUB_BRANCH,
+    }
+    r = requests.delete(url, headers=HEADERS, json=payload)
+    if r.status_code not in (200, 204):
+        raise RuntimeError(f"GitHub delete failed for {repo_path}: {r.status_code} {r.text}")
+
+
+def push_image(local_dir, image_ref):
     """Upload an image file to GitHub if it exists locally."""
-    # image_ref is like "/images/my-photo.jpg"
     filename = os.path.basename(image_ref)
     local_path = os.path.join(local_dir, filename)
 
@@ -137,7 +190,6 @@ def push_image(image_path_in_repo, local_dir, image_ref):
     with open(local_path, "rb") as f:
         image_bytes = f.read()
 
-    # Repo path for images: public/images/filename.jpg
     repo_image_path = f"public/images/{filename}"
     sha = github_get_file(repo_image_path)
     action = "Update" if sha else "Add"
@@ -169,6 +221,23 @@ def rebuild_frontmatter(frontmatter):
     return yaml.dump(safe, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
 
+def migrate_if_needed(slug, collection):
+    """
+    If the same slug exists under content/articles/ but now belongs to
+    a different collection, delete the old file so there's no duplicate.
+    Only runs when the target collection is NOT 'articles'.
+    """
+    if collection == "articles":
+        return
+    old_path = f"content/articles/{slug}.md"
+    old_sha = github_get_file(old_path)
+    if old_sha:
+        print(f"  🔄 Found old file at {old_path} — removing it to avoid duplicate...")
+        github_delete_file(old_path, old_sha, f"Remove duplicate: move {slug} to {collection}")
+        print(f"  ✅ Old file removed: {old_path}")
+        time.sleep(0.5)
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python push-content.py <path-to-content-file.md>")
@@ -190,9 +259,13 @@ def main():
     slug = get_slug(frontmatter, filepath)
     repo_content_path = f"{COLLECTION_PATHS[collection]}/{slug}.md"
 
-    print(f"📂 Collection: {collection}")
+    print(f"📂 Collection: {collection}  →  content/{collection}/")
     print(f"🔗 Slug:       {slug}")
     print(f"📁 Repo path:  {repo_content_path}")
+    print(f"🌐 Live URL:   https://bridgeplaybook.com/{collection}/{slug}/")
+
+    # ── Auto-migrate if slug existed in content/articles/ previously ─────────
+    migrate_if_needed(slug, collection)
 
     # ── Upload images ──────────────────────────────────────────────────────
     local_dir = os.path.dirname(os.path.abspath(filepath))
@@ -201,7 +274,7 @@ def main():
     if image_refs:
         print(f"\n🖼️  Found {len(image_refs)} image reference(s) — uploading...")
         for ref in image_refs:
-            push_image("public/images", local_dir, ref)
+            push_image(local_dir, ref)
     else:
         print("  ℹ️  No images referenced in this file.")
 
@@ -216,15 +289,16 @@ def main():
     github_push_file(
         repo_content_path,
         final_content.encode("utf-8"),
-        f"{action} {collection[:-1]}: {slug} [draft]",
+        f"{action} {collection[:-1] if collection.endswith('s') else collection}: {slug} [draft]",
         sha=sha,
     )
 
     print(f"\n✅ Done! '{slug}' pushed as DRAFT.")
-    print(f"\n👉 Review it here:")
+    print(f"\n👉 Review it in the CMS:")
     print(f"   https://bridgeplaybook.com/admin/#/collections/{collection}")
     print(f"\n   Find '{frontmatter.get('title', slug)}' → change Status to 'published' → Save")
-    print(f"   Netlify will build automatically. Live in ~60 seconds.\n")
+    print(f"   Netlify will build automatically. Live in ~60 seconds.")
+    print(f"   Live URL: https://bridgeplaybook.com/{collection}/{slug}/\n")
 
 
 if __name__ == "__main__":

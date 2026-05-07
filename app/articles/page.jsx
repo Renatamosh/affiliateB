@@ -20,7 +20,7 @@ export default function ArticlesPage() {
             <p style={{ fontFamily: "'Source Sans 3', sans-serif", color: '#777', fontSize: 18 }}>No articles published yet.</p>
           )}
           {articles.map(article => (
-            <Link key={article.slug} href={`/articles/${article.slug}/`} style={{ textDecoration: 'none' }}>
+            <Link key={article.slug} href={`/${article.categorySlug}/${article.slug}/`} style={{ textDecoration: 'none' }}>
               <div style={{ background: '#fff', border: '1px solid #e5e0d8', borderRadius: 12, padding: '28px 32px', transition: 'box-shadow 0.15s' }}>
                 <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: '#d4a843', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
                   {article.category} · {article.date}

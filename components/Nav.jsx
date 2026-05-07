@@ -4,33 +4,11 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { BridgePlaybookLogo } from './Logo';
 import { useTheme } from './ThemeProvider';
+import navData from '../content/nav.json';
 
-const NAV_ITEMS = [
-  { label: 'Platform Reviews', sub: [
-    { label: 'All Platforms 2026', href: '/reviews/' },
-    { label: 'Bridge Base Online (BBO)', href: '/reviews/bridge-base-online-bbo-review/' },
-    { label: 'Funbridge', href: '/reviews/funbridge-review/' },
-    { label: 'RealBridge', href: '/reviews/realbridge-review/' },
-    { label: 'BBO vs Funbridge', href: '/compare/bbo-vs-funbridge-2026/' },
-  ]},
-  { label: 'Learn Bridge', sub: [
-    { label: 'How to Play Bridge Online', href: '/how-to-play-bridge-online/' },
-    { label: 'Bidding Basics', href: '/bidding-basics/' },
-    { label: 'Card Play Strategy', href: '/card-play-strategy/' },
-    { label: 'Rules & Laws', href: '/rules/' },
-  ]},
-  { label: 'Practice', sub: [
-    { label: 'Practice Boards', href: '/practice-boards/' },
-    { label: 'Bidding Quiz', href: '/bidding-quiz/' },
-  ]},
-  { label: 'Glossary', href: '/glossary/' },
-  { label: 'Articles', href: '/articles/' },
-  { label: 'Community', href: '/community/' },
-  { label: 'About', sub: [
-    { label: 'About Bridge Playbook', href: '/about/' },
-    { label: 'Contact Us', href: '/contact/' },
-  ]},
-];
+// Nav structure is managed via the CMS at /admin → ⚙️ Navigation
+// Edit links and dropdowns there — no code changes needed.
+const NAV_ITEMS = navData.items;
 
 function useMobile(breakpoint = 900) {
   const [isMobile, setIsMobile] = useState(false);

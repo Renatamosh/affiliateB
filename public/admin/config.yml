@@ -93,10 +93,263 @@ collections:
         field: { label: "Entity", name: "entity", widget: "string", hint: "E.g. Funbridge, ACBL, AI bridge trainer, online bridge platform" }
 
   # ─────────────────────────────────────────────
-  # 📝 ARTICLES
+  # 📘 GUIDES  →  bridgeplaybook.com/guides/slug
+  # ─────────────────────────────────────────────
+  - name: "guides"
+    label: "📘 Guides"
+    folder: "content/guides"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "guides/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the title, e.g. how-to-bid-in-bridge" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Excerpt / Summary", name: "excerpt", widget: "text", hint: "Used in article cards and as meta description fallback" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", default: true }
+      - label: "Internal Links / Related Articles"
+        name: "internal_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - label: "Entity / Topic Tags"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # ♟️ STRATEGY  →  bridgeplaybook.com/strategy/slug
+  # ─────────────────────────────────────────────
+  - name: "strategy"
+    label: "♟️ Strategy"
+    folder: "content/strategy"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "strategy/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the title" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Excerpt / Summary", name: "excerpt", widget: "text", hint: "Used in article cards and as meta description fallback" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", default: true }
+      - label: "Internal Links / Related Articles"
+        name: "internal_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - label: "Entity / Topic Tags"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # 📋 HOW-TO  →  bridgeplaybook.com/how-to/slug
+  # ─────────────────────────────────────────────
+  - name: "how-to"
+    label: "📋 How-To"
+    folder: "content/how-to"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "how-to/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the title" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Excerpt / Summary", name: "excerpt", widget: "text", hint: "Used in article cards and as meta description fallback" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", default: true }
+      - label: "Internal Links / Related Articles"
+        name: "internal_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - label: "Entity / Topic Tags"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # 📊 COMPARISONS  →  bridgeplaybook.com/comparisons/slug
+  # ─────────────────────────────────────────────
+  - name: "comparisons"
+    label: "📊 Comparisons"
+    folder: "content/comparisons"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "comparisons/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the title" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Excerpt / Summary", name: "excerpt", widget: "text", hint: "Used in article cards and as meta description fallback" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Nofollow", name: "nofollow", widget: "boolean", default: true }
+      - label: "Internal Links / Related Articles"
+        name: "internal_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - label: "Entity / Topic Tags"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string" }
+
+  # ─────────────────────────────────────────────
+  # 📝 ARTICLES (misc / legacy)  →  bridgeplaybook.com/articles/slug
+  # Use this only for content that doesn't fit the categories above.
   # ─────────────────────────────────────────────
   - name: "articles"
-    label: "📝 Articles"
+    label: "📝 Articles (misc)"
     folder: "content/articles"
     create: true
     slug: "{{slug}}"
@@ -110,11 +363,6 @@ collections:
         widget: "select"
         options: ["draft", "published", "archived"]
         default: "draft"
-      - label: "Category"
-        name: "category"
-        widget: "select"
-        options: ["Features", "Reviews", "Guides", "News", "Strategy", "Community"]
-        required: false
       - label: "Tags"
         name: "tags"
         widget: "list"
@@ -199,3 +447,46 @@ collections:
           - { label: "Body", name: "body", widget: "markdown" }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
+
+  # ─────────────────────────────────────────────
+  # ⚙️ SETTINGS — Navigation
+  # Edit the site navigation menu here.
+  # Changes go live after Netlify rebuilds (~60 seconds after saving).
+  # ─────────────────────────────────────────────
+  - name: "settings"
+    label: "⚙️ Settings"
+    files:
+      - label: "🧭 Navigation Menu"
+        name: "navigation"
+        file: "content/nav.json"
+        fields:
+          - label: "Menu Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
+            hint: "Each row is one item in the top navigation bar. Drag to reorder."
+            fields:
+              - label: "Label"
+                name: "label"
+                widget: "string"
+                hint: "The text shown in the nav bar, e.g. 'Platform Reviews'"
+              - label: "Link (URL)"
+                name: "href"
+                widget: "string"
+                required: false
+                hint: "Leave empty if this item has a dropdown menu. Use full path: /reviews/"
+              - label: "Dropdown Links"
+                name: "sub"
+                widget: "list"
+                required: false
+                summary: "{{fields.label}} → {{fields.href}}"
+                hint: "Add sub-links to create a dropdown. Leave empty for a direct link."
+                fields:
+                  - label: "Label"
+                    name: "label"
+                    widget: "string"
+                    hint: "Text shown in the dropdown, e.g. 'BBO Review'"
+                  - label: "Link (URL)"
+                    name: "href"
+                    widget: "string"
+                    hint: "Full path including slashes, e.g. /reviews/bridge-base-online-bbo-review/"

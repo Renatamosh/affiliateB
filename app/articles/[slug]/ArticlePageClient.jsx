@@ -114,7 +114,7 @@ export default function ArticlePageClient({ article }) {
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20, flexWrap: 'wrap' }}>
             <span style={{ fontSize: 13, background: catColor + '22', color: catColor, border: `1px solid ${catColor}44`, borderRadius: 12, padding: '4px 14px', fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700 }}>{article.category}</span>
-            <span style={{ fontSize: 14, opacity: 0.6, fontFamily: "'Source Sans 3', sans-serif" }}>{article.date}</span>
+            <span style={{ fontSize: 14, opacity: 0.6, fontFamily: "'Source Sans 3', sans-serif" }}>{article.date ? String(article.date).slice(0, 10) : ''}</span>
           </div>
           <h1 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 'clamp(26px,5vw,42px)', lineHeight: 1.25, margin: '0 0 20px' }}>{article.title}</h1>
           {article.excerpt && <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 19, opacity: 0.85, lineHeight: 1.7, maxWidth: 640, margin: 0 }}>{article.excerpt}</p>}
