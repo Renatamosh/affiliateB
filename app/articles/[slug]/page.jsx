@@ -1,14 +1,16 @@
-import { getArticleBySlug, getAllArticleSlugs } from '../../../lib/articles';
+import { getArticleBySlug, getAllArticleParams } from '../../../lib/articles';
 import { notFound } from 'next/navigation';
 import ArticlePageClient from './ArticlePageClient';
 
 export async function generateStaticParams() {
-  const slugs = getAllArticleSlugs();
-  return slugs.map(slug => ({ slug }));
+  // Only generate params for articles in content/articles/
+  return getAllArticleParams()
+    .filter(p => p.category === 'articles')
+    .map(p => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const article = getArticleBySlug(params.slug);
+  const article = getArticleBySlug('articles', params.slug);
   if (!article) return { title: '404 — Not Found' };
 
   // Support both new snake_case fields and legacy camelCase
@@ -45,7 +47,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default function ArticlePage({ params }) {
-  const article = getArticleBySlug(params.slug);
+  const article = getArticleBySlug('articles', params.slug);
   if (!article) notFound();
 
   const faqSchema = article.faq && article.faq.length > 0 ? {
