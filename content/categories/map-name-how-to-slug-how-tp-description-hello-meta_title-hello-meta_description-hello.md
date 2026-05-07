@@ -1,6 +1,6 @@
 ---
 name: "How to "
-slug: how-tp
+slug: how-to
 description: hello
 meta_title: hello
 meta_description: hello
