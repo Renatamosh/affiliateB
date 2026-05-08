@@ -52,16 +52,18 @@ faq:
     This makes it easy to practice at any time without needing to schedule a session
     or find three other players.
 affiliate_links:
-- name: Trickster Cards
+- label: Play on Trickster Cards Free
   url: https://www.trickstercards.com/games/bridge/
-- name: RealBridge
+  nofollow: true
+- label: Try RealBridge
   url: https://realbridge.online/
+  nofollow: true
 internal_links:
-- anchor: our full BBO review
+- label: Bridge Base Online (BBO) Full Review
   url: /reviews/bridge-base-online-bbo-review/
-- anchor: best online bridge platforms
+- label: Best Online Bridge Platforms 2026
   url: /comparisons/best-online-bridge-platforms/
-- anchor: how to get started playing bridge online
+- label: How to Play Bridge Online for Beginners
   url: /guides/how-to-play-bridge-online-for-beginners/
 meta_title: 'Trickster Cards vs RealBridge: Which Online Bridge Platform Wins?'
 meta_description: Comparing Trickster Cards and RealBridge for online bridge players.
