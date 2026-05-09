@@ -88,14 +88,14 @@ export default async function ArticlePage({ params }) {
         .article-body h2 {
           font-family: 'Libre Baskerville', serif;
           font-size: 26px;
-          color: #1c2f5e;
+          color: #f0ece4;
           margin: 40px 0 16px;
           line-height: 1.3;
         }
         .article-body h3 {
           font-family: 'Libre Baskerville', serif;
           font-size: 20px;
-          color: #1c2f5e;
+          color: #f0ece4;
           margin: 28px 0 12px;
         }
         .article-body p {
@@ -116,8 +116,8 @@ export default async function ArticlePage({ params }) {
           border-left: 4px solid #d4a843;
           margin: 24px 0;
           padding: 12px 20px;
-          background: #fff8ee;
-          color: #555;
+          background: #0d1830;
+          color: #b8b4ac;
           border-radius: 0 8px 8px 0;
         }
         .article-body table {
@@ -127,22 +127,23 @@ export default async function ArticlePage({ params }) {
           font-size: 15px;
         }
         .article-body th {
-          background: #1c2f5e;
-          color: #fff;
+          background: #1a2d55;
+          color: #f0ece4;
           padding: 10px 14px;
           text-align: left;
         }
         .article-body td {
           padding: 10px 14px;
-          border-bottom: 1px solid #e5e0d8;
+          border-bottom: 1px solid #1e3060;
+          color: #c8c0b8;
         }
         .article-body tr:nth-child(even) td {
-          background: #faf8f5;
+          background: #0d1830;
         }
 
         /* FAQ accordion */
         .faq-item {
-          border: 1px solid #e5e0d8;
+          border: 1px solid #1e3060;
           border-radius: 8px;
           margin-bottom: 10px;
           overflow: hidden;
@@ -152,13 +153,13 @@ export default async function ArticlePage({ params }) {
           font-family: 'Source Sans 3', sans-serif;
           font-size: 16px;
           font-weight: 600;
-          color: #1c2f5e;
+          color: #f0ece4;
           cursor: pointer;
           list-style: none;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #fff;
+          background: #0f1d3a;
           user-select: none;
         }
         .faq-item summary::-webkit-details-marker { display: none; }
@@ -175,19 +176,19 @@ export default async function ArticlePage({ params }) {
           content: '−';
         }
         .faq-item[open] summary {
-          border-bottom: 1px solid #e5e0d8;
+          border-bottom: 1px solid #1e3060;
         }
         .faq-answer {
           padding: 16px 20px;
           font-family: 'Source Sans 3', sans-serif;
           font-size: 15px;
-          color: #444;
+          color: #c8c0b8;
           line-height: 1.7;
-          background: #faf8f5;
+          background: #0d1830;
         }
       `}</style>
 
-      <div style={{ background: 'var(--bg, #f5f3ee)', minHeight: '100vh', padding: '48px 24px' }}>
+      <div style={{ background: '#0f1d3a', minHeight: '100vh', padding: '48px 24px' }}>
         <article style={{ maxWidth: 780, margin: '0 auto' }}>
 
           {/* ── Category + date ─────────────────────────────────── */}
@@ -207,7 +208,7 @@ export default async function ArticlePage({ params }) {
           <h1 style={{
             fontFamily: "'Libre Baskerville', serif",
             fontSize: 36,
-            color: '#1c2f5e',
+            color: '#f0ece4',
             margin: '0 0 20px',
             lineHeight: 1.25,
           }}>
@@ -219,7 +220,7 @@ export default async function ArticlePage({ params }) {
             <p style={{
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: 18,
-              color: '#555',
+              color: '#b8b4ac',
               lineHeight: 1.7,
               margin: '0 0 28px',
             }}>
@@ -245,8 +246,8 @@ export default async function ArticlePage({ params }) {
           {/* ── Key takeaways ───────────────────────────────────── */}
           {article.key_takeaways?.length > 0 && (
             <div style={{
-              background: '#fff',
-              border: '1px solid #e5e0d8',
+              background: '#0d1830',
+              border: '1px solid #1e3060',
               borderLeft: '4px solid #d4a843',
               borderRadius: 8,
               padding: '20px 24px',
@@ -268,7 +269,7 @@ export default async function ArticlePage({ params }) {
                   <li key={i} style={{
                     fontFamily: "'Source Sans 3', sans-serif",
                     fontSize: 15,
-                    color: '#333',
+                    color: '#c8c0b8',
                     lineHeight: 1.6,
                     marginBottom: 6,
                   }}>
@@ -286,7 +287,7 @@ export default async function ArticlePage({ params }) {
             style={{
               fontFamily: "'Source Sans 3', sans-serif",
               fontSize: 17,
-              color: '#333',
+              color: '#c8c0b8',
               lineHeight: 1.8,
               marginBottom: 48,
             }}
@@ -294,11 +295,11 @@ export default async function ArticlePage({ params }) {
 
           {/* ── FAQ accordion ───────────────────────────────────── */}
           {article.faq?.length > 0 && (
-            <section style={{ marginTop: 48, borderTop: '1px solid #e5e0d8', paddingTop: 40 }}>
+            <section style={{ marginTop: 48, borderTop: '1px solid #1e3060', paddingTop: 40 }}>
               <h2 style={{
                 fontFamily: "'Libre Baskerville', serif",
                 fontSize: 26,
-                color: '#1c2f5e',
+                color: '#f0ece4',
                 margin: '0 0 24px',
               }}>
                 Frequently Asked Questions

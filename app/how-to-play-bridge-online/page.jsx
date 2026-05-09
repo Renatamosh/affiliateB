@@ -1,11 +1,5 @@
 import HowToPlayClient from './HowToPlayClient';
-
-export const metadata = {
-  title: 'How to Play Bridge Online — Complete 2026 Beginner Guide',
-  description: 'Learn how to play bridge online in 2026 — step-by-step guide covering platforms, account setup, bidding systems, and your first robot game. Plain English, no jargon.',
-  openGraph: { title: 'How to Play Bridge Online — Complete 2026 Guide', description: 'Step-by-step guide to playing bridge online. Choose a platform, create an account, learn the basics, and play your first hand.' },
-  alternates: { canonical: 'https://bridgeplaybook.com/how-to-play-bridge-online/' },
-};
+import { getPageData } from '../../lib/pages';
 
 const howToSchema = {
   '@context': 'https://schema.org',
@@ -23,6 +17,20 @@ const howToSchema = {
     { '@type': 'HowToStep', position: 7, name: 'Scoring', text: 'If Declarer wins at least the contract\'s required tricks, their side scores. Clubs/Diamonds score 20 per trick; Hearts/Spades score 30; No Trumps score 40 for the first then 30 each.' },
   ],
 };
+
+export async function generateMetadata() {
+  const page = getPageData('how-to-play-bridge-online');
+  return {
+    title: page?.meta_title || 'How to Play Bridge Online — Complete 2026 Beginner Guide',
+    description: page?.meta_description || 'Learn how to play bridge online in 2026 — step-by-step guide covering platforms, account setup, bidding systems, and your first robot game.',
+    alternates: { canonical: page?.canonical || 'https://bridgeplaybook.com/how-to-play-bridge-online/' },
+    openGraph: {
+      title: page?.og_title || page?.meta_title || 'How to Play Bridge Online — Complete 2026 Guide',
+      description: page?.og_description || page?.meta_description || 'Step-by-step guide to playing bridge online.',
+      ...(page?.og_image && { images: [{ url: page.og_image }] }),
+    },
+  };
+}
 
 export default function HowToPlayBridgeOnlinePage() {
   return (

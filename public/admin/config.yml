@@ -7,10 +7,10 @@ public_folder: /images
 
 collections:
   # ─────────────────────────────────────────────
-  # ⭐ PLATFORM REVIEWS
+  # ⭐ REVIEW PAGES (individual platform reviews at /reviews/[slug]-review/)
   # ─────────────────────────────────────────────
   - name: "reviews"
-    label: "⭐ Platform Reviews"
+    label: "⭐ Review Pages"
     folder: "content/reviews"
     create: true
     slug: "{{slug}}"
@@ -58,8 +58,8 @@ collections:
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Describe the screenshot" }
           - { label: "Caption", name: "caption", widget: "string", required: false }
-      - { label: "Affiliate CTA Button Label", name: "cta_label", widget: "string", hint: "E.g. Try Funbridge Free" }
-      - { label: "Affiliate CTA URL", name: "cta_url", widget: "string", hint: "Your affiliate link" }
+      - { label: "Affiliate CTA Button Label", name: "cta_label", widget: "string", required: false, hint: "E.g. Try Funbridge Free" }
+      - { label: "Affiliate CTA URL", name: "cta_url", widget: "string", required: false, hint: "Your affiliate link" }
       - label: "Additional Affiliate Links"
         name: "affiliate_links"
         widget: "list"
@@ -289,7 +289,7 @@ collections:
     folder: "content/comparisons"
     create: true
     slug: "{{slug}}"
-    preview_path: "comparisons/{{slug}}"
+    preview_path: "compare/{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the title" }
@@ -418,10 +418,41 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Name", name: "name", widget: "string", required: true }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "SEO Title", name: "meta_title", widget: "string" }
-      - { label: "SEO Description", name: "meta_description", widget: "text" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL path, e.g. 'reviews' for /reviews/" }
+      - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false, hint: "One-line display tagline shown under the category title" }
+      - { label: "Intro Body", name: "body", widget: "markdown", required: false, hint: "2–3 paragraph intro for the category landing page (250–400 words). Target the category keyword." }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt", name: "featured_image_alt", widget: "string", required: false }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        required: false
+        hint: "Minimum 4 questions for AEO/AI snippet targeting. Write questions as real Google searches."
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Internal Links"
+        name: "internal_links"
+        widget: "list"
+        required: false
+        hint: "Link to the 3–5 most important pages in this category"
+        summary: "{{fields.label}}"
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "SEO Title", name: "meta_title", widget: "string", required: false, hint: "50–60 characters with target keyword" }
+      - { label: "SEO Description", name: "meta_description", widget: "text", required: false, hint: "150–160 characters with a call to action" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false, hint: "Full URL, e.g. https://bridgeplaybook.com/reviews/" }
+      - label: "Schema Type"
+        name: "schema_type"
+        widget: "select"
+        required: false
+        options: ["CollectionPage", "ItemList"]
+        default: "CollectionPage"
 
   # ─────────────────────────────────────────────
   # 📄 PAGES
@@ -447,6 +478,174 @@ collections:
           - { label: "Body", name: "body", widget: "markdown" }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
+      - label: "Glossary"
+        name: "glossary"
+        file: "content/pages/glossary.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "Practice Boards"
+        name: "practice-boards"
+        file: "content/pages/practice-boards.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "Bidding Basics"
+        name: "bidding-basics"
+        file: "content/pages/bidding-basics.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "Card Play Strategy"
+        name: "card-play-strategy"
+        file: "content/pages/card-play-strategy.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "How to Play Bridge Online"
+        name: "how-to-play-bridge-online"
+        file: "content/pages/how-to-play-bridge-online.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "Rules & Laws"
+        name: "rules"
+        file: "content/pages/rules.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "Bidding Quiz"
+        name: "bidding-quiz"
+        file: "content/pages/bidding-quiz.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - label: "Community"
+        name: "community"
+        file: "content/pages/community.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Heading", name: "hero_heading", widget: "string", required: false }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
+          - { label: "Intro Body", name: "body", widget: "markdown", required: false }
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
 
   # ─────────────────────────────────────────────
   # ⚙️ SETTINGS — Navigation
