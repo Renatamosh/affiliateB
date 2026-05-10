@@ -1,8 +1,8 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from '../../components/ThemeProvider';
 import { PageHeader } from '../../components/PageHeader';
-import { SEOSection } from '../../components/SEOSection';
 import { FAQSection } from '../../components/FAQSection';
 
 const navy = '#1c2f5e';
@@ -18,22 +18,168 @@ const PLATFORMS = [
   { id: 'bridgebaron', name: 'Bridge Baron', rating: 3, badge: 'Best for Offline Analysis', badgeColor: '#888', price: '$4.99/mo (mobile) · ~$60–$80 (desktop)', best: 'Best for: Solo offline analysis with extensive convention support', shortDesc: 'Long-established analysis-first platform. 130+ supported conventions — the deepest convention support of any platform.', pros: ['Supports 130+ bidding conventions', 'Strong analysis tools', 'One-time desktop license option', 'Good for offline practice'], cons: ['No ACBL masterpoints', 'No live human play', 'Older interface design', 'Mobile app is functional but dated'], href: '/reviews/' },
 ];
 
-const SEO_PARAS = [
-  'Choosing an online bridge platform in 2026 is no longer a one-platform-fits-all decision. The six platforms reviewed on this page — BBO, Funbridge, RealBridge, No Fear Bridge, Trickster and Bridge Baron — each solve different problems, and most serious players use at least two of them. The right choice depends on three questions: do you want live human play or solo AI training, do you need ACBL masterpoints, and what is your monthly budget?',
-  'Bridge Base Online (BBO) is the default for live human bridge online and the only sensible choice if you care about earning online ACBL masterpoints. With approximately 11.6 million monthly visits, the player base is unmatched. The free tier is genuinely complete — full access to live tables, the partnership desk, Vugraph kibitz, and tournament entry. BBO+ at $5.99 per month adds an ad-free experience and the advanced robots, with a 30-day free trial.',
-  'Funbridge ($15.99/month Premium or $159.99/year) is the strongest solo AI bridge trainer in 2026. The proprietary Argine engine is the best commercial bridge AI we\'ve tested, and the replay-the-same-deals format makes improvement measurable in a way that no human-partnered platform can match. Important caveat for North American players: Funbridge does not award ACBL masterpoints on standard play. The eBridge Cup partnership with BBO is the single exception.',
-  'RealBridge is video bridge — players see and hear each other on screen, recreating the social experience of a live club. Players pay nothing; clubs pay approximately $3 to $5 per player per session. Critically, RealBridge has been ACBL-sanctioned since 2024, so masterpoints flow on sanctioned events. RealBridge is the right platform if your local club has switched to video, or if you want a video-bridge alternative to BBO\'s text-and-cards interface.',
-  'No Fear Bridge ($60/year US, £72/year UK) is the most structured online learning environment for intermediate improvers and returning players. The platform is built around a curriculum rather than open play — lessons, quizzes, and deals chosen to teach specific concepts. There is no free tier (2-week trial only) and no ACBL masterpoints. Trickster Bridge is the best free option for casual play with friends. Bridge Baron is the strongest offline analysis tool with 130+ supported conventions.',
-  'Bridge Playbook is independent. As of May 2026 we have not signed any platform affiliate deals, so every link on this page is informational only and clearly disclosed. We never recommend a platform we wouldn\'t recommend without commission. All pricing is verified directly from the platform billing page and reviewed quarterly.',
-];
 
 const FAQS = [
-  { q: 'Which online bridge platform is completely free?', a: 'BBO has the most complete free tier — full access to live tables, Vugraph, casual games, and tournament entry (some events require BB$ virtual currency). Trickster Bridge is also fully free with optional ad-free upgrade. Funbridge offers 2 free deals per day on its free tier. RealBridge is free for players (clubs pay session fees). No Fear Bridge has no free tier — 2-week trial only. Bridge Baron has no free tier — paid only.' },
-  { q: 'Which platforms award ACBL masterpoints in 2026?', a: 'Two platforms reliably award ACBL masterpoints: Bridge Base Online (BBO) and RealBridge (sanctioned since 2024). Both award online masterpoints — a separate ACBL category that counts toward Life Master and other ranks. Funbridge does not award ACBL masterpoints on standard play; the eBridge Cup partnership with BBO is the single exception. No Fear Bridge, Trickster, and Bridge Baron do not award ACBL masterpoints.' },
-  { q: 'Should I use one platform or two?', a: 'Most serious players in 2026 use two platforms: BBO for live human play and ACBL masterpoints, plus one trainer (Funbridge for AI work, or No Fear Bridge for structured learning). RealBridge is added as a third platform if your local club has switched to video bridge. The combined cost — $5.99/month BBO+ plus $13.33/month Funbridge annual — is under $20/month for a serious training setup.' },
-  { q: 'Which bidding system does each platform support?', a: 'BBO supports the broadest range — SAYC, Acol, 2/1, EHAA, Polish Club, and Precision. Funbridge defaults to SAYC; Acol is supported but secondary; 2/1 support is limited. RealBridge supports all major systems. No Fear Bridge is region-locked: SAYC in the US, Acol in the UK. Trickster supports SAYC. Bridge Baron supports 130+ conventions across all major systems.' },
-  { q: 'Can I play with my regular bridge partner online?', a: 'Yes — every major platform supports this. On BBO, invite your partner to a private table or use the partnership desk for pickup games. On Funbridge, set up a private game (though Funbridge is solo-AI focused). RealBridge is purpose-built for playing with known players and is the easiest option for regular partnerships. Trickster is excellent for casual games with friends.' },
+  { q: 'What is the best online bridge site for beginners in 2026?', a: 'Funbridge is the best online bridge site for beginners. The AI plays at an adjustable skill level, explains your mistakes, and scores every hand against thousands of players worldwide so you see exactly how your decisions compare. You can play at your own pace without the pressure of a live game. Once comfortable, Bridge Base Online (BBO) is the natural next step for live human opponents and ACBL masterpoints.' },
+  { q: 'Can I play bridge online free without downloading anything?', a: 'Yes. Bridge Base Online (BBO) runs entirely in your browser and has a genuinely complete free tier — live human tables, Vugraph tournament watching, and casual games with no download required. RealBridge is also browser-based and free for players (clubs cover the session cost). Trickster Bridge is completely free with an optional ad-free upgrade for a cleaner experience.' },
+  { q: 'Which online bridge platforms award ACBL masterpoints in 2026?', a: 'Two platforms reliably award ACBL masterpoints: Bridge Base Online (BBO) and RealBridge (ACBL-sanctioned since 2024). Both award online masterpoints that count toward Life Master and other ranks. Funbridge does not award ACBL masterpoints on standard play — the eBridge Cup is the one exception. No Fear Bridge, Trickster Bridge, and Bridge Baron do not award masterpoints.' },
+  { q: 'What is the difference between BBO and Funbridge?', a: 'Bridge Base Online is a live game platform — you play in real time against human opponents, join ACBL-sanctioned tournaments, and access games at every skill level around the clock. Funbridge is a solo training tool: every game is against the Argine AI, your score is benchmarked against the global field, and the AI provides teaching feedback after key decisions. Most serious players use both — BBO for live competition, Funbridge for solo improvement.' },
+  { q: 'Which online bridge platform works best on iPad and tablet?', a: 'Funbridge has the most polished iPad and tablet experience in the category — built for touch from the ground up with smooth card animations and a clean bidding interface. RealBridge also performs well in a tablet browser. BBO works on tablet but the desktop web client is more comfortable for extended sessions. If a tablet is your primary device, Funbridge is the clear choice.' },
+  { q: 'How do I play bridge online with friends?', a: 'Three platforms make it easy to play bridge online with specific people. BBO lets you set up a private table in under two minutes and invite anyone by username — it is free and requires no download. RealBridge is the best option for regular group play because built-in video makes the session feel like a real gathering. Trickster Bridge is the simplest setup for a quick casual game with no configuration required.' },
 ];
+
+const PICKER_RECS = {
+  'live-desktop':  { platform: 'Bridge Base Online (BBO)', reason: 'The desktop web client is where BBO shines — hundreds of live tables at any hour, ACBL masterpoints, and the most complete free tier in online bridge.' },
+  'live-tablet':   { platform: 'Bridge Base Online (BBO)', reason: 'BBO works on tablet via browser, though the desktop experience is stronger. For solo practice on tablet, Funbridge is the best complement.' },
+  'live-any':      { platform: 'Bridge Base Online (BBO)', reason: '11.6 million monthly visits, ACBL masterpoints, and a genuinely complete free tier. The default choice for live human bridge online.' },
+  'improve-desktop': { platform: 'Funbridge', reason: 'The Argine AI is the strongest commercial bridge engine in 2026. Your scores are benchmarked against thousands of players on the same deals — improvement is measurable.' },
+  'improve-tablet':  { platform: 'Funbridge', reason: 'The iPad and tablet app is the most polished in the category. Built for touch from the ground up with smooth animations and a clean bidding interface.' },
+  'improve-any':     { platform: 'Funbridge', reason: 'Replay-the-same-deals format, Argine AI feedback, and global field scoring. The clearest path to measurable improvement in 2026.' },
+  'social-desktop':  { platform: 'RealBridge', reason: 'Video with all four players, ACBL-sanctioned since 2024, and no app to download. For casual pickup games with strangers, add BBO.' },
+  'social-tablet':   { platform: 'Trickster Bridge', reason: 'The simplest setup for a casual game with friends on any device. RealBridge also works in a tablet browser for organised group sessions.' },
+  'social-any':      { platform: 'RealBridge', reason: 'The only platform where you see and hear your partner and opponents. Purpose-built for regular groups and club sessions.' },
+  'points-desktop':  { platform: 'Bridge Base Online (BBO)', reason: 'Daily sanctioned games, a full virtual club structure, and the partnership desk — all free. BBO+ at $5.99/mo adds premium tournaments.' },
+  'points-tablet':   { platform: 'Bridge Base Online (BBO)', reason: 'BBO works via browser on tablet for sanctioned games, though the desktop client is more comfortable for extended sessions.' },
+  'points-any':      { platform: 'Bridge Base Online (BBO)', reason: 'BBO and RealBridge are the only two platforms that award ACBL masterpoints in 2026. BBO has the broadest set of sanctioned games daily.' },
+};
+
+function QuickPicker({ isDeep, headC, textC, cardBg, bdr }) {
+  const [q1, setQ1] = useState(null);
+  const [q2, setQ2] = useState(null);
+
+  const key = q1 && q2 ? `${q1}-${q2}` : null;
+  const rec = key ? PICKER_RECS[key] : null;
+
+  const btnStyle = (active) => ({
+    padding: '7px 16px',
+    borderRadius: 20,
+    fontSize: 14,
+    fontFamily: "'Source Sans 3', sans-serif",
+    cursor: 'pointer',
+    border: `1.5px solid ${active ? navy : (isDeep ? '#2a3f6a' : '#d0c8b8')}`,
+    background: active ? navy : 'transparent',
+    color: active ? '#fff' : (isDeep ? 'rgba(255,255,255,0.7)' : '#555'),
+    fontWeight: active ? 700 : 400,
+  });
+
+  return (
+    <div style={{ background: cardBg, border: `1px solid ${bdr}`, borderRadius: 14, padding: '24px 28px', marginBottom: 24 }}>
+      <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, fontWeight: 700, color: gold, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>
+        Find your platform in two questions
+      </div>
+
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, color: headC, marginBottom: 10 }}>
+          1. What matters most to you?
+        </div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {[
+            { val: 'live',    label: 'Live human games' },
+            { val: 'improve', label: 'Improving my game' },
+            { val: 'social',  label: 'Playing with friends' },
+            { val: 'points',  label: 'ACBL masterpoints' },
+          ].map(opt => (
+            <button key={opt.val} style={btnStyle(q1 === opt.val)} onClick={() => setQ1(opt.val)}>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, color: headC, marginBottom: 10 }}>
+          2. Where do you play most?
+        </div>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {[
+            { val: 'desktop', label: 'Desktop / laptop' },
+            { val: 'tablet',  label: 'iPad / tablet' },
+            { val: 'any',     label: "Doesn't matter" },
+          ].map(opt => (
+            <button key={opt.val} style={btnStyle(q2 === opt.val)} onClick={() => setQ2(opt.val)}>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{
+        background: isDeep ? '#0a1525' : '#f9f6ef',
+        border: `1px solid ${rec ? gold : bdr}`,
+        borderRadius: 10,
+        padding: '14px 18px',
+        minHeight: 52,
+        fontFamily: "'Source Sans 3', sans-serif",
+        fontSize: 15,
+        color: textC,
+        lineHeight: 1.6,
+      }}>
+        {rec ? (
+          <>
+            <span style={{ fontWeight: 700, color: headC }}>Recommendation: {rec.platform}. </span>
+            {rec.reason}
+          </>
+        ) : (
+          <span style={{ color: isDeep ? 'rgba(255,255,255,0.35)' : '#bbb' }}>
+            Choose your answers above to get a personalised recommendation.
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ComparisonStrip({ isDeep, headC, textC, cardBg, bdr }) {
+  const rows = [
+    { label: 'Live human opponents',  bbo: '✓',          fun: '✗',              rb: '✓'          },
+    { label: 'ACBL masterpoints',     bbo: '✓',          fun: '✗',              rb: '✓ (2024+)'  },
+    { label: 'Free tier',             bbo: 'Full',       fun: 'Trial',          rb: 'Players free'},
+    { label: 'Mobile app',            bbo: 'OK',         fun: 'Best-in-class',  rb: 'Browser'    },
+    { label: 'Video play',            bbo: '✗',          fun: '✗',              rb: '✓'          },
+    { label: 'AI teaching',           bbo: 'Basic',      fun: 'Argine AI',      rb: '✗'          },
+  ];
+
+  const colorFor = (val) => {
+    if (val === '✓' || val === 'Full' || val === 'Best-in-class' || val === 'Players free' || val === 'Argine AI' || val === '✓ (2024+)') return '#27ae60';
+    if (val === '✗') return red;
+    return gold;
+  };
+
+  const cellBase = {
+    padding: '9px 14px',
+    fontFamily: "'Source Sans 3', sans-serif",
+    fontSize: 13,
+    textAlign: 'center',
+    borderBottom: `1px solid ${isDeep ? '#1a2e50' : '#ebe5d8'}`,
+    verticalAlign: 'middle',
+  };
+
+  return (
+    <div style={{ background: cardBg, border: `1px solid ${bdr}`, borderRadius: 14, overflow: 'hidden', marginBottom: 24 }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead>
+          <tr>
+            {['', 'BBO', 'Funbridge', 'RealBridge'].map((h, i) => (
+              <th key={i} style={{ ...cellBase, textAlign: i === 0 ? 'left' : 'center', fontWeight: 700, color: headC, fontSize: 14, background: isDeep ? '#0a1525' : '#f5f0e6', borderBottom: `2px solid ${gold}`, paddingTop: 13, paddingBottom: 13, width: i === 0 ? '34%' : '22%' }}>
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i}>
+              <td style={{ ...cellBase, textAlign: 'left', color: isDeep ? 'rgba(255,255,255,0.55)' : '#888', fontWeight: 500 }}>{row.label}</td>
+              {[row.bbo, row.fun, row.rb].map((val, j) => (
+                <td key={j} style={{ ...cellBase, color: colorFor(val), fontWeight: val === '✓' || val === '✗' ? 700 : 500, fontSize: val === '✓' || val === '✗' ? 16 : 13 }}>{val}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 function StarRow({ n }) {
   return (
@@ -54,14 +200,21 @@ export default function PlatformsClient() {
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
 
+  const sharedProps = { isDeep, headC, textC, cardBg, bdr };
+
   return (
     <div>
       <PageHeader title="Best Online Bridge Platforms 2026" subtitle="Independent Reviews · Pricing Verified May 2026" suit="♠" />
       <div style={{ background: bg, padding: '48px 24px', minHeight: '40vh' }}>
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
+
           <div style={{ background: '#fff8e6', border: '1px solid #e8c56a', borderRadius: 10, padding: '14px 20px', marginBottom: 32, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: '#7a5a00' }}>
             <strong>Independence disclosure:</strong> As of May 2026, Bridge Playbook has not signed any platform affiliate deals. All platform links on this page are informational only — we receive no commission for sign-ups. We participate in the Amazon Associates programme for book and equipment recommendations. Pricing on this page is verified directly from each platform's billing page within the last 30 days.
           </div>
+
+          <QuickPicker {...sharedProps} />
+          <ComparisonStrip {...sharedProps} />
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             {PLATFORMS.map((p, i) => (
               <div key={p.id} style={{ background: cardBg, border: `1px solid ${i === 0 ? gold : bdr}`, borderRadius: 14, overflow: 'hidden', boxShadow: i === 0 ? '0 4px 24px rgba(212,168,67,0.12)' : 'none' }}>
@@ -97,9 +250,35 @@ export default function PlatformsClient() {
               </div>
             ))}
           </div>
+
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
+      {/* SEO content section — keyword-rich with internal links */}
+      <div style={{ background: isDeep ? '#070f1e' : '#f0ece3', padding: '56px 24px' }}>
+        <div style={{ maxWidth: 780, margin: '0 auto', fontFamily: "'Source Sans 3', sans-serif" }}>
+          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 28, color: headC, marginBottom: 28, lineHeight: 1.3 }}>
+            How to Choose the Best Online Bridge Site for You
+          </h2>
+          <p style={{ fontSize: 17, color: textC, lineHeight: 1.8, marginBottom: 22 }}>
+            Choosing the best online bridge platform in 2026 is not a one-size-fits-all decision. The six platforms reviewed on this page — BBO, Funbridge, RealBridge, No Fear Bridge, Trickster and Bridge Baron — each solve a different problem, and most serious players use at least two. The decision comes down to three questions: do you want live human play or solo AI training, do you need ACBL masterpoints, and what is your monthly budget?
+          </p>
+          <p style={{ fontSize: 17, color: textC, lineHeight: 1.8, marginBottom: 22 }}>
+            <Link href="/reviews/bridge-base-online-bbo-review/" style={{ color: gold, textDecoration: 'underline', fontWeight: 600 }}>Bridge Base Online (BBO)</Link> is the default choice if you want to play bridge online free against real human opponents. With approximately 11.6 million monthly visits, the player base is unmatched — games run at every skill level around the clock. The free tier is genuinely complete: live tables, the partnership desk, Vugraph broadcasts, and tournament entry, all without a subscription. BBO+ at $5.99 per month adds premium tournaments and removes ads, with a 30-day free trial.
+          </p>
+          <p style={{ fontSize: 17, color: textC, lineHeight: 1.8, marginBottom: 22 }}>
+            <Link href="/reviews/funbridge-review/" style={{ color: gold, textDecoration: 'underline', fontWeight: 600 }}>Funbridge</Link> is the strongest solo bridge training platform available in 2026. The Argine AI engine benchmarks every hand against the global field of players who played the same deal — improvement is measurable in a way no live-opponent platform can match. The iPad and mobile app is the most polished in the category. Important for North American players: Funbridge does not award ACBL masterpoints on standard play. For a direct side-by-side breakdown, see our <Link href="/compare/bbo-vs-funbridge-2026/" style={{ color: gold, textDecoration: 'underline', fontWeight: 600 }}>BBO vs Funbridge 2026 comparison</Link>.
+          </p>
+          <p style={{ fontSize: 17, color: textC, lineHeight: 1.8, marginBottom: 22 }}>
+            <Link href="/reviews/realbridge-review/" style={{ color: gold, textDecoration: 'underline', fontWeight: 600 }}>RealBridge</Link> is the only online bridge platform where you see and hear your partner and opponents on screen — the closest experience to a face-to-face club night available online. Players pay nothing; clubs cover the session cost at approximately $3 to $5 per player. RealBridge has been ACBL-sanctioned since 2024, so masterpoints flow on sanctioned events. If you want to play bridge online with friends in a regular group, RealBridge is built for exactly that situation.
+          </p>
+          <p style={{ fontSize: 17, color: textC, lineHeight: 1.8, marginBottom: 22 }}>
+            The combination that works for most active players is BBO for live competition and online ACBL masterpoints, plus Funbridge for solo practice between sessions. Combined cost for BBO+ and Funbridge annual is under $20 per month — less than a single club entry night in most cities. New to online bridge altogether? Our <Link href="/how-to-play-bridge-online/" style={{ color: gold, textDecoration: 'underline', fontWeight: 600 }}>guide to playing bridge online</Link> covers setup on every platform step by step.
+          </p>
+          <p style={{ fontSize: 17, color: textC, lineHeight: 1.8, marginBottom: 0 }}>
+            Every review on Bridge Playbook is independent. As of May 2026 we have not signed any platform affiliate deals — all platform links are informational only and every recommendation reflects what we would suggest without commission. Pricing is verified directly from each platform's billing page and reviewed quarterly.
+          </p>
+        </div>
+      </div>
       <FAQSection items={FAQS} />
     </div>
   );
