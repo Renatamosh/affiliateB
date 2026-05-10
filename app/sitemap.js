@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 import { getAllArticles } from '../lib/articles';
 import { getAllReviews } from '../lib/reviews';
 
