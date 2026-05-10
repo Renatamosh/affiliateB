@@ -83,12 +83,7 @@
     {
       "label": "Glossary",
       "href": "/glossary/",
-      "sub": [
-        {
-          "href": "/glossary/",
-          "label": "glossary"
-        }
-      ]
+      "sub": []
     },
     {
       "label": "Articles",
