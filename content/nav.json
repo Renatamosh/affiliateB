@@ -49,6 +49,10 @@
         {
           "label": "Rules & Laws",
           "href": "/rules/"
+        },
+        {
+          "href": "/how-to/play-duplicate-bridge/",
+          "label": "Duplicate bridge"
         }
       ]
     },
@@ -104,6 +108,7 @@
           "href": "/contact/"
         }
       ]
-    }
+    },
+    {}
   ]
 }
