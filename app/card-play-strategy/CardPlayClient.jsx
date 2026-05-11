@@ -36,8 +36,11 @@ const FAQS = [
   { q: 'How do I know which suit to lead as a defender?', a: "Partner's bid suits are generally good leads. Against No Trumps, lead your longest and strongest suit. Against suit contracts, leading from three or four to an honour or leading partner's suit is usually safe." },
 ];
 
-export default function CardPlayClient() {
+export default function CardPlayClient({ data }) {
   const { theme } = useTheme();
+  const tips = data?.tips || TIPS;
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const isDeep = theme === 'deep';
   const cardBg = isDeep ? '#0f1d3a' : theme === 'bright' ? '#f8f6f2' : '#fff';
   const headC = isDeep ? '#fff' : navy;
@@ -51,10 +54,10 @@ export default function CardPlayClient() {
       <div style={{ background: bg, minHeight: '40vh', padding: 'clamp(32px,5vw,48px) 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.8, marginTop: 0, marginBottom: 40 }}>
-            Once you understand bidding, card play is where bridge truly comes alive. Here are the six core techniques every bridge player should know.
+            {data?.intro || 'Once you understand bidding, card play is where bridge truly comes alive. Here are the six core techniques every bridge player should know.'}
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginBottom: 40 }}>
-            {TIPS.map(tip => (
+            {tips.map(tip => (
               <div key={tip.title} style={{ background: cardBg, border: `1px solid ${bdr}`, borderRadius: 12, padding: 28 }}>
                 <div style={{ display: 'flex', gap: 14, alignItems: 'center', marginBottom: 14 }}>
                   <span style={{ fontSize: 36, color: (tip.suit === '♥' || tip.suit === '♦') ? red : (isDeep ? '#aac4e8' : navy) }}>{tip.suit}</span>
@@ -80,8 +83,8 @@ export default function CardPlayClient() {
           </div>
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

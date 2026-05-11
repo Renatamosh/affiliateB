@@ -2,38 +2,43 @@ import fs from 'fs';
 import path from 'path';
 import RealBridgeClient from './RealBridgeClient';
 
-export const metadata = {
-  title: 'RealBridge Review 2026 — Free for Players, ACBL Sanctioned',
-  description: 'Independent RealBridge review 2026. Free for players, ~$3-5/player/session for clubs, ACBL-sanctioned since 2024. Video bridge that recreates the club experience online. Verified May 2026.',
-  alternates: { canonical: 'https://bridgeplaybook.com/reviews/realbridge-review/' },
-};
+const dataPath = path.join(process.cwd(), 'content/platforms/realbridge.json');
 
-const reviewSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Review',
-  name: 'RealBridge Review 2026',
-  author: { '@type': 'Organization', name: 'Bridge Playbook' },
-  publisher: { '@type': 'Organization', name: 'Bridge Playbook' },
-  datePublished: '2026-01-01',
-  dateModified: '2026-05-01',
-  itemReviewed: {
-    '@type': 'SoftwareApplication',
-    name: 'RealBridge',
-    applicationCategory: 'GameApplication',
-    operatingSystem: 'Web (browser-based)',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      description: 'Free for players. Clubs pay approximately $3-$5 per player per session, billed to the club director. ACBL-sanctioned since 2024.',
+export async function generateMetadata() {
+  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  return {
+    title: data.meta_title || 'RealBridge Review 2026 — Free for Players, ACBL Sanctioned',
+    description: data.meta_description || '',
+    alternates: { canonical: data.canonical || 'https://bridgeplaybook.com/reviews/realbridge-review/' },
+    openGraph: {
+      title: data.og_title || data.meta_title,
+      description: data.og_description || data.meta_description,
+      ...(data.og_image && { images: [{ url: data.og_image }] }),
     },
-  },
-  reviewRating: { '@type': 'Rating', ratingValue: '4.4', bestRating: '5' },
-  reviewBody: 'RealBridge is the leading video-bridge platform — players see and hear each other, recreating the social experience of a live club. Free for players, ACBL-sanctioned since 2024. The closest online experience to a face-to-face club night.',
-};
+  };
+}
 
 export default function RealBridgeReviewPage() {
-  const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content/platforms/realbridge.json'), 'utf8'));
+  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+  const reviewSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    name: `${data.name} Review 2026`,
+    author: { '@type': 'Organization', name: 'Bridge Playbook' },
+    publisher: { '@type': 'Organization', name: 'Bridge Playbook' },
+    datePublished: '2026-01-01',
+    dateModified: '2026-05-01',
+    itemReviewed: {
+      '@type': 'SoftwareApplication',
+      name: data.name,
+      applicationCategory: 'GameApplication',
+      operatingSystem: 'Web (browser-based)',
+    },
+    reviewRating: { '@type': 'Rating', ratingValue: String(data.rating), bestRating: '5' },
+    reviewBody: data.verdict || '',
+  };
+
   return (
     <>
       <script

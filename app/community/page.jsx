@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function CommunityPage() {
-  return <CommunityClient />;
+  const data = getPageData('community');
+  return <CommunityClient data={data} />;
 }

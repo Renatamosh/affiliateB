@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function BiddingPage() {
-  return <BiddingClient />;
+  const data = getPageData('bidding-basics');
+  return <BiddingClient data={data} />;
 }

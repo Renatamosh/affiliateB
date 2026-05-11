@@ -1,41 +1,33 @@
 export const dynamic = 'force-static';
 
+import fs from 'fs';
+import path from 'path';
 import { getAllArticles } from '../lib/articles';
-import { getAllReviews } from '../lib/reviews';
 
 const BASE_URL = 'https://bridgeplaybook.com';
 
-// Hard-coded static pages — add/remove entries here when you add/remove pages
+// ─── Static structural pages ──────────────────────────────────────────────────
+// These pages are hardcoded in the app — update this list when you add/remove pages.
 const STATIC_PAGES = [
   { path: '/',                                       changeFrequency: 'weekly',  priority: 1.0  },
   { path: '/reviews/',                               changeFrequency: 'monthly', priority: 0.95 },
-  { path: '/reviews/bridge-base-online-bbo-review/', changeFrequency: 'monthly', priority: 0.9  },
-  { path: '/reviews/funbridge-review/',              changeFrequency: 'monthly', priority: 0.9  },
-  { path: '/reviews/realbridge-review/',             changeFrequency: 'monthly', priority: 0.9  },
-  { path: '/compare/bbo-vs-funbridge-2026/',         changeFrequency: 'monthly', priority: 0.9  },
-  { path: '/compare/trickster-vs-realbridge/',       changeFrequency: 'monthly', priority: 0.9  },
   { path: '/how-to-play-bridge-online/',             changeFrequency: 'monthly', priority: 0.9  },
-  { path: '/platforms/',                             changeFrequency: 'monthly', priority: 0.85 },
-  { path: '/platforms/bridge-base-online/',          changeFrequency: 'monthly', priority: 0.85 },
-  { path: '/platforms/funbridge/',                   changeFrequency: 'monthly', priority: 0.85 },
-  { path: '/platforms/realbridge/',                  changeFrequency: 'monthly', priority: 0.85 },
+  { path: '/compare/bbo-vs-funbridge-2026/',         changeFrequency: 'monthly', priority: 0.9  },
   { path: '/bidding-basics/',                        changeFrequency: 'monthly', priority: 0.85 },
   { path: '/glossary/',                              changeFrequency: 'monthly', priority: 0.85 },
   { path: '/card-play-strategy/',                    changeFrequency: 'monthly', priority: 0.8  },
-  { path: '/how-to-play/',                           changeFrequency: 'monthly', priority: 0.8  },
   { path: '/rules/',                                 changeFrequency: 'monthly', priority: 0.7  },
   { path: '/practice-boards/',                       changeFrequency: 'monthly', priority: 0.7  },
   { path: '/bidding-quiz/',                          changeFrequency: 'monthly', priority: 0.7  },
   { path: '/articles/',                              changeFrequency: 'weekly',  priority: 0.7  },
   { path: '/community/',                             changeFrequency: 'weekly',  priority: 0.6  },
   { path: '/about/',                                 changeFrequency: 'monthly', priority: 0.5  },
-  { path: '/contact/',                               changeFrequency: 'yearly',  priority: 0.4  },
 ];
 
 export default function sitemap() {
   const now = new Date();
 
-  // 1. Static JSX pages
+  // 1. Static structural pages
   const staticEntries = STATIC_PAGES.map(p => ({
     url: `${BASE_URL}${p.path}`,
     lastModified: now,
@@ -43,8 +35,31 @@ export default function sitemap() {
     priority: p.priority,
   }));
 
-  // 2. Published markdown articles in content/{category}/*.md
-  //    URL pattern: /{category}/{slug}/
+  // 2. Platform review pages — read dynamically from content/platforms/*.json
+  //    Adds a sitemap entry for each JSON file that exists.
+  const platformsDir = path.join(process.cwd(), 'content', 'platforms');
+  const platformSlugMap = {
+    'bbo.json':        '/reviews/bridge-base-online-bbo-review/',
+    'funbridge.json':  '/reviews/funbridge-review/',
+    'realbridge.json': '/reviews/realbridge-review/',
+  };
+  const reviewEntries = [];
+  if (fs.existsSync(platformsDir)) {
+    for (const [filename, urlPath] of Object.entries(platformSlugMap)) {
+      const filePath = path.join(platformsDir, filename);
+      if (fs.existsSync(filePath)) {
+        reviewEntries.push({
+          url: `${BASE_URL}${urlPath}`,
+          lastModified: now,
+          changeFrequency: 'monthly',
+          priority: 0.9,
+        });
+      }
+    }
+  }
+
+  // 3. CMS-managed articles from content/{category}/*.md
+  //    Only published articles are included (getAllArticles filters by status).
   const articles = getAllArticles();
   const articleEntries = articles.map(article => ({
     url: `${BASE_URL}/${article.categorySlug}/${article.slug}/`,
@@ -53,19 +68,9 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  // 3. Published markdown reviews in content/reviews/*.md
-  //    URL pattern: /reviews/{slug}/
-  const reviews = getAllReviews();
-  const reviewEntries = reviews.map(review => ({
-    url: `${BASE_URL}/reviews/${review.slug}/`,
-    lastModified: review.date ? new Date(review.date) : now,
-    changeFrequency: 'monthly',
-    priority: 0.9,
-  }));
-
-  // Deduplicate by URL — static pages win (first seen wins)
+  // 4. Deduplicate by URL — first seen wins (static pages take priority).
   const seen = new Set();
-  return [...staticEntries, ...articleEntries, ...reviewEntries].filter(entry => {
+  return [...staticEntries, ...reviewEntries, ...articleEntries].filter(entry => {
     if (seen.has(entry.url)) return false;
     seen.add(entry.url);
     return true;

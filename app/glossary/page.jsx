@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function GlossaryPage() {
-  return <GlossaryClient />;
+  const data = getPageData('glossary');
+  return <GlossaryClient data={data} />;
 }

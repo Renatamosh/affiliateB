@@ -34,8 +34,10 @@ const FAQS = [
   { q: 'Can I change my bid after I have made it?', a: "No — a bid is final once made and the next player has called. Think before you bid, not after." },
 ];
 
-export default function BiddingQuizClient() {
+export default function BiddingQuizClient({ data }) {
   const { theme } = useTheme();
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const [qIdx, setQIdx] = useState(0);
   const [selected, setSelected] = useState(null);
   const [score, setScore] = useState(0);
@@ -138,8 +140,8 @@ export default function BiddingQuizClient() {
           )}
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

@@ -85,8 +85,10 @@ const FAQS = [
   { q: "What is a 'fourth best' lead?", a: "A fourth-best opening lead means playing your fourth-highest card in your longest suit. For example, from ♠K-J-9-6-3, you lead the ♠6. This traditional lead allows partner to apply the 'Rule of Eleven'." },
 ];
 
-export default function PracticeBoardsClient() {
+export default function PracticeBoardsClient({ data }) {
   const { theme } = useTheme();
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const isMobile = useMobile();
   const [dealIdx, setDealIdx] = useState(0);
   const [showAll, setShowAll] = useState(false);
@@ -164,8 +166,8 @@ export default function PracticeBoardsClient() {
           </div>
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

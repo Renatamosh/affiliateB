@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function CardPlayPage() {
-  return <CardPlayClient />;
+  const data = getPageData('card-play-strategy');
+  return <CardPlayClient data={data} />;
 }

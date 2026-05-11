@@ -74,10 +74,13 @@ const FAQS = [
   { q: "What is a 'cuebid' in bridge?", a: "A cuebid has two meanings depending on context. An 'overcall cuebid' bids the opponent's suit artificially, usually showing a strong hand. A 'slam cuebid' shows first-round control when investigating a slam." },
 ];
 
-export default function GlossaryClient() {
+export default function GlossaryClient({ data }) {
   const { theme } = useTheme();
   const [search, setSearch] = useState('');
   const [activeLetter, setActiveLetter] = useState(null);
+  const terms = data?.terms || TERMS;
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#0a1525' : theme === 'bright' ? '#fff' : '#f5f3ee';
   const cardBg = isDeep ? '#0f1d3a' : '#fff';
@@ -85,13 +88,13 @@ export default function GlossaryClient() {
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
 
-  const filtered = TERMS.filter(t => {
+  const filtered = terms.filter(t => {
     const q = search.toLowerCase();
     const matchSearch = !q || t.term.toLowerCase().includes(q) || t.def.toLowerCase().includes(q);
     const matchLetter = !activeLetter || t.term[0].toUpperCase() === activeLetter;
     return matchSearch && matchLetter;
   });
-  const letters = [...new Set(TERMS.map(t => t.term[0].toUpperCase()))].sort();
+  const letters = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
 
   return (
     <div>
@@ -120,8 +123,8 @@ export default function GlossaryClient() {
           </div>
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

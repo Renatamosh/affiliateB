@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function BiddingQuizPage() {
-  return <BiddingQuizClient />;
+  const data = getPageData('bidding-quiz');
+  return <BiddingQuizClient data={data} />;
 }

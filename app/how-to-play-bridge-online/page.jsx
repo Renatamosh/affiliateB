@@ -33,13 +33,14 @@ export async function generateMetadata() {
 }
 
 export default function HowToPlayBridgeOnlinePage() {
+  const data = getPageData('how-to-play-bridge-online');
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
-      <HowToPlayClient />
+      <HowToPlayClient data={data} />
     </>
   );
 }

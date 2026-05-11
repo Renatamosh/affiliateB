@@ -1,19 +1,58 @@
 ---
-title: "Bridge Bidding Quiz"
-hero_heading: "Bridge Bidding Quiz"
-hero_subtitle: "Test your bidding judgment with real hands from online bridge games"
-meta_title: "Bridge Bidding Quiz — Test Your Bidding Judgment | Bridge Playbook"
-meta_description: "Interactive bridge bidding quiz with real hands. Test your opening bids, responses, and slam bidding with hands from online bridge games. Improve your judgment fast."
-og_title: "Bridge Bidding Quiz — Test Your Bidding"
-og_description: "Test your bridge bidding with an interactive quiz. Real hands, expert explanations, and immediate feedback to sharpen your auction judgment."
-canonical: "https://bridgeplaybook.com/bidding-quiz/"
+title: Bidding Quiz
+hero_subtitle: 6 Real Hands · Instant Explanations · Test Your Auction
+seo_paras:
+  - >-
+    A bidding quiz is one of the most effective ways to accelerate your development as a
+    bridge player. Unlike playing full hands, a quiz focuses exclusively on the auction —
+    presenting you with a hand and context, and asking you to find the best call.
+  - >-
+    The quiz hands on this page have been selected to test the most important concepts in
+    introductory and intermediate bidding: opening bid selection, responding to partner's
+    bids, choosing between game and partscore, and the basic use of conventions.
+  - >-
+    When taking a bidding quiz, resist the temptation to guess randomly or rush. Treat each
+    question as a real hand: count your HCP, assess your distribution, and form a view before
+    selecting an answer.
+  - >-
+    The best bridge players develop an intuitive feel for hand value that goes beyond raw HCP —
+    recognising that a five-card suit adds value, that a void in partner's suit can be
+    catastrophic, that soft values are often worth less than their nominal HCP suggest.
+    Regular quiz practice is one of the fastest ways to develop this intuition.
+  - >-
+    Once you have completed this quiz, we recommend trying it again from scratch — often the
+    second run produces different results as the explanations settle in your thinking.
 faq:
-  - question: "How can a bidding quiz help me improve at bridge?"
-    answer: "A bidding quiz forces you to commit to a decision before seeing the expert answer, which is more effective than passively reading about bidding theory. The immediate feedback — and understanding why the expert choice is better — accelerates learning faster than playing live games alone, where you often never discover your error."
-  - question: "What types of bridge bidding questions should I practice?"
-    answer: "Focus on opening bid choices (especially borderline hands), responses to partner's opening bids, rebids by opener and responder, and competitive bidding decisions when the opponents are active. Slam decisions and 2-over-1 responses are also worth drilling. Avoid overloading on exotic conventions before mastering these core auctions."
-  - question: "How do I know if my bridge bidding is at the right level?"
-    answer: "If you are consistently making the same bid as the expert answer on 70% or more of questions, your bidding fundamentals are solid. Below 60%, focus on the basic auctions. Scores vary with hand type — slam hands and competitive auctions are genuinely harder, so lower accuracy there is normal even for good players."
-  - question: "Can I practice bridge bidding online for free?"
-    answer: "Yes. BBO has free robot practice tables where you can bid and play hands. Funbridge offers free lessons with bidding exercises. Our bidding quiz is also free. For structured bidding study, Bridge Master on BBO provides carefully designed problem sets that target specific bidding and card play skills."
+  - q: What HCP do I need to open the bidding?
+    a: >-
+      The standard minimum is 12 HCP for a one-level opening in a suit. With a strong 5-card
+      suit and good shape, some experienced players open with 11 HCP. With 10 HCP or fewer,
+      generally pass.
+  - q: What is an overcall and how is it different from an opening bid?
+    a: >-
+      An overcall is a bid made after an opponent has already opened. It typically shows 8–16
+      HCP and a good 5+ card suit. Unlike an opening bid, an overcall also has a lead-directing
+      purpose.
+  - q: What is a limit raise?
+    a: >-
+      A limit raise is a raise of partner's suit that shows invitational values — typically
+      10–12 HCP and 3-card support. It invites partner to bid game with a maximum opening and
+      to pass with a minimum.
+  - q: When should I bid game rather than a partscore?
+    a: >-
+      Bid game when your side collectively holds 25+ HCP and you have found a fit. If partner
+      opens and you hold 13+ HCP, insist on game. If partner invites and you have 15+ HCP, accept.
+  - q: Can I change my bid after I have made it?
+    a: >-
+      No — a bid is final once made and the next player has called. Think before you bid,
+      not after.
+meta_title: Bridge Bidding Quiz — Test Your Bidding Knowledge | Bridge Playbook
+meta_description: >-
+  Take our 6-question bridge bidding quiz. Test your HCP counting, opening bids, responses,
+  and game-going judgement with instant explanations. Free.
+og_title: Bridge Bidding Quiz — 6 Real Hands with Explanations
+og_description: >-
+  Test your bridge bidding with 6 real hands. Instant feedback on every answer —
+  opening bids, responses, game decisions, and competitive auctions.
+canonical: https://bridgeplaybook.com/bidding-quiz/
 ---

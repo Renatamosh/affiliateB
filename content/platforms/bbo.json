@@ -1,9 +1,7 @@
 {
   "name": "Bridge Base Online (BBO)",
   "shortName": "BBO",
-  "rating": 4.5,
   "badge": "Best for Live Play & Masterpoints",
-  "price": "Free / BBO+ at $5.99/month",
   "tagline": "The world's largest online bridge platform — the default for live human play and online ACBL-sanctioned masterpoints.",
   "overview": "Bridge Base Online, universally known as BBO, is the dominant force in online bridge in 2026. With approximately 11.6 million monthly visits, it is the closest thing the bridge world has to a central hub — and the default home for online ACBL-sanctioned games. Founded in 1990, BBO has been the platform of choice for everything from casual club games to the world's highest-profile tournaments. Founder Fred Gitelman was inducted into the ACBL Hall of Fame in 2018. The Bermuda Bowl and World Bridge Championships are broadcast live on BBO every two years.",
   "sections": [
@@ -22,7 +20,40 @@
     { "label": "ACBL Masterpoints", "n": 5 },
     { "label": "Mobile App", "n": 3 }
   ],
-  "visitUrl": "https://www.bridgebase.com",
+  "rating": 4.5,
+  "price": "Free / BBO+ at $5.99/month",
   "bestFor": "Intermediate and advanced players who want live human play and online ACBL masterpoints",
-  "lastVerified": "May 2026"
+  "visitUrl": "https://www.bridgebase.com",
+  "lastVerified": "May 2026",
+  "pros": [
+    "Largest bridge community online — 11.6 million monthly visits",
+    "Default platform for online ACBL-sanctioned masterpoints",
+    "Completely free tier that covers most players' needs",
+    "Vugraph broadcasts of World Championships and Bermuda Bowl",
+    "Partnership desk makes finding a pickup partner easy",
+    "Runs in any browser — no download required"
+  ],
+  "cons": [
+    "Interface is dated and can overwhelm new users",
+    "Mobile app is less polished than Funbridge",
+    "Some premium events require BB$ virtual currency",
+    "Robot AI is weaker than Funbridge's Argine engine",
+    "Ads on the free tier can interrupt play"
+  ],
+  "faq": [
+    { "q": "Is BBO completely free?", "a": "The free tier is genuinely complete — full access to live tables, partnership desk, casual games, and Vugraph broadcasts. BBO+ at $5.99/month removes ads, adds Advanced Robots, and includes the Bridgerama+ digital magazine. Most players never need to upgrade." },
+    { "q": "Can I earn ACBL masterpoints on BBO?", "a": "Yes. BBO is the default platform for online ACBL-sanctioned events. Most events award online masterpoints, which count toward Life Master and other ACBL ranks and are reported separately from face-to-face points. Major events can award colored points (silver, red, gold)." },
+    { "q": "What bidding systems does BBO support?", "a": "BBO supports SAYC (default), Acol, 2/1, EHAA, Polish Club, Precision, and several other systems for robot play. For human games you can play any system with your partner." },
+    { "q": "How do I find a partner on BBO?", "a": "Use the Partnership Desk, accessible from the main lobby. You can post availability or browse others looking for partners. Specify your system, level, and availability. Most players find a game quickly at peak hours." },
+    { "q": "Is BBO good for beginners?", "a": "BBO works for beginners but the interface can feel overwhelming at first. New players often find Funbridge more approachable for solo learning. BBO's strength is the human community — once you're past the learning curve, no other platform offers as many live games." }
+  ],
+  "featured_image": "",
+  "featured_image_alt": "",
+  "meta_title": "Bridge Base Online (BBO) Review 2026 — Free vs BBO+ ($5.99/mo)",
+  "meta_description": "Independent BBO review for 2026. Free tier, BBO+ at $5.99/mo, ACBL masterpoints, GIB robots, tournaments. Pricing verified May 2026. Compare with Funbridge and RealBridge.",
+  "og_title": "Bridge Base Online (BBO) Review 2026",
+  "og_description": "Independent BBO review: free tier vs BBO+ at $5.99/month, ACBL masterpoints, robot play, live community. Verified May 2026.",
+  "og_image": "",
+  "canonical": "https://bridgeplaybook.com/reviews/bridge-base-online-bbo-review/",
+  "entity_tags": ["Bridge Base Online", "BBO", "ACBL masterpoints", "online bridge platform", "GIB robots"]
 }

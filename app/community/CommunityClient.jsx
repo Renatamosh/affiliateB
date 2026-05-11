@@ -58,9 +58,12 @@ const FAQS = [
 
 const TABS = [['forum', 'Forum'], ['partners', 'Partner Finder'], ['events', 'Weekly Sessions'], ['stories', 'Member Stories']];
 
-export default function CommunityClient() {
+
+export default function CommunityClient({ data }) {
   const { theme } = useTheme();
   const [tab, setTab] = useState('forum');
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#0a1525' : theme === 'bright' ? '#fff' : '#f5f3ee';
   const cardBg = isDeep ? '#0f1d3a' : '#fff';
@@ -188,8 +191,8 @@ export default function CommunityClient() {
 
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

@@ -36,9 +36,12 @@ const FAQS = [
   { q: 'Can my partner and I agree on any bidding system we like?', a: 'Yes — partnerships are free to agree any bidding system. However, you must disclose your agreements to opponents: any artificial or conventional bid must be alerted and explained if asked.' },
 ];
 
-export default function BiddingClient() {
+export default function BiddingClient({ data }) {
   const { theme } = useTheme();
   const isDeep = theme === 'deep';
+  const concepts = data?.concepts || CONCEPTS;
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const cardBg = isDeep ? '#0f1d3a' : theme === 'bright' ? '#f8f6f2' : '#fff';
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.75)' : '#555';
@@ -51,10 +54,10 @@ export default function BiddingClient() {
       <div style={{ background: bg, minHeight: '40vh', padding: 'clamp(32px,5vw,48px) 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.8, marginTop: 0, marginBottom: 40 }}>
-            Bidding lets you and your partner communicate the strength and shape of your hands — all without showing your cards. Master these six concepts and you'll be bidding confidently.
+            {data?.intro || "Bidding lets you and your partner communicate the strength and shape of your hands — all without showing your cards. Master these six concepts and you'll be bidding confidently."}
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginBottom: 40 }}>
-            {CONCEPTS.map(c => (
+            {concepts.map(c => (
               <div key={c.title} style={{ background: cardBg, border: `1px solid ${bdr}`, borderRadius: 12, padding: 28 }}>
                 <div style={{ fontSize: 32, marginBottom: 14 }}>{c.icon}</div>
                 <h3 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 21, color: headC, margin: '0 0 12px' }}>{c.title}</h3>
@@ -84,8 +87,8 @@ export default function BiddingClient() {
           </div>
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

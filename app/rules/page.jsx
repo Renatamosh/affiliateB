@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function RulesPage() {
-  return <RulesClient />;
+  const data = getPageData('rules');
+  return <RulesClient data={data} />;
 }

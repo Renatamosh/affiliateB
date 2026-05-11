@@ -16,5 +16,6 @@ export async function generateMetadata() {
 }
 
 export default function PracticeBoardsPage() {
-  return <PracticeBoardsClient />;
+  const data = getPageData('practice-boards');
+  return <PracticeBoardsClient data={data} />;
 }

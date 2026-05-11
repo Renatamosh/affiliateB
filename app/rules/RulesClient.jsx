@@ -53,11 +53,14 @@ const FAQS = [
   { q: "Are bridge laws the same everywhere?", a: "The core Laws are universal, published by the World Bridge Federation. Individual countries may issue supplementary regulations for their competitions. Online platforms have their own specific additional rules." },
 ];
 
-export default function RulesClient() {
+export default function RulesClient({ data }) {
   const { theme } = useTheme();
   const isDeep = theme === 'deep';
   const [open, setOpen] = useState({});
   const [search, setSearch] = useState('');
+  const ruleCats = data?.rule_categories || RULES_CATS;
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const cardBg = isDeep ? '#0f1d3a' : theme === 'bright' ? '#f8f6f2' : '#fff';
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.75)' : '#555';
@@ -65,7 +68,7 @@ export default function RulesClient() {
   const bg = isDeep ? '#0a1525' : theme === 'bright' ? '#fff' : '#f5f3ee';
 
   const toggle = (key) => setOpen(prev => ({ ...prev, [key]: !prev[key] }));
-  const filtered = RULES_CATS.map(cat => ({
+  const filtered = ruleCats.map(cat => ({
     ...cat,
     items: cat.items.filter(item => !search || item.q.toLowerCase().includes(search.toLowerCase()) || item.a.toLowerCase().includes(search.toLowerCase()))
   })).filter(cat => cat.items.length > 0);
@@ -76,7 +79,7 @@ export default function RulesClient() {
       <div style={{ background: bg, minHeight: '40vh', padding: 'clamp(32px,5vw,48px) 24px' }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.8, marginTop: 0, marginBottom: 32 }}>
-            The official Laws of Bridge explained in plain English. Click any question to expand the answer. Use the search box to find any specific rule instantly.
+            {data?.intro || 'The official Laws of Bridge explained in plain English. Click any question to expand the answer. Use the search box to find any specific rule instantly.'}
           </p>
           <input type="text" placeholder="Search rules — e.g. 'revoke', 'scoring', 'double'…" value={search} onChange={e => setSearch(e.target.value)}
             style={{ width: '100%', padding: '16px 20px', borderRadius: 10, border: `2px solid ${bdr}`, fontSize: 18, fontFamily: "'Source Sans 3', sans-serif", marginBottom: 32, boxSizing: 'border-box', outline: 'none', background: cardBg, color: headC }} />
@@ -105,8 +108,8 @@ export default function RulesClient() {
           </div>
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

@@ -82,13 +82,11 @@
     },
     {
       "label": "Glossary",
-      "href": "/glossary/",
-      "sub": []
+      "href": "/glossary/"
     },
     {
       "label": "Articles",
-      "href": "/articles/",
-      "sub": []
+      "href": "/articles/"
     },
     {
       "label": "About",

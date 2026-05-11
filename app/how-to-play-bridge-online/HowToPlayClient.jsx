@@ -37,8 +37,11 @@ const FAQS = [
   { q: 'How do I find a beginner bridge course?', a: 'Most national bridge organisations offer beginner courses — the American Contract Bridge League (ACBL) lists local clubs in North America; the English Bridge Union (EBU) lists clubs in the UK. Many clubs now run online beginner courses on Zoom or RealBridge.' },
 ];
 
-export default function HowToPlayClient() {
+export default function HowToPlayClient({ data }) {
   const { theme } = useTheme();
+  const steps = data?.steps || STEPS;
+  const seoParas = data?.seo_paras || SEO_PARAS;
+  const faqs = data?.faq || FAQS;
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#0a1525' : theme === 'bright' ? '#fff' : '#f5f3ee';
   const headC = isDeep ? '#fff' : navy;
@@ -57,9 +60,9 @@ export default function HowToPlayClient() {
               <strong>Don't worry if this seems complicated at first.</strong> Bridge has lots of rules, but they follow a clear logic. Read each step, then try a <Link href="/practice-boards/" style={{ color: gold, fontWeight: 700, textDecoration: 'underline' }}>practice hand →</Link>
             </div>
           </div>
-          {STEPS.map((step, i) => (
-            <div key={step.n} style={{ display: 'flex', gap: 28, padding: '32px 0', borderBottom: i < STEPS.length - 1 ? `1px solid ${bdr}` : 'none', alignItems: 'flex-start' }}>
-              <div style={{ flexShrink: 0, width: 58, height: 58, background: navy, color: gold, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Libre Baskerville', serif", fontSize: 22, fontWeight: 700 }}>{step.n}</div>
+          {steps.map((step, i) => (
+            <div key={step.n || i} style={{ display: 'flex', gap: 28, padding: '32px 0', borderBottom: i < steps.length - 1 ? `1px solid ${bdr}` : 'none', alignItems: 'flex-start' }}>
+              <div style={{ flexShrink: 0, width: 58, height: 58, background: navy, color: gold, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Libre Baskerville', serif", fontSize: 22, fontWeight: 700 }}>{step.n || i + 1}</div>
               <div>
                 <h3 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 23, color: headC, margin: '0 0 10px' }}>{step.title}</h3>
                 <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.8, margin: 0 }}>{step.body}</p>
@@ -87,8 +90,8 @@ export default function HowToPlayClient() {
           </div>
         </div>
       </div>
-      <SEOSection paras={SEO_PARAS} />
-      <FAQSection items={FAQS} />
+      <SEOSection paras={seoParas} />
+      <FAQSection items={faqs} />
     </div>
   );
 }

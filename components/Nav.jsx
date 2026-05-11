@@ -68,9 +68,9 @@ export function Nav() {
             <div style={{ display: 'flex', gap: 2, alignItems: 'center' }}>
               {NAV_ITEMS.map((item) => (
                 <div key={item.label} style={{ position: 'relative' }}
-                  onMouseEnter={() => item.sub && setOpenMenu(item.label)}
+                  onMouseEnter={() => item.sub?.length && setOpenMenu(item.label)}
                   onMouseLeave={() => setOpenMenu(null)}>
-                  {item.href ? (
+                  {item.href && !item.sub?.length ? (
                     <Link href={item.href} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                       <span style={{ background: isActive(item) ? 'rgba(212,168,67,0.15)' : 'none', color: isActive(item) ? gold : fg, fontSize: 15, fontFamily: "'Source Sans 3', sans-serif", padding: '8px 14px', borderRadius: 6, fontWeight: isActive(item) ? 700 : 400, whiteSpace: 'nowrap', display: 'block' }}>{item.label}</span>
                     </Link>
@@ -79,7 +79,7 @@ export function Nav() {
                       {item.label} <span style={{ fontSize: 10, opacity: 0.7 }}>▾</span>
                     </button>
                   )}
-                  {item.sub && openMenu === item.label && (
+                  {item.sub?.length > 0 && openMenu === item.label && (
                     <div style={{ position: 'absolute', top: '100%', left: 0, background: dropBg, border: `1px solid ${border}`, borderRadius: 10, minWidth: 240, boxShadow: '0 8px 32px rgba(0,0,0,0.22)', padding: 8, zIndex: 300 }}>
                       {item.sub.map(s => (
                         <Link key={s.label} href={s.href} onClick={() => setOpenMenu(null)}>
@@ -110,7 +110,7 @@ export function Nav() {
           <div style={{ position: 'relative', background: drawerBg, borderBottom: `3px solid ${gold}`, overflowY: 'auto', maxHeight: 'calc(100vh - 71px)' }}>
             {NAV_ITEMS.map(item => (
               <div key={item.label}>
-                {item.sub ? (
+                {item.sub?.length > 0 ? (
                   <>
                     <button onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
                       style={{ width: '100%', background: 'none', border: 'none', borderBottom: `1px solid ${border}`, cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 24px', color: isActive(item) ? gold : fg, fontSize: 17, fontFamily: "'Source Sans 3', sans-serif", fontWeight: isActive(item) ? 700 : 500, textAlign: 'left' }}>
