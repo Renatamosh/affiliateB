@@ -42,6 +42,7 @@ tips:
       methods with your partner before playing.
 seo_paras:
   - >-
+    <h2 hello /h2>
     Card play is where bridge theory becomes bridge skill — and where the game truly comes
     alive. The bidding determines your destination; card play is the journey. The single most
     important habit to develop is planning: before playing a single card from Dummy, count
