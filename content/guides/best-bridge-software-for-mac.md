@@ -9,7 +9,7 @@ tags:
   - bridge app mac
   - play bridge on macbook
   - mac bridge game
-featured_image: /images/best-bridge-software-mac-2026.jpg
+featured_image: /images/playing-duplicate-bridge.jpg.jpg
 featured_image_alt: MacBook showing Bridge Base Online interface with a bridge hand in progress
 excerpt: Most bridge software is built for Windows — but Mac users have
   excellent options. Here are the best bridge platforms that work beautifully on
