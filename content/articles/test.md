@@ -1,8 +1,0 @@
----
-title: test
-slug: test
-category: Guides
-status: draft
-excerpt: test
----
-tttt
