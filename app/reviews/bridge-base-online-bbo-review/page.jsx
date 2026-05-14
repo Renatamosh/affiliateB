@@ -1,8 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import { remark } from 'remark';
+import html from 'remark-html';
 import BBOClient from './BBOClient';
 
 const dataPath = path.join(process.cwd(), 'content/platforms/bbo.json');
+
+async function mdToHtml(md) {
+  if (!md) return '';
+  return (await remark().use(html).process(md)).toString();
+}
 
 export async function generateMetadata() {
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -18,8 +25,21 @@ export async function generateMetadata() {
   };
 }
 
-export default function BBOReviewPage() {
+export default async function BBOReviewPage() {
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+  // Process sections.body from markdown to HTML
+  const sections = await Promise.all(
+    (data.sections || []).map(async (s) => ({
+      ...s,
+      bodyHtml: await mdToHtml(s.body),
+    }))
+  );
+
+  // Process seo_body if present
+  const seoBodyHtml = await mdToHtml(data.seo_body || '');
+
+  const processedData = { ...data, sections, seoBodyHtml };
 
   const reviewSchema = {
     '@context': 'https://schema.org',
@@ -45,7 +65,7 @@ export default function BBOReviewPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
-      <BBOClient data={data} />
+      <BBOClient data={processedData} />
     </>
   );
 }

@@ -1,5 +1,7 @@
 import HowToPlayClient from './HowToPlayClient';
 import { getPageData } from '../../lib/pages';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 const howToSchema = {
   '@context': 'https://schema.org',
@@ -32,8 +34,14 @@ export async function generateMetadata() {
   };
 }
 
-export default function HowToPlayBridgeOnlinePage() {
-  const data = getPageData('how-to-play-bridge-online');
+export default async function HowToPlayBridgeOnlinePage() {
+  const rawData = getPageData('how-to-play-bridge-online');
+  let seo_body_html = null;
+  if (rawData?.seo_body) {
+    seo_body_html = (await remark().use(html).process(rawData.seo_body)).toString();
+  }
+  const data = rawData ? { ...rawData, seo_body_html } : null;
+
   return (
     <>
       <script

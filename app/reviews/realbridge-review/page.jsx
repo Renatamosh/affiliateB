@@ -1,8 +1,15 @@
 import fs from 'fs';
 import path from 'path';
+import { remark } from 'remark';
+import html from 'remark-html';
 import RealBridgeClient from './RealBridgeClient';
 
 const dataPath = path.join(process.cwd(), 'content/platforms/realbridge.json');
+
+async function mdToHtml(md) {
+  if (!md) return '';
+  return (await remark().use(html).process(md)).toString();
+}
 
 export async function generateMetadata() {
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -18,8 +25,18 @@ export async function generateMetadata() {
   };
 }
 
-export default function RealBridgeReviewPage() {
+export default async function RealBridgeReviewPage() {
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+  const sections = await Promise.all(
+    (data.sections || []).map(async (s) => ({
+      ...s,
+      bodyHtml: await mdToHtml(s.body),
+    }))
+  );
+
+  const seoBodyHtml = await mdToHtml(data.seo_body || '');
+  const processedData = { ...data, sections, seoBodyHtml };
 
   const reviewSchema = {
     '@context': 'https://schema.org',
@@ -45,7 +62,7 @@ export default function RealBridgeReviewPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
-      <RealBridgeClient data={data} />
+      <RealBridgeClient data={processedData} />
     </>
   );
 }

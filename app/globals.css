@@ -16,3 +16,12 @@ p, h1, h2, h3, h4, li { overflow-wrap: break-word; word-break: break-word; }
   button, [role="button"] { min-height: 44px; }
   input, textarea, select { font-size: 16px !important; }
 }
+
+.article-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 16px 0; display: block; }
+.article-body h2 { font-family: 'Libre Baskerville', serif; font-size: 1.6rem; color: #1c2f5e; margin: 2rem 0 1rem; }
+.article-body h3 { font-family: 'Libre Baskerville', serif; font-size: 1.3rem; color: #1c2f5e; margin: 1.5rem 0 0.75rem; }
+.article-body p { font-family: 'Source Sans 3', sans-serif; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.25rem; color: #444; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.article-body li { font-family: 'Source Sans 3', sans-serif; font-size: 1.05rem; line-height: 1.75; color: #444; margin-bottom: 0.4rem; }
+.article-body a { color: #d4a843; text-decoration: underline; }
+.article-body strong { font-weight: 700; }

@@ -20,7 +20,7 @@ const ABOUT_PARAS = [
   'We are transparent about our affiliate relationships: some links on this site earn us a small commission, which helps keep the site free. But our editorial opinions are never for sale. We only recommend what we genuinely believe in — and we will tell you just as clearly when something is not worth your money.',
 ];
 
-export default function AboutClient() {
+export default function AboutClient({ data }) {
   const { theme } = useTheme();
   const [form, setForm] = useState({ name: '', email: '', msg: '' });
   const [sent, setSent] = useState(false);
@@ -30,6 +30,9 @@ export default function AboutClient() {
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
+
+  const sectionHeading = data?.section_heading || 'Why We Built Bridge Playbook';
+  const bodyHtml = data?.body_html || null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,10 +59,18 @@ export default function AboutClient() {
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 48, marginBottom: 48, alignItems: 'start' }}>
             <div>
-              <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 30, color: headC, marginTop: 0 }}>Why We Built Bridge Playbook</h2>
-              {ABOUT_PARAS.map((p, i) => (
-                <p key={i} style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.85, marginBottom: 22 }}>{p}</p>
-              ))}
+              <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 30, color: headC, marginTop: 0 }}>{sectionHeading}</h2>
+              {bodyHtml ? (
+                <div
+                  className="article-body"
+                  dangerouslySetInnerHTML={{ __html: bodyHtml }}
+                  style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.85 }}
+                />
+              ) : (
+                ABOUT_PARAS.map((p, i) => (
+                  <p key={i} style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: textC, lineHeight: 1.85, marginBottom: 22 }}>{p}</p>
+                ))
+              )}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {VALUES.map(v => (

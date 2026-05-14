@@ -41,6 +41,8 @@ export default function HowToPlayClient({ data }) {
   const { theme } = useTheme();
   const steps = data?.steps || STEPS;
   const seoParas = data?.seo_paras || SEO_PARAS;
+  const seoBody = data?.seo_body_html || null;
+  const seoTitle = data?.seo_section_title || null;
   const faqs = data?.faq || FAQS;
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#0a1525' : theme === 'bright' ? '#fff' : '#f5f3ee';
@@ -90,7 +92,7 @@ export default function HowToPlayClient({ data }) {
           </div>
         </div>
       </div>
-      <SEOSection paras={seoParas} />
+      <SEOSection paras={seoParas} title={seoTitle} seoBody={seoBody} />
       <FAQSection items={faqs} />
     </div>
   );

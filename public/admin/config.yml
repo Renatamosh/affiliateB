@@ -31,7 +31,7 @@ collections:
             hint: "The main body sections of the review, in the order they appear on the page"
             fields:
               - { label: "Section Heading", name: "title", widget: "string" }
-              - { label: "Section Body", name: "body", widget: "text" }
+              - { label: "Section Body", name: "body", widget: "markdown" }
           - label: "Pros"
             name: "pros"
             widget: "list"
@@ -64,6 +64,8 @@ collections:
             fields:
               - { label: "Question", name: "q", widget: "string" }
               - { label: "Answer", name: "a", widget: "text" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Review", required: false }
+          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string", hint: "Max 60 characters. Include main keyword." }
           - { label: "Meta Description", name: "meta_description", widget: "text", hint: "Max 160 characters. Include a call to action." }
           - { label: "OG Title", name: "og_title", widget: "string", required: false, hint: "Leave blank to use Meta Title" }
@@ -93,7 +95,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: "Section Heading", name: "title", widget: "string" }
-              - { label: "Section Body", name: "body", widget: "text" }
+              - { label: "Section Body", name: "body", widget: "markdown" }
           - label: "Pros"
             name: "pros"
             widget: "list"
@@ -122,6 +124,8 @@ collections:
             fields:
               - { label: "Question", name: "q", widget: "string" }
               - { label: "Answer", name: "a", widget: "text" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Review", required: false }
+          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
           - { label: "OG Title", name: "og_title", widget: "string", required: false }
@@ -151,7 +155,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: "Section Heading", name: "title", widget: "string" }
-              - { label: "Section Body", name: "body", widget: "text" }
+              - { label: "Section Body", name: "body", widget: "markdown" }
           - label: "Pros"
             name: "pros"
             widget: "list"
@@ -180,6 +184,8 @@ collections:
             fields:
               - { label: "Question", name: "q", widget: "string" }
               - { label: "Answer", name: "a", widget: "text" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Review", required: false }
+          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
           - { label: "OG Title", name: "og_title", widget: "string", required: false }
@@ -380,7 +386,7 @@ collections:
         field: { label: "Entity", name: "entity", widget: "string" }
 
   # ─────────────────────────────────────────────
-  # 📊 COMPARISONS  →  bridgeplaybook.com/comparisons/slug
+  # 📊 COMPARISONS  →  bridgeplaybook.com/compare/slug
   # ─────────────────────────────────────────────
   - name: "comparisons"
     label: "📊 Comparisons"
@@ -404,6 +410,9 @@ collections:
       - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
       - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
       - { label: "Excerpt / Summary", name: "excerpt", widget: "text" }
+      - { label: "Platform A Name", name: "platform_a_name", widget: "string", required: false }
+      - { label: "Platform B Name", name: "platform_b_name", widget: "string", required: false }
+      - { label: "TL;DR Summary", name: "tldr", widget: "text", required: false, hint: "One-paragraph summary shown at top" }
       - { label: "Body", name: "body", widget: "markdown" }
       - label: "Key Takeaways"
         name: "key_takeaways"
@@ -416,6 +425,8 @@ collections:
         fields:
           - { label: "Question", name: "question", widget: "string" }
           - { label: "Answer", name: "answer", widget: "text" }
+      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+      - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
       - label: "Affiliate Links"
         name: "affiliate_links"
         widget: "list"
@@ -555,9 +566,23 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Hero Heading", name: "hero_heading", widget: "string" }
           - { label: "Hero Subheading", name: "hero_subheading", widget: "text" }
+          - { label: "Hero CTA Button 1 Text", name: "cta1_text", widget: "string", default: "Compare Platforms →", required: false }
+          - { label: "Hero CTA Button 1 URL", name: "cta1_url", widget: "string", default: "/reviews/", required: false }
+          - { label: "Hero CTA Button 2 Text", name: "cta2_text", widget: "string", default: "New to Bridge?", required: false }
+          - { label: "Hero CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/how-to-play-bridge-online/", required: false }
+          - { label: "Show Trust Bar (Platforms Reviewed strip)", name: "show_trust_bar", widget: "boolean", default: true, hint: "Toggle the 'Platforms reviewed' strip below the hero section" }
+          - { label: "Content Section Title", name: "content_title", widget: "string", default: "Learn, Practise & Play", required: false }
+          - { label: "Content Section Subtitle", name: "content_subtitle", widget: "text", default: "From your very first hand to confident online play", required: false }
+          - { label: "Why Bridge Section Title", name: "why_bridge_title", widget: "string", default: "Six Reasons to Love Bridge", required: false }
+          - { label: "How to Choose Section Title", name: "choose_title", widget: "string", default: "How to Choose Your Online Bridge Platform", required: false }
+          - { label: "SEO Section Title", name: "seo_title", widget: "string", default: "Your Trusted Guide to Online Bridge", required: false }
+          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false, hint: "The long-form SEO content section at the bottom of the homepage" }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
           - { label: "OG Image", name: "og_image", widget: "image", required: false }
+          - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
 
       - label: "How to Play Bridge Online"
         name: "how-to-play-bridge-online"
@@ -573,11 +598,8 @@ collections:
               - { label: "Step Number", name: "n", widget: "number", value_type: "int" }
               - { label: "Step Title", name: "title", widget: "string" }
               - { label: "Step Body", name: "body", widget: "text" }
-          - label: "Full Guide Paragraphs (SEO section at bottom)"
-            name: "seo_paras"
-            widget: "list"
-            hint: "These appear in the 'Full Guide' section below the main content. Important for SEO."
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -608,11 +630,8 @@ collections:
               - { label: "Icon (emoji)", name: "icon", widget: "string", hint: "Single emoji, e.g. 🔢 or 🎯" }
               - { label: "Card Title", name: "title", widget: "string" }
               - { label: "Card Body", name: "body", widget: "text" }
-          - label: "Full Guide Paragraphs (SEO section at bottom)"
-            name: "seo_paras"
-            widget: "list"
-            hint: "These appear in the 'Full Guide' section. Important for SEO."
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -642,10 +661,8 @@ collections:
               - { label: "Suit Symbol", name: "suit", widget: "string", hint: "♠ ♥ ♦ or ♣" }
               - { label: "Tip Title", name: "title", widget: "string" }
               - { label: "Tip Body", name: "body", widget: "text" }
-          - label: "Full Guide Paragraphs (SEO section at bottom)"
-            name: "seo_paras"
-            widget: "list"
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -680,10 +697,8 @@ collections:
                 fields:
                   - { label: "Question", name: "q", widget: "string" }
                   - { label: "Answer", name: "a", widget: "text" }
-          - label: "Full Guide Paragraphs (SEO section at bottom)"
-            name: "seo_paras"
-            widget: "list"
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ (bottom FAQ section)"
             name: "faq"
             widget: "list"
@@ -712,10 +727,8 @@ collections:
             fields:
               - { label: "Term", name: "term", widget: "string" }
               - { label: "Definition", name: "def", widget: "text" }
-          - label: "Full Guide Paragraphs (SEO section at bottom)"
-            name: "seo_paras"
-            widget: "list"
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -736,10 +749,8 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
-          - label: "Full Guide Paragraphs (SEO section)"
-            name: "seo_paras"
-            widget: "list"
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -760,10 +771,8 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
-          - label: "Full Guide Paragraphs (SEO section)"
-            name: "seo_paras"
-            widget: "list"
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -784,10 +793,8 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
-          - label: "Full Guide Paragraphs (SEO section)"
-            name: "seo_paras"
-            widget: "list"
-            field: { label: "Paragraph", name: "para", widget: "text" }
+          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
             widget: "list"
@@ -808,8 +815,12 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Section Heading (h2)", name: "section_heading", widget: "string", default: "Why We Built Bridge Playbook", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
+          - { label: "OG Title", name: "og_title", widget: "string", required: false }
+          - { label: "OG Description", name: "og_description", widget: "text", required: false }
+          - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
 
   # ─────────────────────────────────────────────
   # ⚙️ SETTINGS — Navigation

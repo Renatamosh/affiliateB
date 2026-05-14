@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useTheme } from '../../../components/ThemeProvider';
 import { PageHeader } from '../../../components/PageHeader';
 import { FAQSection } from '../../../components/FAQSection';
+import { SEOSection } from '../../../components/SEOSection';
 
 const navy = '#1c2f5e';
 const gold = '#d4a843';
@@ -60,7 +61,15 @@ export default function BBOClient({ data }) {
               {data.sections.map((s, i) => (
                 <div key={i} style={{ marginBottom: 36 }}>
                   <h3 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 22, color: headC, margin: '0 0 12px' }}>{s.title}</h3>
-                  <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: textC, lineHeight: 1.85, margin: 0 }}>{s.body}</p>
+                  {s.bodyHtml ? (
+                    <div
+                      className="article-body"
+                      dangerouslySetInnerHTML={{ __html: s.bodyHtml }}
+                      style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: textC, lineHeight: 1.85, margin: 0 }}
+                    />
+                  ) : (
+                    <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: textC, lineHeight: 1.85, margin: 0 }}>{s.body}</p>
+                  )}
                 </div>
               ))}
 
@@ -144,6 +153,11 @@ export default function BBOClient({ data }) {
           </div>
         </div>
       </div>
+
+      {/* SEO Section */}
+      {data.seoBodyHtml && (
+        <SEOSection title={data.seo_section_title || 'Full BBO Guide'} seoBody={data.seoBodyHtml} />
+      )}
 
       {/* FAQ Section */}
       {faqItems.length > 0 && <FAQSection items={faqItems} />}

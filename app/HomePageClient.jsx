@@ -13,11 +13,13 @@ function useMobile(bp = 768) {
   return m;
 }
 
-function HeroSection() {
+function HeroSection({ heading, subheading }) {
   const { theme } = useTheme();
   const isMobile = useMobile();
   const isDeep = theme === 'deep';
   const heroBg = isDeep ? 'linear-gradient(135deg, #060d1a 0%, #0f1d3a 55%, #0d2318 100%)' : 'linear-gradient(135deg, #1c2f5e 0%, #2d4a7a 60%, #1a3040 100%)';
+  const heroHeading = heading || 'The Independent Online Bridge Guide';
+  const heroSubheading = subheading || 'Platform reviews, convention guides, and ACBL masterpoint information for intermediate and advanced players in the US, UK, Australia and Canada. All platform pricing verified May 2026.';
   return (
     <section style={{ background: heroBg, color: '#fff', padding: isMobile ? '48px 20px 44px' : '80px 24px 72px', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', right: -20, top: -20, fontSize: isMobile ? 140 : 320, opacity: 0.04, userSelect: 'none', lineHeight: 1 }}>♠</div>
@@ -28,9 +30,9 @@ function HeroSection() {
             <span style={{ color: gold, fontSize: 13, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif" }}>♠ ♥ ♦ ♣ &nbsp; Independent · Pricing Verified May 2026</span>
           </div>
           <h1 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 34 : 52, fontWeight: 700, lineHeight: 1.18, margin: '0 0 20px', color: '#fff' }}>
-            The Independent <span style={{ color: gold }}>Online Bridge</span> Guide
+            {heroHeading}
           </h1>
-          <p style={{ fontSize: isMobile ? 17 : 20, lineHeight: 1.75, margin: '0 0 28px', opacity: 0.88, fontFamily: "'Source Sans 3', sans-serif", maxWidth: 560 }}>Platform reviews, convention guides, and ACBL masterpoint information for intermediate and advanced players in the US, UK, Australia and Canada. All platform pricing verified May 2026.</p>
+          <p style={{ fontSize: isMobile ? 17 : 20, lineHeight: 1.75, margin: '0 0 28px', opacity: 0.88, fontFamily: "'Source Sans 3', sans-serif", maxWidth: 560 }}>{heroSubheading}</p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Link href="/reviews/"><button style={{ background: gold, color: navy, border: 'none', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Compare Platforms →</button></Link>
             <Link href="/how-to-play-bridge-online/"><button style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '2px solid rgba(255,255,255,0.35)', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 600, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>New to Bridge?</button></Link>
@@ -407,7 +409,7 @@ function HomeFAQSection() {
   );
 }
 
-export default function HomePageClient() {
+export default function HomePageClient({ data }) {
   const { theme } = useTheme();
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#0a1525' : theme === 'bright' ? '#fff' : '#f5f3ee';
@@ -427,7 +429,7 @@ export default function HomePageClient() {
 
   return (
     <div style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-      <HeroSection />
+      <HeroSection heading={data?.hero_heading} subheading={data?.hero_subheading} />
       <TrustBar />
       <ContentSection />
       <WhyBridgeSection />
