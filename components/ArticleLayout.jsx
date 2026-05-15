@@ -11,6 +11,7 @@ export default function ArticleLayout({
   suit,
   bodyHtml,
   seo_section_title,
+  seo_section_title_level,
   seoBodyHtml,
   faq,
   date,
@@ -91,6 +92,7 @@ export default function ArticleLayout({
       {(seoBodyHtml || seo_section_title) && (
         <SEOSection
           title={seo_section_title || 'Full Guide'}
+          titleLevel={seo_section_title_level || 'h2'}
           seoBody={seoBodyHtml}
         />
       )}

@@ -35,6 +35,7 @@ export default async function GuideSlugPage({ params }) {
       suit="♠"
       bodyHtml={item.bodyHtml}
       seo_section_title={item.seo_section_title}
+      seo_section_title_level={item.seo_section_title_level}
       seoBodyHtml={item.seoBodyHtml}
       faq={item.faq}
       date={item.date}

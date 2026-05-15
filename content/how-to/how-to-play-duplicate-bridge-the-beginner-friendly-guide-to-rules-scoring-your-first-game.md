@@ -4,7 +4,7 @@ title: "How To Play Duplicate Bridge: The Beginner-Friendly Guide To Rules,
 slug: play-duplicate-bridge
 date: 2026-05-10T23:17:00.000+02:00
 status: published
-featured_image: /images/playing-duplicate-bridge.jpg.jpg
+featured_image: /images/playing-duplicate-bridge.jpg
 featured_image_alt: seniors playing bridge
 excerpt: Duplicate bridge is a competitive version of contract bridge where the
   same hands are played at multiple tables, making the game more about skill

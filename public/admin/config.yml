@@ -65,6 +65,7 @@ collections:
               - { label: "Question", name: "q", widget: "string" }
               - { label: "Answer", name: "a", widget: "text" }
           - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Review", required: false }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Heading size for the SEO section title — h2 is standard" }
           - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string", hint: "Max 60 characters. Include main keyword." }
           - { label: "Meta Description", name: "meta_description", widget: "text", hint: "Max 160 characters. Include a call to action." }
@@ -125,6 +126,7 @@ collections:
               - { label: "Question", name: "q", widget: "string" }
               - { label: "Answer", name: "a", widget: "text" }
           - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Review", required: false }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Heading size for the SEO section title" }
           - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
@@ -185,6 +187,7 @@ collections:
               - { label: "Question", name: "q", widget: "string" }
               - { label: "Answer", name: "a", widget: "text" }
           - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Review", required: false }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Heading size for the SEO section title" }
           - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
@@ -256,7 +259,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
-      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article, e.g. 'The Complete Mac Bridge Guide'" }
+      - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
       - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Use ## for subheadings, **bold** for emphasis. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity / Topic Tags"
         name: "entity_tags"
@@ -320,7 +324,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
-      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
       - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity Tags"
         name: "entity_tags"
@@ -384,7 +389,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
-      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
       - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity Tags"
         name: "entity_tags"
@@ -431,7 +437,8 @@ collections:
         fields:
           - { label: "Question", name: "question", widget: "string" }
           - { label: "Answer", name: "answer", widget: "text" }
-      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+      - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+      - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
       - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
       - label: "Affiliate Links"
         name: "affiliate_links"
@@ -515,7 +522,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
-      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO section — set it per article" }
+      - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
       - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity Tags"
         name: "entity_tags"
@@ -579,10 +587,6 @@ collections:
           - { label: "Hero CTA Button 2 Text", name: "cta2_text", widget: "string", default: "New to Bridge?", required: false }
           - { label: "Hero CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/how-to-play-bridge-online/", required: false }
           - { label: "Show Trust Bar (Platforms Reviewed strip)", name: "show_trust_bar", widget: "boolean", default: true, hint: "Toggle the 'Platforms reviewed' strip below the hero section" }
-          - { label: "CTA Button 1 Text", name: "cta1_text", widget: "string", default: "Compare Platforms →", required: false }
-          - { label: "CTA Button 1 URL", name: "cta1_url", widget: "string", default: "/reviews/", required: false }
-          - { label: "CTA Button 2 Text", name: "cta2_text", widget: "string", default: "New to Bridge?", required: false }
-          - { label: "CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/how-to-play-bridge-online/", required: false }
           - { label: "Content Section Title", name: "content_title", widget: "string", default: "Learn, Practise & Play", required: false }
           - { label: "Content Section Subtitle", name: "content_subtitle", widget: "text", default: "From your very first hand to confident online play — we've got you covered at every step.", required: false }
           - label: "Content Cards (6 squares in Learn/Practise section)"
@@ -641,7 +645,8 @@ collections:
               - { label: "Step Number", name: "n", widget: "number", value_type: "int" }
               - { label: "Step Title", name: "title", widget: "string" }
               - { label: "Step Body", name: "body", widget: "text" }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
@@ -673,7 +678,8 @@ collections:
               - { label: "Icon (emoji)", name: "icon", widget: "string", hint: "Single emoji, e.g. 🔢 or 🎯" }
               - { label: "Card Title", name: "title", widget: "string" }
               - { label: "Card Body", name: "body", widget: "text" }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
@@ -704,7 +710,8 @@ collections:
               - { label: "Suit Symbol", name: "suit", widget: "string", hint: "♠ ♥ ♦ or ♣" }
               - { label: "Tip Title", name: "title", widget: "string" }
               - { label: "Tip Body", name: "body", widget: "text" }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
@@ -740,7 +747,8 @@ collections:
                 fields:
                   - { label: "Question", name: "q", widget: "string" }
                   - { label: "Answer", name: "a", widget: "text" }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ (bottom FAQ section)"
             name: "faq"
@@ -770,7 +778,8 @@ collections:
             fields:
               - { label: "Term", name: "term", widget: "string" }
               - { label: "Definition", name: "def", widget: "text" }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
@@ -792,7 +801,8 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
@@ -814,7 +824,8 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
@@ -836,7 +847,8 @@ collections:
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string", required: false }
-          - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO content section" }
+          - { label: "SEO Section Title", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The heading shown above the SEO content section" }
+          - { label: "SEO Section Title Level", name: "seo_section_title_level", widget: "select", options: ["h2", "h3", "h1"], default: "h2", required: false, hint: "Choose h2 (standard), h3 (smaller), or h1 (largest)" }
           - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "Write all SEO content here in one rich text block. Use ## for subheadings, **bold** for emphasis. You can type card suits: ♥ ♦ ♣ ♠" }
           - label: "FAQ"
             name: "faq"
