@@ -1,27 +1,60 @@
 import Link from 'next/link';
-import { getAllCollectionItems } from '../../lib/collections';
+import { getAllCollectionItems, getCategoryDataWithHtml } from '../../lib/collections';
 import { PageHeader } from '../../components/PageHeader';
+import { FAQSection } from '../../components/FAQSection';
 
-export const metadata = {
-  title: 'Bridge Guides — Strategy, Conventions & Tips | Bridge Playbook',
+const CATEGORY_SLUG = 'guides';
+const COLLECTION    = 'guides';
+const DEFAULTS = {
+  title:       'Bridge Guides — Strategy, Conventions & Tips | Bridge Playbook',
   description: 'In-depth bridge guides covering strategy, conventions, bidding systems and tips for intermediate and advanced players.',
-  alternates: { canonical: 'https://bridgeplaybook.com/guides/' },
+  canonical:   'https://bridgeplaybook.com/guides/',
+  subtitle:    'Strategy, Conventions & Tips',
 };
 
-export default function GuidesIndexPage() {
-  const guides = getAllCollectionItems('guides').filter(g => g.status === 'published' || !g.status);
+export async function generateMetadata() {
+  const cat = await getCategoryDataWithHtml(CATEGORY_SLUG);
+  return {
+    title:       cat?.meta_title       || DEFAULTS.title,
+    description: cat?.meta_description || DEFAULTS.description,
+    alternates:  { canonical: cat?.canonical || DEFAULTS.canonical },
+    openGraph: {
+      title:       cat?.og_title       || cat?.meta_title       || '',
+      description: cat?.og_description || cat?.meta_description || '',
+    },
+  };
+}
+
+export default async function GuidesIndexPage() {
+  const cat    = await getCategoryDataWithHtml(CATEGORY_SLUG);
+  const guides = getAllCollectionItems(COLLECTION).filter(g => g.status === 'published' || !g.status);
 
   const navy = '#1c2f5e';
   const gold = '#d4a843';
+
+  const faqItems = (cat?.faq || []).map(f => ({ q: f.question || f.q || '', a: f.answer || f.a || '' }));
 
   return (
     <div>
       <PageHeader
         title="Bridge Guides"
-        subtitle="Strategy, Conventions & Tips"
+        subtitle={cat?.hero_subtitle || DEFAULTS.subtitle}
         suit="♠"
       />
-      <div style={{ background: '#f5f3ee', minHeight: '60vh', padding: '52px 24px' }}>
+
+      {/* CMS intro body */}
+      {cat?.bodyHtml && (
+        <div style={{ background: '#fff', padding: '40px 24px', borderBottom: '1px solid #e5e0d8' }}>
+          <div
+            className="article-body"
+            style={{ maxWidth: 900, margin: '0 auto', fontFamily: "'Source Sans 3', sans-serif", fontSize: '1.05rem', lineHeight: 1.8, color: '#444' }}
+            dangerouslySetInnerHTML={{ __html: cat.bodyHtml }}
+          />
+        </div>
+      )}
+
+      {/* Article grid */}
+      <div style={{ background: '#f5f3ee', minHeight: '40vh', padding: '52px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           {guides.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '80px 24px' }}>
@@ -68,6 +101,42 @@ export default function GuidesIndexPage() {
           )}
         </div>
       </div>
+
+      {/* Internal links */}
+      {cat?.internal_links && cat.internal_links.length > 0 && (
+        <div style={{ background: '#fff', padding: '40px 24px', borderTop: '1px solid #e5e0d8' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+            <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: gold, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>
+              Related Reading
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+              {cat.internal_links.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.url}
+                  style={{
+                    display: 'inline-block',
+                    background: '#f5f3ee',
+                    border: '1px solid #e5e0d8',
+                    borderRadius: 8,
+                    padding: '10px 18px',
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    fontSize: 15,
+                    color: navy,
+                    textDecoration: 'none',
+                    fontWeight: 600,
+                  }}
+                >
+                  {link.label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* FAQ */}
+      {faqItems.length > 0 && <FAQSection items={faqItems} />}
     </div>
   );
 }
