@@ -13,13 +13,24 @@ function useMobile(bp = 768) {
   return m;
 }
 
-function HeroSection({ heading, subheading }) {
+function HeroSection({ heading, subheading, cta1Text, cta1Url, cta2Text, cta2Url, quickStartLinks }) {
   const { theme } = useTheme();
   const isMobile = useMobile();
   const isDeep = theme === 'deep';
   const heroBg = isDeep ? 'linear-gradient(135deg, #060d1a 0%, #0f1d3a 55%, #0d2318 100%)' : 'linear-gradient(135deg, #1c2f5e 0%, #2d4a7a 60%, #1a3040 100%)';
   const heroHeading = heading || 'The Independent Online Bridge Guide';
   const heroSubheading = subheading || 'Platform reviews, convention guides, and ACBL masterpoint information for intermediate and advanced players in the US, UK, Australia and Canada. All platform pricing verified May 2026.';
+  const btn1Text = cta1Text || 'Compare Platforms →';
+  const btn1Url = cta1Url || '/reviews/';
+  const btn2Text = cta2Text || 'New to Bridge?';
+  const btn2Url = cta2Url || '/how-to-play-bridge-online/';
+  const defaultLinks = [
+    { icon: '🏆', title: 'Compare Platforms', desc: 'BBO, Funbridge, RealBridge — pricing & masterpoints.', href: '/reviews/' },
+    { icon: '📚', title: 'Convention Guides', desc: 'Stayman, Jacoby Transfers, Blackwood RKCB.', href: '/bidding-basics/' },
+    { icon: '⭐', title: 'Earn Masterpoints', desc: 'ACBL online masterpoints — colors and ranks explained.', href: '/articles/' },
+    { icon: '🚢', title: 'Bridge Cruises 2026', desc: 'Larry Cohen, Silversea, river cruises with bridge.', href: '/articles/' },
+  ];
+  const sidebarLinks = (quickStartLinks && quickStartLinks.length > 0) ? quickStartLinks : defaultLinks;
   return (
     <section style={{ background: heroBg, color: '#fff', padding: isMobile ? '48px 20px 44px' : '80px 24px 72px', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', right: -20, top: -20, fontSize: isMobile ? 140 : 320, opacity: 0.04, userSelect: 'none', lineHeight: 1 }}>♠</div>
@@ -34,8 +45,8 @@ function HeroSection({ heading, subheading }) {
           </h1>
           <p style={{ fontSize: isMobile ? 17 : 20, lineHeight: 1.75, margin: '0 0 28px', opacity: 0.88, fontFamily: "'Source Sans 3', sans-serif", maxWidth: 560 }}>{heroSubheading}</p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <Link href="/reviews/"><button style={{ background: gold, color: navy, border: 'none', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>Compare Platforms →</button></Link>
-            <Link href="/how-to-play-bridge-online/"><button style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '2px solid rgba(255,255,255,0.35)', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 600, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>New to Bridge?</button></Link>
+            <Link href={btn1Url}><button style={{ background: gold, color: navy, border: 'none', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 700, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>{btn1Text}</button></Link>
+            <Link href={btn2Url}><button style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', border: '2px solid rgba(255,255,255,0.35)', borderRadius: 10, padding: isMobile ? '14px 24px' : '16px 32px', fontSize: isMobile ? 16 : 18, fontWeight: 600, cursor: 'pointer', fontFamily: "'Source Sans 3', sans-serif" }}>{btn2Text}</button></Link>
           </div>
           <div style={{ display: 'flex', gap: isMobile ? 16 : 32, marginTop: 32, flexWrap: 'wrap', alignItems: 'center' }}>
             <div><div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 22 : 28, color: gold, fontWeight: 700 }}>6</div><div style={{ fontSize: 14, opacity: 0.7, fontFamily: "'Source Sans 3', sans-serif" }}>Platforms reviewed</div></div>
@@ -45,12 +56,7 @@ function HeroSection({ heading, subheading }) {
         </div>
         <div style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 16, padding: isMobile ? 22 : 32, backdropFilter: 'blur(10px)' }}>
           <div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 17, color: gold, marginBottom: 16 }}>Where would you like to start?</div>
-          {[
-            { icon: '🏆', title: 'Compare Platforms', desc: 'BBO, Funbridge, RealBridge — pricing & masterpoints.', href: '/reviews/' },
-            { icon: '📚', title: 'Convention Guides', desc: 'Stayman, Jacoby Transfers, Blackwood RKCB.', href: '/bidding-basics/' },
-            { icon: '⭐', title: 'Earn Masterpoints', desc: 'ACBL online masterpoints — colors and ranks explained.', href: '/articles/' },
-            { icon: '🚢', title: 'Bridge Cruises 2026', desc: 'Larry Cohen, Silversea, river cruises with bridge.', href: '/articles/' },
-          ].map(item => (
+          {sidebarLinks.map(item => (
             <Link key={item.href} href={item.href}>
               <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.08)', cursor: 'pointer' }}>
                 <span style={{ fontSize: 22, flexShrink: 0 }}>{item.icon}</span>
@@ -85,7 +91,7 @@ function TrustBar() {
   );
 }
 
-function ContentSection() {
+function ContentSection({ title, subtitle, cards: cmsCards }) {
   const { theme } = useTheme();
   const isMobile = useMobile();
   const isDeep = theme === 'deep';
@@ -94,7 +100,9 @@ function ContentSection() {
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.7)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
-  const cards = [
+  const sectionTitle = title || 'Learn, Practise & Play';
+  const sectionSubtitle = subtitle || "From your very first hand to confident online play — we've got you covered at every step.";
+  const defaultCards = [
     { suit: '♠', suitColor: isDeep ? '#a0b8d8' : '#1a1a2e', title: 'How to Play Bridge', desc: 'A gentle, step-by-step introduction perfect for complete beginners — from the deal to scoring.', href: '/how-to-play-bridge-online/', tag: 'Beginner' },
     { suit: '♥', suitColor: red, title: 'Bidding Basics', desc: 'Master the language of bridge. Learn to communicate with your partner through the auction.', href: '/bidding-basics/', tag: 'Essential' },
     { suit: '♦', suitColor: red, title: 'Card Play Strategy', desc: 'Finessing, hold-up plays and more — techniques that win contracts and defeat opponents.', href: '/card-play-strategy/', tag: 'Intermediate' },
@@ -102,13 +110,16 @@ function ContentSection() {
     { suit: '🃏', suitColor: gold, title: 'Practice Boards', desc: 'Play through real bridge hands with our interactive deal viewer and expert commentary.', href: '/practice-boards/', tag: 'Interactive' },
     { suit: '🏆', suitColor: gold, title: 'Best Online Platforms', desc: 'Honest, independent reviews of the top bridge platforms — compare features and pricing.', href: '/reviews/', tag: 'Reviews' },
   ];
+  const cards = (cmsCards && cmsCards.length > 0)
+    ? cmsCards.map(c => ({ suit: c.suit, suitColor: gold, title: c.title, desc: c.desc, href: c.href, tag: c.tag }))
+    : defaultCards;
   return (
     <section style={{ background: bg, padding: isMobile ? '52px 20px' : '72px 24px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: isMobile ? 32 : 56 }}>
           <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: gold, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Everything You Need</div>
-          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>Learn, Practise & Play</h2>
-          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 560, margin: '0 auto', lineHeight: 1.7 }}>From your very first hand to confident online play — we've got you covered at every step.</p>
+          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>{sectionTitle}</h2>
+          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 560, margin: '0 auto', lineHeight: 1.7 }}>{sectionSubtitle}</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
           {cards.map(card => (
@@ -130,7 +141,7 @@ function ContentSection() {
   );
 }
 
-function WhyBridgeSection() {
+function WhyBridgeSection({ title, subtitle, cards: cmsCards }) {
   const { theme } = useTheme();
   const isDeep = theme === 'deep';
   const bg = isDeep ? '#060d1a' : theme === 'bright' ? '#f8f6f2' : '#ede8de';
@@ -138,7 +149,9 @@ function WhyBridgeSection() {
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
-  const benefits = [
+  const sectionTitle = title || 'Six Reasons to Love Bridge';
+  const sectionSubtitle = subtitle || "Bridge is uniquely rewarding — here's why millions of players, many of them over 60, consider it the perfect game.";
+  const defaultBenefits = [
     { icon: '🧠', title: 'Keeps Your Mind Sharp', body: 'Research consistently shows that bridge exercises memory, logical reasoning, pattern recognition and forward planning simultaneously — all in one enjoyable session.' },
     { icon: '🤝', title: 'A True Partnership Game', body: 'Bridge is fundamentally about teamwork. You and your partner communicate strategy through your bids, building a shared understanding that grows over time.' },
     { icon: '🌍', title: 'Play Anytime, Anywhere', body: 'Online bridge means no scheduling, no travel, no finding four people in the same room. Log on whenever you like and find a game within seconds.' },
@@ -146,13 +159,14 @@ function WhyBridgeSection() {
     { icon: '♟️', title: 'Strategy Over Speed', body: 'Unlike many card games, bridge rewards careful thought, experience and patience over quick reflexes. It\'s a game that genuinely gets better with age.' },
     { icon: '💛', title: 'Over 60 Million Players', body: 'Bridge is one of the world\'s most popular card games, with active communities in every country. You\'re joining a global family of enthusiasts.' },
   ];
+  const benefits = (cmsCards && cmsCards.length > 0) ? cmsCards : defaultBenefits;
   return (
     <section style={{ background: bg, padding: '72px 24px' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
           <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: gold, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Why Bridge?</div>
-          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 38, color: headC, margin: '0 0 16px' }}>Six Reasons to Love Bridge</h2>
-          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 19, color: textC, maxWidth: 560, margin: '0 auto', lineHeight: 1.7 }}>Bridge is uniquely rewarding — here's why millions of players, many of them over 60, consider it the perfect game.</p>
+          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 38, color: headC, margin: '0 0 16px' }}>{sectionTitle}</h2>
+          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 19, color: textC, maxWidth: 560, margin: '0 auto', lineHeight: 1.7 }}>{sectionSubtitle}</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
           {benefits.map((b, i) => (
@@ -170,7 +184,7 @@ function WhyBridgeSection() {
   );
 }
 
-function HowItWorksSection() {
+function HowItWorksSection({ title }) {
   const { theme } = useTheme();
   const isMobile = useMobile();
   const isDeep = theme === 'deep';
@@ -178,6 +192,7 @@ function HowItWorksSection() {
   const headC = isDeep ? '#fff' : navy;
   const textC = isDeep ? 'rgba(255,255,255,0.72)' : '#555';
   const bdr = isDeep ? '#1a2e50' : '#e5e0d8';
+  const sectionTitle = title || 'How to Choose Your Online Bridge Platform';
   const stepBg = isDeep ? '#0f1d3a' : '#f5f3ee';
   const steps = [
     { n: '01', title: 'Compare the Platforms', body: 'Start with our independent platform comparison. We rank BBO, Funbridge, RealBridge, No Fear Bridge, Trickster and Bridge Baron by verified pricing, ACBL masterpoint eligibility, bidding system support and audience fit.', cta: 'Compare platforms →', href: '/reviews/' },
@@ -189,7 +204,7 @@ function HowItWorksSection() {
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: isMobile ? 36 : 52 }}>
           <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: gold, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Getting Started</div>
-          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>How to Choose Your Online Bridge Platform</h2>
+          <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: isMobile ? 28 : 38, color: headC, margin: '0 0 16px' }}>{sectionTitle}</h2>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: isMobile ? 16 : 19, color: textC, maxWidth: 540, margin: '0 auto', lineHeight: 1.7 }}>Three steps. Compare verified data, match the platform to how you actually want to play, and try before you subscribe.</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: isMobile ? 16 : 24 }}>
@@ -427,13 +442,31 @@ export default function HomePageClient({ data }) {
     "Bridge Playbook is independent, intermediate-and-advanced focused, US/UK/AU/CA in scope, and quarterly verified. If you've never played a hand of bridge in your life, our How to Play Bridge guide will walk you through it — but everything else on this site assumes you already know the basics.",
   ];
 
+  const showTrustBar = data?.show_trust_bar !== false; // default true
+
   return (
     <div style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-      <HeroSection heading={data?.hero_heading} subheading={data?.hero_subheading} />
-      <TrustBar />
-      <ContentSection />
-      <WhyBridgeSection />
-      <HowItWorksSection />
+      <HeroSection
+        heading={data?.hero_heading}
+        subheading={data?.hero_subheading}
+        cta1Text={data?.cta1_text}
+        cta1Url={data?.cta1_url}
+        cta2Text={data?.cta2_text}
+        cta2Url={data?.cta2_url}
+        quickStartLinks={data?.quick_start_links}
+      />
+      {showTrustBar && <TrustBar />}
+      <ContentSection
+        title={data?.content_title}
+        subtitle={data?.content_subtitle}
+        cards={data?.content_cards}
+      />
+      <WhyBridgeSection
+        title={data?.why_bridge_title}
+        subtitle={data?.why_bridge_subtitle}
+        cards={data?.why_bridge_cards}
+      />
+      <HowItWorksSection title={data?.choose_title} />
       <PlatformComparisonSection />
 
       {/* SEO section */}
@@ -441,8 +474,16 @@ export default function HomePageClient({ data }) {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 56 }}>
           <div>
             <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: gold, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 14 }}>About Bridge Playbook</div>
-            <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 36, color: headC, margin: '0 0 32px', lineHeight: 1.2 }}>Your Trusted Guide to Online Bridge</h2>
-            {seoParagraphs.map((p, i) => <p key={i} style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: textC, lineHeight: 1.85, marginBottom: 22 }}>{p}</p>)}
+            <h2 style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 36, color: headC, margin: '0 0 32px', lineHeight: 1.2 }}>{data?.seo_title || 'Your Trusted Guide to Online Bridge'}</h2>
+            {data?.seoBodyHtml ? (
+              <div
+                className="article-body"
+                dangerouslySetInnerHTML={{ __html: data.seoBodyHtml }}
+                style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: textC, lineHeight: 1.85 }}
+              />
+            ) : (
+              seoParagraphs.map((p, i) => <p key={i} style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: textC, lineHeight: 1.85, marginBottom: 22 }}>{p}</p>)
+            )}
           </div>
           <div style={{ paddingTop: 8 }}>
             <div style={{ background: isDeep ? '#111f35' : '#f8f6f2', border: `1px solid ${bdr}`, borderRadius: 14, padding: 24, marginBottom: 20 }}>

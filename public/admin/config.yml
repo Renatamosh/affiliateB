@@ -256,6 +256,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article, e.g. 'The Complete Mac Bridge Guide'" }
+      - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Use ## for subheadings, **bold** for emphasis. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity / Topic Tags"
         name: "entity_tags"
         widget: "list"
@@ -318,6 +320,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article" }
+      - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity Tags"
         name: "entity_tags"
         widget: "list"
@@ -380,6 +384,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article" }
+      - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity Tags"
         name: "entity_tags"
         widget: "list"
@@ -509,6 +515,8 @@ collections:
       - { label: "OG Description", name: "og_description", widget: "text", required: false }
       - { label: "OG Image", name: "og_image", widget: "image", required: false }
       - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - { label: "SEO Section Title (h2)", name: "seo_section_title", widget: "string", default: "Full Guide", required: false, hint: "The h2 heading shown above the SEO section — set it per article" }
+      - { label: "SEO Body (Full Guide section)", name: "seo_body", widget: "markdown", required: false, hint: "One rich-text block. Type card suits directly: ♥ ♦ ♣ ♠" }
       - label: "Entity Tags"
         name: "entity_tags"
         widget: "list"
@@ -571,12 +579,47 @@ collections:
           - { label: "Hero CTA Button 2 Text", name: "cta2_text", widget: "string", default: "New to Bridge?", required: false }
           - { label: "Hero CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/how-to-play-bridge-online/", required: false }
           - { label: "Show Trust Bar (Platforms Reviewed strip)", name: "show_trust_bar", widget: "boolean", default: true, hint: "Toggle the 'Platforms reviewed' strip below the hero section" }
+          - { label: "CTA Button 1 Text", name: "cta1_text", widget: "string", default: "Compare Platforms →", required: false }
+          - { label: "CTA Button 1 URL", name: "cta1_url", widget: "string", default: "/reviews/", required: false }
+          - { label: "CTA Button 2 Text", name: "cta2_text", widget: "string", default: "New to Bridge?", required: false }
+          - { label: "CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/how-to-play-bridge-online/", required: false }
           - { label: "Content Section Title", name: "content_title", widget: "string", default: "Learn, Practise & Play", required: false }
-          - { label: "Content Section Subtitle", name: "content_subtitle", widget: "text", default: "From your very first hand to confident online play", required: false }
+          - { label: "Content Section Subtitle", name: "content_subtitle", widget: "text", default: "From your very first hand to confident online play — we've got you covered at every step.", required: false }
+          - label: "Content Cards (6 squares in Learn/Practise section)"
+            name: "content_cards"
+            widget: "list"
+            required: false
+            hint: "The 6 cards below the 'Learn, Practise & Play' heading. Leave empty to use site defaults."
+            fields:
+              - { label: "Suit Symbol or Emoji", name: "suit", widget: "string", hint: "♠ ♥ ♦ ♣ or emoji like 🏆" }
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Tag", name: "tag", widget: "string", hint: "e.g. Beginner, Intermediate, Reference" }
+              - { label: "Link URL", name: "href", widget: "string" }
           - { label: "Why Bridge Section Title", name: "why_bridge_title", widget: "string", default: "Six Reasons to Love Bridge", required: false }
+          - { label: "Why Bridge Subtitle", name: "why_bridge_subtitle", widget: "text", default: "Bridge is uniquely rewarding — here's why millions of players, many of them over 60, consider it the perfect game.", required: false }
+          - label: "Why Bridge Cards (6 reason cards)"
+            name: "why_bridge_cards"
+            widget: "list"
+            required: false
+            hint: "The 6 benefit cards in the 'Six Reasons to Love Bridge' section. Leave empty to use site defaults."
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
           - { label: "How to Choose Section Title", name: "choose_title", widget: "string", default: "How to Choose Your Online Bridge Platform", required: false }
-          - { label: "SEO Section Title", name: "seo_title", widget: "string", default: "Your Trusted Guide to Online Bridge", required: false }
-          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false, hint: "The long-form SEO content section at the bottom of the homepage" }
+          - label: "Quick Start Links (sidebar panel)"
+            name: "quick_start_links"
+            widget: "list"
+            required: false
+            hint: "The 4 links in the 'Where would you like to start?' sidebar panel."
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "string" }
+              - { label: "Link URL", name: "href", widget: "string" }
+          - { label: "SEO Section Title (h2)", name: "seo_title", widget: "string", default: "Your Trusted Guide to Online Bridge", required: false }
+          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false, hint: "The long-form SEO content section. Type card suits directly: ♥ ♦ ♣ ♠" }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
           - { label: "OG Title", name: "og_title", widget: "string", required: false }
@@ -813,14 +856,16 @@ collections:
         name: "about"
         file: "content/about.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "Section Heading (h2)", name: "section_heading", widget: "string", default: "Why We Built Bridge Playbook", required: false }
+          - { label: "Page Title (h1)", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string", required: false, hint: "Short sentence shown below the h1 in the page header" }
+          - { label: "Body Content", name: "body", widget: "markdown", hint: "All the text on the About page. Use ## for section headings, **bold** for emphasis. Card suits: ♥ ♦ ♣ ♠" }
+          - { label: "Mission Statement (call-out box)", name: "mission", widget: "text", required: false, hint: "Short sentence shown in the highlighted box" }
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
           - { label: "OG Title", name: "og_title", widget: "string", required: false }
           - { label: "OG Description", name: "og_description", widget: "text", required: false }
-          - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false }
+          - { label: "Canonical URL", name: "canonical", widget: "string", required: false, default: "https://bridgeplaybook.com/about/" }
 
   # ─────────────────────────────────────────────
   # ⚙️ SETTINGS — Navigation

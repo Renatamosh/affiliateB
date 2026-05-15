@@ -1,0 +1,21 @@
+=== GIT LOG (last 3 commits) === 
+e0caa81 fix: markdown rendering in reviews, CMS homepage wiring, compare routes, review SEO sections
+e0557bd fix: sync CMS config with site content, wire all pages to CMS data
+d17ca6c Create 🗂️ Categories “map-schema_type-collectionpage-name-n-slug-guides-hero_subtitle-r-body-r”
+ 
+=== GIT STATUS === 
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	check-git.bat
+	git-output.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+ 
+=== GIT REMOTE === 
+origin	https://github.com/Renatamosh/affiliateB.git (fetch)
+origin	https://github.com/Renatamosh/affiliateB.git (push)
+Done. 
