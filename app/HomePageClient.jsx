@@ -18,7 +18,7 @@ function HeroSection({ heading, subheading, cta1Text, cta1Url, cta2Text, cta2Url
   const url1 = cta1Url || '/guides/how-to-play-bridge/';
   const btn2 = cta2Text || 'Compare Platforms →';
   const url2 = cta2Url || '/reviews/';
-  const imgSrc = heroImage || '/images/hero-bridge.jpg.jpg';
+  const imgSrc = heroImage || '/images/hero-bridge.jpg';
 
   return (
     <section className="bp-hero" style={{ background: 'linear-gradient(135deg, #060d1a 0%, #0f1d3a 60%, #0d1e38 100%)' }}>
