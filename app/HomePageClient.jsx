@@ -8,7 +8,7 @@ const navy = '#1c2f5e';
 const red = '#c0392b';
 
 
-function HeroSection({ heading, subheading, cta1Text, cta1Url, cta2Text, cta2Url, trustPill1, trustPill2, trustPill3, quickStartLinks, heroImage }) {
+function HeroSection({ heading, subheading, cta1Text, cta1Url, cta2Text, cta2Url, trustPill1, trustPill2, trustPill3, heroImage }) {
   const pill1 = trustPill1 || '✦ Independent Reviews & Comparisons';
   const pill2 = trustPill2 || '✦ Pricing Verified May 2026';
   const pill3 = trustPill3 || '✦ Beginner-Friendly Recommendations';
@@ -18,21 +18,10 @@ function HeroSection({ heading, subheading, cta1Text, cta1Url, cta2Text, cta2Url
   const url1 = cta1Url || '/guides/how-to-play-bridge/';
   const btn2 = cta2Text || 'Compare Platforms →';
   const url2 = cta2Url || '/reviews/';
-  const imgSrc = heroImage || '/images/hero-bridge.jpg';
-
-  const defaultLinks = [
-    { icon: '🎓', title: 'New to Bridge?', desc: 'Start with the basics — your first hand in 10 minutes.', href: '/guides/how-to-play-bridge/' },
-    { icon: '📈', title: 'Improve Your Game', desc: 'Bidding systems, strategy, and conventions explained.', href: '/strategy/' },
-    { icon: '🖥️', title: 'Find Your Platform', desc: 'Compare BBO, Funbridge, RealBridge and more.', href: '/reviews/' },
-    { icon: '🔧', title: 'Bridge Tools', desc: 'Cheat sheets, quizzes, and practice resources — free.', href: '/tools/' },
-  ];
-  const sidebarLinks = (quickStartLinks && quickStartLinks.length > 0) ? quickStartLinks : defaultLinks;
+  const imgSrc = heroImage || '/images/hero-bridge.jpg.jpg';
 
   return (
-    <section
-      className="bp-hero"
-      style={{ backgroundImage: `linear-gradient(to right, rgba(6,13,26,0.93) 0%, rgba(6,13,26,0.78) 50%, rgba(6,13,26,0.5) 100%), url('${imgSrc}')` }}
-    >
+    <section className="bp-hero" style={{ background: 'linear-gradient(135deg, #060d1a 0%, #0f1d3a 60%, #0d1e38 100%)' }}>
       <div className="bp-hero-inner">
         <div className="bp-hero-grid">
           <div>
@@ -48,20 +37,12 @@ function HeroSection({ heading, subheading, cta1Text, cta1Url, cta2Text, cta2Url
               <Link href={url2}><button className="bp-btn-ghost">{btn2}</button></Link>
             </div>
           </div>
-          <div className="bp-hero-sidebar">
-            <div style={{ fontFamily: "'Libre Baskerville', serif", fontSize: 17, color: gold, marginBottom: 16 }}>Where would you like to start?</div>
-            {sidebarLinks.map((item, i) => (
-              <Link key={i} href={item.href}>
-                <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', padding: '12px 0', borderBottom: i < sidebarLinks.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none', cursor: 'pointer' }}>
-                  <span style={{ fontSize: 22, flexShrink: 0 }}>{item.icon}</span>
-                  <div>
-                    <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontWeight: 700, color: '#fff', fontSize: 16 }}>{item.title}</div>
-                    <div style={{ fontSize: 13, opacity: 0.65, fontFamily: "'Source Sans 3', sans-serif", marginTop: 2 }}>{item.desc}</div>
-                  </div>
-                  <span style={{ marginLeft: 'auto', opacity: 0.4, alignSelf: 'center', fontSize: 20 }}>›</span>
-                </div>
-              </Link>
-            ))}
+          <div className="bp-hero-img-wrap">
+            <img
+              src={imgSrc}
+              alt="Four players enjoying a game of bridge at a card table"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 16, display: 'block' }}
+            />
           </div>
         </div>
       </div>
