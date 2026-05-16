@@ -45,7 +45,6 @@ entity_tags:
   - online bridge platform comparison
   - ACBL masterpoints
   - Argine AI
-category: Reviews
 ---
 
 **Quick Answer.** BBO and Funbridge solve different problems and most serious bridge players in 2026 use both. BBO ($5.99/mo BBO+ on top of a complete free tier) is the live human community and the only sensible choice for ACBL masterpoint earners. Funbridge ($15.99/mo Premium) is the strongest solo AI training platform — the Argine engine and replay-the-same-deals format make improvement measurable. If you must pick one: BBO if you play with humans for masterpoints; Funbridge if you train solo against AI.
