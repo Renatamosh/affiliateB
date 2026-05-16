@@ -1,0 +1,8 @@
+# Netlify redirects — old /platforms/ and /how-to-play/ routes → correct URLs
+# These 301s protect SEO if any external links point to the old paths.
+
+/platforms/                              /reviews/                                    301
+/platforms/bridge-base-online/           /reviews/bridge-base-online-bbo-review/      301
+/platforms/funbridge/                    /reviews/funbridge-review/                   301
+/platforms/realbridge/                   /reviews/realbridge-review/                  301
+/how-to-play/                            /how-to-play-bridge-online/                  301

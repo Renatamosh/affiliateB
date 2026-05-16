@@ -1,11 +1,85 @@
 {
   "items": [
     {
-      "label": "Platform Reviews",
+      "label": "Learn Bridge",
       "href": "",
       "sub": [
         {
-          "label": "All Platforms 2026",
+          "label": "How to Play Bridge",
+          "href": "/guides/how-to-play-bridge/"
+        },
+        {
+          "label": "Bidding Basics",
+          "href": "/bidding-basics/"
+        },
+        {
+          "label": "Card Play Strategy",
+          "href": "/card-play-strategy/"
+        },
+        {
+          "label": "Rules & Laws",
+          "href": "/rules/"
+        },
+        {
+          "label": "Practice Boards",
+          "href": "/practice-boards/"
+        }
+      ]
+    },
+    {
+      "label": "Bidding",
+      "href": "",
+      "sub": [
+        {
+          "label": "Bidding Basics",
+          "href": "/bidding-basics/"
+        },
+        {
+          "label": "Stayman Convention",
+          "href": "/guides/stayman-convention/"
+        },
+        {
+          "label": "Jacoby Transfers",
+          "href": "/guides/jacoby-transfers/"
+        },
+        {
+          "label": "Blackwood & RKCB",
+          "href": "/guides/blackwood-rkcb/"
+        },
+        {
+          "label": "Negative Doubles",
+          "href": "/guides/negative-doubles/"
+        }
+      ]
+    },
+    {
+      "label": "Improve",
+      "href": "",
+      "sub": [
+        {
+          "label": "Card Play Strategy",
+          "href": "/card-play-strategy/"
+        },
+        {
+          "label": "Finesse Technique",
+          "href": "/strategy/finesse-technique/"
+        },
+        {
+          "label": "Practice Boards",
+          "href": "/practice-boards/"
+        },
+        {
+          "label": "Bidding Quiz",
+          "href": "/bidding-quiz/"
+        }
+      ]
+    },
+    {
+      "label": "Play Online",
+      "href": "",
+      "sub": [
+        {
+          "label": "All Platform Reviews",
           "href": "/reviews/"
         },
         {
@@ -23,82 +97,58 @@
         {
           "label": "BBO vs Funbridge",
           "href": "/compare/bbo-vs-funbridge-2026/"
-        },
-        {
-          "href": "/compare/trickster-cards-vs-realbridge/",
-          "label": "Trickster vs RealBridge"
         }
       ]
     },
     {
-      "label": "Learn Bridge",
+      "label": "Conventions",
       "href": "",
       "sub": [
         {
-          "label": "How to Play Bridge Online",
-          "href": "/how-to-play-bridge-online/"
+          "label": "Stayman",
+          "href": "/guides/stayman-convention/"
         },
         {
-          "label": "Bidding Basics",
-          "href": "/bidding-basics/"
+          "label": "Jacoby Transfers",
+          "href": "/guides/jacoby-transfers/"
         },
         {
-          "label": "Card Play Strategy",
-          "href": "/card-play-strategy/"
+          "label": "Blackwood & RKCB",
+          "href": "/guides/blackwood-rkcb/"
         },
         {
-          "label": "Rules & Laws",
-          "href": "/rules/"
+          "label": "Negative Doubles",
+          "href": "/guides/negative-doubles/"
         },
         {
-          "href": "/how-to/play-duplicate-bridge/",
-          "label": "Duplicate bridge"
+          "label": "Michaels Cuebid",
+          "href": "/guides/michaels-cuebid/"
         }
       ]
     },
     {
-      "label": "Practice",
+      "label": "Tools",
       "href": "",
       "sub": [
+        {
+          "label": "Bidding Cheat Sheet",
+          "href": "/tools/bidding-cheat-sheet/"
+        },
+        {
+          "label": "Convention Card Template",
+          "href": "/tools/convention-card/"
+        },
+        {
+          "label": "Bridge Bidding Quiz",
+          "href": "/bidding-quiz/"
+        },
         {
           "label": "Practice Boards",
           "href": "/practice-boards/"
         },
         {
-          "label": "Bidding Quiz",
-          "href": "/bidding-quiz/"
-        }
-      ]
-    },
-    {
-      "label": "Guides",
-      "href": "",
-      "sub": [
-        {
-          "label": "Best Bridge Software for Mac",
-          "href": "/guides/best-bridge-software-for-mac/"
-        }
-      ]
-    },
-    {
-      "label": "Glossary",
-      "href": "/glossary/"
-    },
-    {
-      "label": "Articles",
-      "href": "/articles/"
-    },
-    {
-      "label": "About",
-      "href": "",
-      "sub": [
-        {
-          "label": "About Bridge Playbook",
-          "href": "/about/"
-        },
-        {
-          "label": "Contact Us",
-          "href": "/contact/"
+          "label": "Bridge Glossary",
+          "href": "/glossary/"
         }
       ]
     }
