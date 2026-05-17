@@ -1,0 +1,38 @@
+# BridgePlaybook.com — Netlify Redirects
+# Old URL structure → New Cluster Architecture
+# All 301 permanent redirects
+# Place this file in the /public folder so Netlify picks it up
+
+# ─── OLD REVIEWS → /online-bridge/ ───────────────────────────────────────────
+/reviews/bridge-base-online-bbo-review          /online-bridge/bbo-review                     301!
+/reviews/bridge-base-online-bbo-review/         /online-bridge/bbo-review                     301!
+/reviews/funbridge-review                       /online-bridge/funbridge-review               301!
+/reviews/funbridge-review/                      /online-bridge/funbridge-review               301!
+/reviews/realbridge-review                      /online-bridge/realbridge-review              301!
+/reviews/realbridge-review/                     /online-bridge/realbridge-review              301!
+
+# ─── OLD COMPARISONS → /online-bridge/ ───────────────────────────────────────
+/comparisons/bbo-vs-funbridge-2026              /online-bridge/bbo-vs-funbridge               301!
+/comparisons/bbo-vs-funbridge-2026/             /online-bridge/bbo-vs-funbridge               301!
+
+# ─── OLD HOW-TO → /online-bridge/ ────────────────────────────────────────────
+/how-to/how-to-play-bridge-online               /online-bridge/how-to-play-bridge-online      301!
+/how-to/how-to-play-bridge-online/              /online-bridge/how-to-play-bridge-online      301!
+
+# ─── OLD GUIDES → /online-bridge/ ────────────────────────────────────────────
+/guides/best-bridge-software-for-mac            /online-bridge/best-bridge-apps               301!
+/guides/best-bridge-software-for-mac/           /online-bridge/best-bridge-apps               301!
+
+# ─── OLD CATEGORY ROOTS → NEW PILLAR PAGES ──────────────────────────────────
+/guides                                         /learn-bridge                                 301!
+/guides/                                        /learn-bridge                                 301!
+/strategy                                       /bridge-strategy                              301!
+/strategy/                                      /bridge-strategy                              301!
+/how-to                                         /learn-bridge                                 301!
+/how-to/                                        /learn-bridge                                 301!
+/comparisons                                    /online-bridge                                301!
+/comparisons/                                   /online-bridge                                301!
+/reviews                                        /online-bridge                                301!
+/reviews/                                       /online-bridge                                301!
+/articles                                       /bridge-community                             301!
+/articles/                                      /bridge-community                             301!
