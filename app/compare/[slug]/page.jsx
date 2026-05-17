@@ -7,9 +7,9 @@ export async function generateStaticParams() {
   // Exclude slugs that have hardcoded static segment pages — Next.js gives those priority,
   // but filtering here keeps generateStaticParams clean and avoids duplicate route warnings.
   const STATIC_SLUGS = new Set(['bbo-vs-funbridge-2026', 'trickster-vs-realbridge']);
-  return slugs
-    .filter(slug => !STATIC_SLUGS.has(slug))
-    .map(slug => ({ slug }));
+  const filtered = slugs.filter(slug => !STATIC_SLUGS.has(slug));
+  if (filtered.length === 0) return [{ slug: '_empty' }];
+  return filtered.map(slug => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {

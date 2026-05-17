@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const slugs = getCollectionSlugs('how-to');
+  if (slugs.length === 0) return [{ slug: '_empty' }];
   return slugs.map(slug => ({ slug }));
 }
 

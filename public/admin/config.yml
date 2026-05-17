@@ -580,50 +580,117 @@ collections:
         file: "content/home.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
-          - { label: "Hero Subheading", name: "hero_subheading", widget: "text" }
-          - { label: "Hero CTA Button 1 Text", name: "cta1_text", widget: "string", default: "Compare Platforms →", required: false }
-          - { label: "Hero CTA Button 1 URL", name: "cta1_url", widget: "string", default: "/reviews/", required: false }
-          - { label: "Hero CTA Button 2 Text", name: "cta2_text", widget: "string", default: "New to Bridge?", required: false }
-          - { label: "Hero CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/how-to-play-bridge-online/", required: false }
-          - { label: "Show Trust Bar (Platforms Reviewed strip)", name: "show_trust_bar", widget: "boolean", default: true, hint: "Toggle the 'Platforms reviewed' strip below the hero section" }
-          - { label: "Content Section Title", name: "content_title", widget: "string", default: "Learn, Practise & Play", required: false }
-          - { label: "Content Section Subtitle", name: "content_subtitle", widget: "text", default: "From your very first hand to confident online play — we've got you covered at every step.", required: false }
-          - label: "Content Cards (6 squares in Learn/Practise section)"
-            name: "content_cards"
-            widget: "list"
-            required: false
-            hint: "The 6 cards below the 'Learn, Practise & Play' heading. Leave empty to use site defaults."
-            fields:
-              - { label: "Suit Symbol or Emoji", name: "suit", widget: "string", hint: "♠ ♥ ♦ ♣ or emoji like 🏆" }
-              - { label: "Card Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Tag", name: "tag", widget: "string", hint: "e.g. Beginner, Intermediate, Reference" }
-              - { label: "Link URL", name: "href", widget: "string" }
-          - { label: "Why Bridge Section Title", name: "why_bridge_title", widget: "string", default: "Six Reasons to Love Bridge", required: false }
-          - { label: "Why Bridge Subtitle", name: "why_bridge_subtitle", widget: "text", default: "Bridge is uniquely rewarding — here's why millions of players, many of them over 60, consider it the perfect game.", required: false }
-          - label: "Why Bridge Cards (6 reason cards)"
-            name: "why_bridge_cards"
-            widget: "list"
-            required: false
-            hint: "The 6 benefit cards in the 'Six Reasons to Love Bridge' section. Leave empty to use site defaults."
-            fields:
-              - { label: "Icon (emoji)", name: "icon", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Body", name: "body", widget: "text" }
-          - { label: "How to Choose Section Title", name: "choose_title", widget: "string", default: "How to Choose Your Online Bridge Platform", required: false }
-          - label: "Quick Start Links (sidebar panel)"
+
+          - { label: "Hero Image", name: "hero_image", widget: "image", required: false, hint: "Full-width background image behind the hero section. Upload a wide photo (min 1400px wide). Leave empty to use the default bridge table photo." }
+          - { label: "Hero Heading (H1)", name: "hero_heading", widget: "string", default: "Learn, Play & Improve at Bridge" }
+          - { label: "Hero Subheading", name: "hero_subheading", widget: "text", default: "Beginner-friendly bridge lessons, bidding guides, strategy resources, conventions explained in plain English, and honest online bridge platform comparisons — all in one independent resource." }
+          - { label: "Trust Pill 1", name: "trust_pill_1", widget: "string", default: "✦ Independent Reviews & Comparisons", required: false, hint: "Small badge shown above the hero heading" }
+          - { label: "Trust Pill 2", name: "trust_pill_2", widget: "string", default: "✦ Pricing Verified May 2026", required: false }
+          - { label: "Trust Pill 3", name: "trust_pill_3", widget: "string", default: "✦ Beginner-Friendly Recommendations", required: false }
+          - { label: "Hero CTA Button 1 Text", name: "cta1_text", widget: "string", default: "Start Learning Bridge →", required: false }
+          - { label: "Hero CTA Button 1 URL", name: "cta1_url", widget: "string", default: "/guides/how-to-play-bridge/", required: false }
+          - { label: "Hero CTA Button 2 Text", name: "cta2_text", widget: "string", default: "Compare Platforms →", required: false }
+          - { label: "Hero CTA Button 2 URL", name: "cta2_url", widget: "string", default: "/reviews/", required: false }
+          - label: "Quick Start Links (hero sidebar panel)"
             name: "quick_start_links"
             widget: "list"
             required: false
-            hint: "The 4 links in the 'Where would you like to start?' sidebar panel."
+            hint: "The 4 links in the 'Where would you like to start?' panel on the right side of the hero. Leave empty to use defaults."
             fields:
               - { label: "Icon (emoji)", name: "icon", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "desc", widget: "string" }
               - { label: "Link URL", name: "href", widget: "string" }
-          - { label: "SEO Section Title (h2)", name: "seo_title", widget: "string", default: "Your Trusted Guide to Online Bridge", required: false }
-          - { label: "SEO Body", name: "seo_body", widget: "markdown", required: false, hint: "The long-form SEO content section. Type card suits directly: ♥ ♦ ♣ ♠" }
+
+          - { label: "Learning Pathway Title (H2)", name: "pathway_title", widget: "string", default: "A Structured Path From First Hand to Confident Play", required: false }
+          - { label: "Learning Pathway Subtitle", name: "pathway_subtitle", widget: "text", default: "BridgePlaybook is built around a clear learning progression — wherever you're starting, there's a next step.", required: false }
+          - label: "Learning Pathway Steps (5 steps)"
+            name: "pathway_steps"
+            widget: "list"
+            required: false
+            hint: "The 5 horizontal journey steps. Leave empty to use defaults."
+            fields:
+              - { label: "Step Number", name: "number", widget: "string", hint: "e.g. 01" }
+              - { label: "Level Badge", name: "level", widget: "select", options: ["Beginner", "Foundation", "Intermediate", "Advanced"] }
+              - { label: "Step Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "CTA Button Text", name: "cta", widget: "string", hint: "e.g. Start Here →" }
+              - { label: "Link URL", name: "href", widget: "string" }
+
+          - { label: "Routing Cards Title (H2)", name: "routing_title", widget: "string", default: "Four Paths Into Bridge", required: false }
+          - { label: "Routing Cards Subtitle", name: "routing_subtitle", widget: "text", default: "Pick the path that matches where you are right now.", required: false }
+          - label: "Routing Cards (4 audience path cards)"
+            name: "routing_cards"
+            widget: "list"
+            required: false
+            hint: "The 4 audience routing cards. Leave empty to use defaults."
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Tag Label", name: "tag", widget: "string", hint: "Small label above the title, e.g. Beginner" }
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "CTA Button Text", name: "cta", widget: "string" }
+              - { label: "Link URL", name: "href", widget: "string" }
+
+          - { label: "Why Bridge Title (H2)", name: "why_bridge_title", widget: "string", default: "Why Millions Are Playing Bridge Right Now", required: false }
+          - { label: "Why Bridge Subtitle", name: "why_bridge_subtitle", widget: "text", default: "Bridge is uniquely rewarding — here's why players of all ages, many discovering it later in life, consider it the perfect game.", required: false }
+          - label: "Why Bridge Cards (6 benefit cards)"
+            name: "why_bridge_cards"
+            widget: "list"
+            required: false
+            hint: "The 6 benefit cards. Leave empty to use defaults."
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+
+          - { label: "Conventions Section Title (H2)", name: "conventions_title", widget: "string", default: "Master the Building Blocks of Better Bridge", required: false }
+          - { label: "Conventions Section Subtitle", name: "conventions_subtitle", widget: "text", default: "From essential conventions to advanced card play — written for players at every level, in plain English.", required: false }
+          - label: "Conventions Cards (6 cards)"
+            name: "conventions_cards"
+            widget: "list"
+            required: false
+            hint: "The 6 convention/strategy cards. Leave empty to use defaults."
+            fields:
+              - { label: "Suit Symbol", name: "suit", widget: "string", hint: "♠ ♥ ♦ or ♣" }
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Level Badge", name: "level", widget: "select", options: ["Essential", "Intermediate", "Advanced"] }
+              - { label: "Link URL", name: "href", widget: "string" }
+
+          - { label: "Tools Section Title (H2)", name: "tools_title", widget: "string", default: "Practical Tools to Help You Learn and Play Better", required: false }
+          - { label: "Tools Section Subtitle", name: "tools_subtitle", widget: "text", default: "Free downloads, quizzes, cheat sheets, and practice utilities — designed to make bridge easier and less intimidating.", required: false }
+          - label: "Tools Cards (6 cards)"
+            name: "tools_cards"
+            widget: "list"
+            required: false
+            hint: "The 6 tool/resource cards. Leave empty to use defaults."
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Type Label", name: "type", widget: "string", hint: "e.g. Free Download, Interactive Quiz, Reference" }
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Button Style", name: "ctaStyle", widget: "select", options: ["filled", "ghost"], hint: "Filled = gold background button. Ghost = outline button." }
+              - { label: "Button Text", name: "cta", widget: "string" }
+              - { label: "Link URL", name: "href", widget: "string" }
+
+          - { label: "Platform Comparison Title (H2)", name: "platform_title", widget: "string", default: "Find Your Platform — 6 Online Bridge Options Compared", required: false }
+          - { label: "Platform Comparison Subtitle", name: "platform_subtitle", widget: "text", default: "Whether you're earning ACBL masterpoints, training solo with AI, or playing casually with friends — there's a platform built for you.", required: false }
+          - { label: "Platform CTA Button Text", name: "platform_cta_text", widget: "string", default: "Read Full Platform Reviews →", required: false }
+          - { label: "Platform CTA Button URL", name: "platform_cta_url", widget: "string", default: "/reviews/", required: false }
+
+          - { label: "Newsletter Title (H2)", name: "newsletter_title", widget: "string", default: "Free 12-Week Bridge Improvement Course", required: false }
+          - { label: "Newsletter Subtitle", name: "newsletter_subtitle", widget: "text", default: "One practical lesson each week covering bidding, strategy, conventions, and real bridge play — designed to make bridge easier and less intimidating, one email at a time.", required: false }
+          - { label: "Newsletter CTA Button Text", name: "newsletter_cta_text", widget: "string", default: "Start the Free Course →", required: false }
+          - label: "Newsletter Week Preview Tags"
+            name: "newsletter_week_tags"
+            widget: "list"
+            required: false
+            hint: "The week preview tags shown above the sign-up form. Set 'highlighted' to true for the first 3 featured weeks."
+            fields:
+              - { label: "Label", name: "label", widget: "string", hint: "e.g. Week 1: First Hand" }
+              - { label: "Highlighted", name: "highlighted", widget: "boolean", default: false, hint: "Show in gold (highlighted) or muted style" }
+
           - { label: "Meta Title", name: "meta_title", widget: "string" }
           - { label: "Meta Description", name: "meta_description", widget: "text" }
           - { label: "OG Title", name: "og_title", widget: "string", required: false }

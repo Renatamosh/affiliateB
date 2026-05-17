@@ -3,6 +3,14 @@
 # All 301 permanent redirects
 # Place this file in the /public folder so Netlify picks it up
 
+# ─── OLD PLATFORMS → /online-bridge/ (legacy) ────────────────────────────────
+/platforms/                              /online-bridge/                                       301!
+/platforms/bridge-base-online/           /online-bridge/bbo-review                            301!
+/platforms/funbridge/                    /online-bridge/funbridge-review                       301!
+/platforms/realbridge/                   /online-bridge/realbridge-review                      301!
+/how-to-play/                            /online-bridge/how-to-play-bridge-online              301!
+/how-to-play-bridge-online/              /online-bridge/how-to-play-bridge-online              301!
+
 # ─── OLD REVIEWS → /online-bridge/ ───────────────────────────────────────────
 /reviews/bridge-base-online-bbo-review          /online-bridge/bbo-review                     301!
 /reviews/bridge-base-online-bbo-review/         /online-bridge/bbo-review                     301!
