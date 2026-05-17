@@ -986,163 +986,73 @@ collections:
                     name: "href"
                     widget: "string"
 
-  # ─────────────────────────────────────────────────────────────────────────────
-  # LEARN BRIDGE CLUSTER
-  # ─────────────────────────────────────────────────────────────────────────────
 
-  # ── LEARN BRIDGE PILLAR PAGE (singleton) ─────────────────────────────────
-  - name: "learn-bridge-pillar"
-    label: "🎓 Learn Bridge — Pillar Page"
-    description: "The /learn-bridge/ hub page. Edit all text, cards, and FAQs here."
-    files:
-      - name: "learn-bridge-index"
-        label: "Learn Bridge Hub"
-        file: "content/learn-bridge/index.json"
-        fields:
-          - { label: "SEO Title (50–60 chars)", name: seoTitle, widget: string }
-          - { label: "Meta Description (150–160 chars)", name: metaDescription, widget: text }
-          - { label: "Eyebrow Label", name: eyebrow, widget: string }
-          - { label: "H1 Heading", name: heading, widget: string }
-          - { label: "Hero Subtitle", name: subtitle, widget: text }
-          - { label: "Pill 1", name: pill1, widget: string }
-          - { label: "Pill 2", name: pill2, widget: string }
-          - { label: "Pill 3", name: pill3, widget: string }
-          - { label: "Primary CTA Text", name: ctaPrimary, widget: string }
-          - { label: "Secondary CTA Text", name: ctaSecondary, widget: string }
-          - { label: "Section Label (Articles Grid)", name: gridLabel, widget: string }
-          - { label: "Section Title (Articles Grid)", name: gridTitle, widget: string }
-          - { label: "Section Subtitle (Articles Grid)", name: gridSubtitle, widget: text }
-          - label: "Article Cards"
-            name: "articleCards"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Card 1 Title", name: card1Title, widget: string }
-              - { label: "Card 1 Description", name: card1Desc, widget: text }
-              - { label: "Card 2 Title", name: card2Title, widget: string }
-              - { label: "Card 2 Description", name: card2Desc, widget: text }
-              - { label: "Card 3 Title", name: card3Title, widget: string }
-              - { label: "Card 3 Description", name: card3Desc, widget: text }
-              - { label: "Card 4 Title", name: card4Title, widget: string }
-              - { label: "Card 4 Description", name: card4Desc, widget: text }
-              - { label: "Card 5 Title", name: card5Title, widget: string }
-              - { label: "Card 5 Description", name: card5Desc, widget: text }
-              - { label: "Card 6 Title", name: card6Title, widget: string }
-              - { label: "Card 6 Description", name: card6Desc, widget: text }
-              - { label: "Card 7 Title", name: card7Title, widget: string }
-              - { label: "Card 7 Description", name: card7Desc, widget: text }
-              - { label: "Card 8 Title", name: card8Title, widget: string }
-              - { label: "Card 8 Description", name: card8Desc, widget: text }
-              - { label: "Card 9 Title", name: card9Title, widget: string }
-              - { label: "Card 9 Description", name: card9Desc, widget: text }
-              - { label: "Card 10 Title", name: card10Title, widget: string }
-              - { label: "Card 10 Description", name: card10Desc, widget: text }
-          - label: "Learning Path Section"
-            name: "learningPath"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Section Label", name: pathLabel, widget: string }
-              - { label: "Section Title", name: pathTitle, widget: string }
-              - { label: "Section Subtitle", name: pathSubtitle, widget: text }
-              - { label: "Step 1 Title", name: step1Title, widget: string }
-              - { label: "Step 1 Description", name: step1Desc, widget: text }
-              - { label: "Step 2 Title", name: step2Title, widget: string }
-              - { label: "Step 2 Description", name: step2Desc, widget: text }
-              - { label: "Step 3 Title", name: step3Title, widget: string }
-              - { label: "Step 3 Description", name: step3Desc, widget: text }
-          - label: "Cross-Link Band"
-            name: "crosslink"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Label", name: crosslinkLabel, widget: string }
-              - { label: "Title", name: crosslinkTitle, widget: string }
-              - { label: "Description", name: crosslinkDesc, widget: text }
-              - { label: "CTA Button Text", name: crosslinkCta, widget: string }
-          - label: "FAQ Items"
-            name: "faq"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "FAQ Section Title", name: faqTitle, widget: string }
-              - { label: "Q1 Question", name: faq1q, widget: string }
-              - { label: "Q1 Answer", name: faq1a, widget: text }
-              - { label: "Q2 Question", name: faq2q, widget: string }
-              - { label: "Q2 Answer", name: faq2a, widget: text }
-              - { label: "Q3 Question", name: faq3q, widget: string }
-              - { label: "Q3 Answer", name: faq3a, widget: text }
-              - { label: "Q4 Question", name: faq4q, widget: string }
-              - { label: "Q4 Answer", name: faq4a, widget: text }
-              - { label: "Q5 Question", name: faq5q, widget: string }
-              - { label: "Q5 Answer", name: faq5a, widget: text }
-
-  # ── LEARN BRIDGE SUB-PAGES (folder collection) ───────────────────────────
+  # ─────────────────────────────────────────────
+  # 🎓 LEARN BRIDGE  →  bridgeplaybook.com/learn-bridge/slug
+  # ─────────────────────────────────────────────
   - name: "learn-bridge"
-    label: "🎓 Learn Bridge — Articles"
-    label_singular: "Learn Bridge Article"
-    description: "All 10 articles in the /learn-bridge/ cluster."
+    label: "🎓 Learn Bridge"
     folder: "content/learn-bridge"
     create: true
-    format: "json"
-    extension: "json"
-    identifier_field: "heading"
+    format: frontmatter
+    extension: md
     slug: "{{slug}}"
-    filter: { field: "heading", value: "Learn Bridge", pattern: "^(?!Learn Bridge$).*" }
     preview_path: "/learn-bridge/{{slug}}/"
     fields:
-      - label: "SEO Title (50–60 chars)"
-        name: seoTitle
-        widget: string
-        hint: "Include primary keyword near the start. Target 50–60 characters."
-      - label: "Meta Description (150–160 chars)"
-        name: metaDescription
-        widget: text
-        hint: "Include primary keyword. Write it as a compelling summary. Target 150–160 chars."
-      - label: "Eyebrow Label"
-        name: eyebrow
-        widget: string
-        hint: "Small label above the H1. E.g. 'Beginner Guide · Start Here'"
-      - label: "H1 Page Heading"
-        name: heading
-        widget: string
-        hint: "The main H1 for this page. Include the primary keyword."
-      - label: "Hero Subtitle"
-        name: subtitle
-        widget: text
-        hint: "1-2 sentences below the H1. Sets context and search intent."
-      - label: "FAQ Section Title"
-        name: faqTitle
-        widget: string
-        default: "Frequently Asked Questions"
-      - label: "FAQ 1 — Question"
-        name: faq1q
-        widget: string
-      - label: "FAQ 1 — Answer"
-        name: faq1a
-        widget: text
-        hint: "Write the answer as it would appear in a Google featured snippet."
-      - label: "FAQ 2 — Question"
-        name: faq2q
-        widget: string
-      - label: "FAQ 2 — Answer"
-        name: faq2a
-        widget: text
-      - label: "FAQ 3 — Question"
-        name: faq3q
-        widget: string
-      - label: "FAQ 3 — Answer"
-        name: faq3a
-        widget: text
-      - label: "FAQ 4 — Question"
-        name: faq4q
-        widget: string
-      - label: "FAQ 4 — Answer"
-        name: faq4a
-        widget: text
-      - label: "FAQ 5 — Question"
-        name: faq5q
-        widget: string
-      - label: "FAQ 5 — Answer"
-        name: faq5a
-        widget: text
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["draft", "published", "archived"]
+        default: "draft"
+      - { label: "Author", name: "author", widget: "string", default: "Margaret Holloway" }
+      - { label: "Category", name: "category", widget: "string", default: "learn-bridge" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false }
+      - { label: "Excerpt / Summary", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Key Takeaways"
+        name: "key_takeaways"
+        widget: "list"
+        field: { label: "Takeaway", name: "takeaway", widget: "string" }
+      - label: "FAQ"
+        name: "faq"
+        widget: "list"
+        summary: "{{fields.question}}"
+        fields:
+          - { label: "Question", name: "question", widget: "string", required: true }
+          - { label: "Answer", name: "answer", widget: "text", required: true }
+      - label: "Affiliate Links"
+        name: "affiliate_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - label: "Internal Links"
+        name: "internal_links"
+        widget: "list"
+        summary: "{{fields.label}}"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Meta Title", name: "meta_title", widget: "string", required: true, hint: "Max 60 characters" }
+      - { label: "Meta Description", name: "meta_description", widget: "text", required: true, hint: "Max 160 characters" }
+      - { label: "OG Title", name: "og_title", widget: "string", required: false }
+      - { label: "OG Description", name: "og_description", widget: "text", required: false }
+      - { label: "OG Image", name: "og_image", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - label: "Entity / Topic Tags"
+        name: "entity_tags"
+        widget: "list"
+        field: { label: "Entity", name: "entity", widget: "string" }
+        required: false
+
