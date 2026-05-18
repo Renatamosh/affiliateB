@@ -9,25 +9,21 @@ admin at https://bridgeplaybook.com/admin/ ready for review.
 USAGE:
   python push-content.py <path-to-content-file.md>
 
-EXAMPLES:
-  python push-content.py templates/my-new-guide.md
-  python push-content.py templates/funbridge-2026-review.md
-
-IMAGES:
-  Place image files in the SAME folder as your .md file.
-  The script auto-detects and uploads all images referenced in the file.
-
 CONTENT FOLDERS → LIVE URLs:
-  content/guides/       → bridgeplaybook.com/guides/slug
-  content/strategy/     → bridgeplaybook.com/strategy/slug
-  content/how-to/       → bridgeplaybook.com/how-to/slug
-  content/comparisons/  → bridgeplaybook.com/comparisons/slug
-  content/articles/     → bridgeplaybook.com/articles/slug  (misc/legacy)
-  content/reviews/      → bridgeplaybook.com/reviews/slug
-
-  The script reads the `category` field in your frontmatter and routes
-  to the correct folder automatically. Reviews are detected by the
-  presence of a `rating` or `verdict` field.
+  content/guides/            → bridgeplaybook.com/guides/slug
+  content/strategy/          → bridgeplaybook.com/strategy/slug
+  content/how-to/            → bridgeplaybook.com/how-to/slug
+  content/comparisons/       → bridgeplaybook.com/comparisons/slug
+  content/articles/          → bridgeplaybook.com/articles/slug  (misc/legacy)
+  content/reviews/           → bridgeplaybook.com/reviews/slug
+  content/learn-bridge/      → bridgeplaybook.com/learn-bridge/slug
+  content/bridge-bidding/    → bridgeplaybook.com/bridge-bidding/slug
+  content/online-bridge/     → bridgeplaybook.com/online-bridge/slug
+  content/bridge-strategy/   → bridgeplaybook.com/bridge-strategy/slug
+  content/bridge-conventions/→ bridgeplaybook.com/bridge-conventions/slug
+  content/bridge-tools/      → bridgeplaybook.com/bridge-tools/slug
+  content/bridge-community/  → bridgeplaybook.com/bridge-community/slug
+  content/bridge-news/       → bridgeplaybook.com/bridge-news/slug
 
 REQUIREMENTS:
   pip install requests PyYAML
@@ -43,8 +39,6 @@ import requests
 import yaml
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
-# Token is stored in .env (never committed to GitHub)
-# If you need to update your token, edit .env in the project folder.
 def _load_token():
     env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
     if os.path.exists(env_path):
@@ -76,25 +70,43 @@ HEADERS = {
 
 # Where each collection's files live in the repo
 COLLECTION_PATHS = {
-    "guides":      "content/guides",
-    "strategy":    "content/strategy",
-    "how-to":      "content/how-to",
-    "comparisons": "content/comparisons",
-    "articles":    "content/articles",   # misc / legacy
-    "reviews":     "content/reviews",
+    "guides":              "content/guides",
+    "strategy":            "content/strategy",
+    "how-to":              "content/how-to",
+    "comparisons":         "content/comparisons",
+    "articles":            "content/articles",        # misc / legacy
+    "reviews":             "content/reviews",
+    # ── New content clusters ──────────────────────────────
+    "learn-bridge":        "content/learn-bridge",
+    "bridge-bidding":      "content/bridge-bidding",
+    "online-bridge":       "content/online-bridge",
+    "bridge-strategy":     "content/bridge-strategy",
+    "bridge-conventions":  "content/bridge-conventions",
+    "bridge-tools":        "content/bridge-tools",
+    "bridge-community":    "content/bridge-community",
+    "bridge-news":         "content/bridge-news",
 }
 
-# Maps the `category` frontmatter value (lowercase) to a collection key
+# Maps the category frontmatter value (lowercase) to a collection key
 CATEGORY_TO_COLLECTION = {
-    "guides":      "guides",
-    "guide":       "guides",
-    "strategy":    "strategy",
-    "how-to":      "how-to",
-    "how to":      "how-to",
-    "howto":       "how-to",
-    "comparisons": "comparisons",
-    "comparison":  "comparisons",
-    "compare":     "comparisons",
+    "guides":              "guides",
+    "guide":               "guides",
+    "strategy":            "strategy",
+    "how-to":              "how-to",
+    "how to":              "how-to",
+    "howto":               "how-to",
+    "comparisons":         "comparisons",
+    "comparison":          "comparisons",
+    "compare":             "comparisons",
+    # New clusters
+    "learn-bridge":        "learn-bridge",
+    "bridge-bidding":      "bridge-bidding",
+    "online-bridge":       "online-bridge",
+    "bridge-strategy":     "bridge-strategy",
+    "bridge-conventions":  "bridge-conventions",
+    "bridge-tools":        "bridge-tools",
+    "bridge-community":    "bridge-community",
+    "bridge-news":         "bridge-news",
     # anything else falls back to "articles"
 }
 
@@ -105,7 +117,6 @@ def read_local_file(path):
 
 
 def parse_frontmatter(content):
-    """Extract YAML frontmatter and body from a markdown file."""
     match = re.match(r"^---\n(.*?)\n---\n?(.*)", content, re.DOTALL)
     if not match:
         raise ValueError("No frontmatter found. Make sure the file starts with ---")
@@ -115,42 +126,27 @@ def parse_frontmatter(content):
 
 
 def detect_collection(frontmatter, filepath):
-    """
-    Determine the target collection (= content folder) for this file.
-
-    Priority:
-      1. Reviews  — detected by the presence of `rating` or `verdict` fields
-      2. Category — read from the `category` frontmatter field and mapped to a folder
-      3. Fallback — "articles" (misc bucket)
-    """
-    # Reviews always go to content/reviews/
     if "rating" in frontmatter or "verdict" in frontmatter:
         return "reviews"
-
     raw_category = str(frontmatter.get("category", "")).strip().lower()
     collection = CATEGORY_TO_COLLECTION.get(raw_category, "articles")
     return collection
 
 
 def get_slug(frontmatter, filepath):
-    """Get slug from frontmatter or derive from filename."""
     if frontmatter.get("slug"):
         return str(frontmatter["slug"]).strip()
     return os.path.splitext(os.path.basename(filepath))[0]
 
 
 def find_images_in_content(content, frontmatter):
-    """Find all image paths referenced in the file."""
     images = set()
-    # Images in markdown body: ![alt](/images/file.jpg)
     for match in re.findall(r"!\[.*?\]\((/images/[^\)]+)\)", content):
         images.add(match)
-    # Images in frontmatter fields
     for key in ["featured_image", "platform_logo", "og_image"]:
         val = frontmatter.get(key, "")
         if val and str(val).startswith("/images/"):
             images.add(val)
-    # Screenshots list
     for screenshot in frontmatter.get("screenshots", []):
         img = screenshot.get("image", "")
         if img and img.startswith("/images/"):
@@ -159,7 +155,6 @@ def find_images_in_content(content, frontmatter):
 
 
 def github_get_file(repo_path):
-    """Get existing file SHA from GitHub (needed for updates)."""
     url = f"{GITHUB_API}/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{repo_path}"
     r = requests.get(url, headers=HEADERS)
     if r.status_code == 200:
@@ -168,7 +163,6 @@ def github_get_file(repo_path):
 
 
 def github_push_file(repo_path, content_bytes, message, sha=None):
-    """Create or update a file in GitHub."""
     url = f"{GITHUB_API}/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{repo_path}"
     payload = {
         "message": message,
@@ -184,51 +178,30 @@ def github_push_file(repo_path, content_bytes, message, sha=None):
 
 
 def github_delete_file(repo_path, sha, message):
-    """Delete a file from GitHub."""
     url = f"{GITHUB_API}/repos/{GITHUB_OWNER}/{GITHUB_REPO}/contents/{repo_path}"
-    payload = {
-        "message": message,
-        "sha": sha,
-        "branch": GITHUB_BRANCH,
-    }
+    payload = {"message": message, "sha": sha, "branch": GITHUB_BRANCH}
     r = requests.delete(url, headers=HEADERS, json=payload)
     if r.status_code not in (200, 204):
         raise RuntimeError(f"GitHub delete failed for {repo_path}: {r.status_code} {r.text}")
 
 
 def push_image(local_dir, image_ref):
-    """Upload an image file to GitHub if it exists locally."""
     filename = os.path.basename(image_ref)
     local_path = os.path.join(local_dir, filename)
-
     if not os.path.exists(local_path):
         print(f"  ⚠️  Image not found locally: {local_path} — skipping upload")
         return
-
     with open(local_path, "rb") as f:
         image_bytes = f.read()
-
     repo_image_path = f"public/images/{filename}"
     sha = github_get_file(repo_image_path)
     action = "Update" if sha else "Add"
-    github_push_file(
-        repo_image_path,
-        image_bytes,
-        f"{action} image: {filename}",
-        sha=sha,
-    )
+    github_push_file(repo_image_path, image_bytes, f"{action} image: {filename}", sha=sha)
     print(f"  ✅ Image uploaded: {repo_image_path}")
-    time.sleep(0.5)  # Avoid rate limiting
+    time.sleep(0.5)
 
 
 def rebuild_frontmatter(frontmatter):
-    """Serialise frontmatter back to YAML string.
-
-    Dates are explicitly converted to strings before dumping so that
-    gray-matter (and PyYAML) never write bare YYYY-MM-DD values that
-    YAML parsers auto-convert to Date objects — which breaks Next.js
-    static prerendering.
-    """
     import datetime
     safe = {}
     for k, v in frontmatter.items():
@@ -240,11 +213,6 @@ def rebuild_frontmatter(frontmatter):
 
 
 def migrate_if_needed(slug, collection):
-    """
-    If the same slug exists under content/articles/ but now belongs to
-    a different collection, delete the old file so there's no duplicate.
-    Only runs when the target collection is NOT 'articles'.
-    """
     if collection == "articles":
         return
     old_path = f"content/articles/{slug}.md"
@@ -275,6 +243,11 @@ def main():
 
     collection = detect_collection(frontmatter, filepath)
     slug = get_slug(frontmatter, filepath)
+
+    if collection not in COLLECTION_PATHS:
+        print(f"⚠️  Unknown collection '{collection}' — falling back to articles")
+        collection = "articles"
+
     repo_content_path = f"{COLLECTION_PATHS[collection]}/{slug}.md"
 
     print(f"📂 Collection: {collection}  →  content/{collection}/")
@@ -282,10 +255,8 @@ def main():
     print(f"📁 Repo path:  {repo_content_path}")
     print(f"🌐 Live URL:   https://bridgeplaybook.com/{collection}/{slug}/")
 
-    # ── Auto-migrate if slug existed in content/articles/ previously ─────────
     migrate_if_needed(slug, collection)
 
-    # ── Upload images ──────────────────────────────────────────────────────
     local_dir = os.path.dirname(os.path.abspath(filepath))
     image_refs = find_images_in_content(raw, frontmatter)
 
@@ -296,10 +267,8 @@ def main():
     else:
         print("  ℹ️  No images referenced in this file.")
 
-    # ── Build final markdown ───────────────────────────────────────────────
     final_content = f"---\n{rebuild_frontmatter(frontmatter)}---\n\n{body}\n"
 
-    # ── Push content file ──────────────────────────────────────────────────
     print(f"\n🚀 Pushing content to GitHub...")
     sha = github_get_file(repo_content_path)
     action = "Update" if sha else "Add"
@@ -307,7 +276,7 @@ def main():
     github_push_file(
         repo_content_path,
         final_content.encode("utf-8"),
-        f"{action} {collection[:-1] if collection.endswith('s') else collection}: {slug} [draft]",
+        f"{action} {collection}: {slug} [draft]",
         sha=sha,
     )
 
