@@ -1,23 +1,24 @@
 ---
-title: Duplicate Bridge Explained — How Club and Tournament Bridge Works
+title: Duplicate Bridge Explained - How Club and Tournament Bridge Works
 slug: duplicate-bridge-explained
 date: 2026-05-17
 status: published
-category: Learn Bridge
+author: "Margaret Holloway"
+category: learn-bridge
 tags:
   - duplicate bridge
   - duplicate bridge explained
   - matchpoints
   - bridge tournament
   - club bridge
-excerpt: Duplicate bridge explained clearly — how boards work, why the same hands are played multiple times, what matchpoints mean, and how to play your first club game.
+excerpt: Duplicate bridge explained clearly - how boards work, why the same hands are played multiple times, what matchpoints mean, and how to play your first club game.
 key_takeaways:
-  - In duplicate bridge, the same pre-dealt hands are played by multiple pairs — removing luck from the equation
+  - In duplicate bridge, the same pre-dealt hands are played by multiple pairs - removing luck from the equation
   - Instead of scoring against the opponents at your table, you score against all pairs who held your cards
-  - Matchpoints reward relative performance — scoring +140 when everyone else scored +110 is a top board
-  - Boards (hands) circulate between tables on a movement — you play a different set of boards each round
+  - Matchpoints reward relative performance - scoring +140 when everyone else scored +110 is a top board
+  - Boards (hands) circulate between tables on a movement - you play a different set of boards each round
   - Most club sessions consist of 24–27 boards played over 2.5–3 hours
-meta_title: Duplicate Bridge Explained — Club Play, Matchpoints & Tournaments | Bridge Playbook
+meta_title: Duplicate Bridge Explained - Club Play, Matchpoints & Tournaments | Bridge Playbook
 meta_description: Duplicate bridge explained for beginners. Learn how boards circulate, what matchpoints mean, how a club movement works, and how to play your first duplicate session.
 og_title: ""
 og_description: ""
@@ -31,18 +32,18 @@ entity_tags:
   - Mitchell movement
 faq:
   - question: "What is the difference between duplicate and rubber bridge?"
-    answer: "In rubber bridge, each deal is a separate game where the luck of the cards significantly affects your score. In duplicate, the same deals are played by multiple tables — your score is compared to others who held identical cards. This eliminates luck and makes duplicate a pure test of skill and bidding judgment."
+    answer: "In rubber bridge, each deal is a separate game where the luck of the cards significantly affects your score. In duplicate, the same deals are played by multiple tables - your score is compared to others who held identical cards. This eliminates luck and makes duplicate a pure test of skill and bidding judgment."
   - question: "How does a duplicate bridge movement work?"
     answer: "In a Mitchell movement (common in club pairs), North/South pairs stay stationary while East/West pairs move up one table each round. Boards move in the opposite direction to East/West. This ensures every pair eventually plays against most other pairs, and each board is played at most tables."
   - question: "What is a top in duplicate bridge?"
     answer: "A top is the maximum matchpoints available on a single board. If 8 pairs play a board, the maximum is 14 matchpoints (7 pairs beaten × 2). Scoring more than all other pairs on a board earns a top. Scoring less than all others earns a bottom (zero matchpoints)."
   - question: "Do I need a partner to play duplicate bridge?"
-    answer: "Yes — duplicate pairs events require a regular partner. However, most bridge clubs maintain a list of players looking for partners, and club directors can often arrange a partnership for you. Some clubs also run individual events where the director assigns partners each round."
+    answer: "Yes - duplicate pairs events require a regular partner. However, most bridge clubs maintain a list of players looking for partners, and club directors can often arrange a partnership for you. Some clubs also run individual events where the director assigns partners each round."
   - question: "Is duplicate bridge harder than rubber bridge?"
     answer: "Duplicate uses identical rules to rubber bridge, but the scoring comparison changes strategy. Bidding thin games, competing aggressively on part-scores, and making accurate decisions in close situations matters more in duplicate. Most players find duplicate more rewarding once they understand the comparison scoring system."
 ---
 
-Duplicate bridge is the form of bridge played at clubs and tournaments worldwide. It is the version used in all competitive bridge — from local club sessions to the World Bridge Championships.
+Duplicate bridge is the form of bridge played at clubs and tournaments worldwide. It is the version used in all competitive bridge - from local club sessions to the World Bridge Championships.
 
 The key difference from rubber bridge: **the same hands are played by multiple pairs**, eliminating the luck of the deal.
 
@@ -50,7 +51,7 @@ The key difference from rubber bridge: **the same hands are played by multiple p
 
 In rubber bridge, if you hold a flat 8-count all evening and your opponents hold all the aces, you will lose regardless of how well you play.
 
-In duplicate, every pair who sits North/South on any given board holds the same 13-card North hand, the same South hand, East hand, and West hand. Your score on that board is not compared to your direct opponents — it is compared to every other pair who held your cards.
+In duplicate, every pair who sits North/South on any given board holds the same 13-card North hand, the same South hand, East hand, and West hand. Your score on that board is not compared to your direct opponents - it is compared to every other pair who held your cards.
 
 If you hold a poor hand and score -50 while every other North/South pair scored -140, you score a **top**. You played the hand better than everyone else with the same cards.
 
@@ -58,7 +59,7 @@ This is what makes duplicate a game of pure skill.
 
 ## Boards: Preserving the Hands
 
-In duplicate, cards are **not mixed after each deal**. Instead, each deal is held in a **board** — a flat holder with four pockets, one per compass direction. Players pick up the cards, play the hand, then return their cards to the correct pocket.
+In duplicate, cards are **not mixed after each deal**. Instead, each deal is held in a **board** - a flat holder with four pockets, one per compass direction. Players pick up the cards, play the hand, then return their cards to the correct pocket.
 
 The board records:
 - **Dealer** (which direction deals/opens first)
@@ -123,7 +124,7 @@ A percentage of 60%+ is generally a good score; 55% wins most club sessions.
 
 Matchpoints change decision-making significantly:
 
-**Part-score competition**: In matchpoints, competing for a part-score is crucial. +110 in 2♠ beats -90 in 2♥ by the opponents — even though both sides played sensibly.
+**Part-score competition**: In matchpoints, competing for a part-score is crucial. +110 in 2♠ beats -90 in 2♥ by the opponents - even though both sides played sensibly.
 
 **Overtricks matter**: In rubber bridge, overtricks are minor bonuses. In matchpoints, +420 vs +450 in 4♠ is a large swing. Playing for overtricks when safe to do so is correct.
 
@@ -133,10 +134,10 @@ Matchpoints change decision-making significantly:
 
 Most bridge clubs welcome beginners to their club duplicate sessions. Tips for your first session:
 
-1. **Arrive early** — the director will assign you a pair number and starting position
-2. **Follow the movement** — when the round ends, wait for the director to announce where to move
-3. **Don't discuss hands until the session ends** — other tables are still playing the same boards
-4. **Ask the director if unsure** — they are there to help, not penalise newcomers
+1. **Arrive early** - the director will assign you a pair number and starting position
+2. **Follow the movement** - when the round ends, wait for the director to announce where to move
+3. **Don't discuss hands until the session ends** - other tables are still playing the same boards
+4. **Ask the director if unsure** - they are there to help, not penalise newcomers
 
 Online duplicate is also available on Bridge Base Online (BBO), where supervised beginner games run regularly.
 
