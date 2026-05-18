@@ -1,23 +1,24 @@
 ---
-title: Bridge Scoring — Complete Guide to Rubber and Duplicate Bridge Scoring
+title: Bridge Scoring - Complete Guide to Rubber and Duplicate Bridge Scoring
 slug: bridge-scoring
 date: 2026-05-17
 status: published
-category: Learn Bridge
+author: "Margaret Holloway"
+category: learn-bridge
 tags:
   - bridge scoring
   - duplicate bridge scoring
   - rubber bridge scoring
   - matchpoints
   - IMPs
-excerpt: A complete guide to bridge scoring — rubber bridge points, duplicate matchpoints, IMPs, slam bonuses, penalties, and how vulnerability changes everything.
+excerpt: A complete guide to bridge scoring - rubber bridge points, duplicate matchpoints, IMPs, slam bonuses, penalties, and how vulnerability changes everything.
 key_takeaways:
-  - Trick score depends on denomination — minors score 20 per trick, majors 30, no-trump 40/30
-  - Game requires 100+ trick points in one deal — common games are 3NT, 4 Hearts/Spades, 5 Clubs/Diamonds
-  - Slam bonuses are large — small slam adds 500 (not vulnerable) or 750 (vulnerable), grand slam doubles that
+  - Trick score depends on denomination - minors score 20 per trick, majors 30, no-trump 40/30
+  - Game requires 100+ trick points in one deal - common games are 3NT, 4 Hearts/Spades, 5 Clubs/Diamonds
+  - Slam bonuses are large - small slam adds 500 (not vulnerable) or 750 (vulnerable), grand slam doubles that
   - Duplicate scoring uses matchpoints (comparing your score to others on the same board) or IMPs (margin-based)
   - Vulnerability doubles penalties for failing a contract and increases slam bonuses
-meta_title: Bridge Scoring Guide — Rubber, Duplicate, Matchpoints & IMPs | Bridge Playbook
+meta_title: Bridge Scoring Guide - Rubber, Duplicate, Matchpoints & IMPs | Bridge Playbook
 meta_description: Complete bridge scoring guide. Covers trick scores, game and slam bonuses, penalties, vulnerability, rubber bridge vs duplicate, matchpoints, and IMPs explained simply.
 og_title: ""
 og_description: ""
@@ -38,7 +39,7 @@ faq:
   - question: "How are matchpoints calculated in duplicate bridge?"
     answer: "In matchpoints duplicate, your score on each board is compared to every other pair who played the same board in the same direction. You receive 2 matchpoints for each pair you beat and 1 matchpoint for each pair you tie. The pair with the highest total matchpoints across all boards wins."
   - question: "What is the penalty for going down in bridge?"
-    answer: "Penalties depend on vulnerability and whether the contract was doubled. Undoubled: 50 per trick not vulnerable, 100 per trick vulnerable. Doubled penalties are much larger — first undertrick 100 NV/200 V, subsequent tricks 200 NV/300 V. Redoubled penalties are double the doubled amounts."
+    answer: "Penalties depend on vulnerability and whether the contract was doubled. Undoubled: 50 per trick not vulnerable, 100 per trick vulnerable. Doubled penalties are much larger - first undertrick 100 NV/200 V, subsequent tricks 200 NV/300 V. Redoubled penalties are double the doubled amounts."
   - question: "How much do you score for a slam in bridge?"
     answer: "Small slam bonus (12 tricks bid and made): 500 not vulnerable, 750 vulnerable. Grand slam bonus (all 13 tricks): 1000 not vulnerable, 1500 vulnerable. These bonuses are in addition to the trick score and any overtrick bonuses."
 ---
@@ -47,7 +48,7 @@ Bridge scoring can seem complicated at first, but it follows a logical system de
 
 ## Trick Scores (Points Below the Line)
 
-The fundamental scoring unit is the trick score — points awarded for each trick bid and made beyond the 6-trick book.
+The fundamental scoring unit is the trick score - points awarded for each trick bid and made beyond the 6-trick book.
 
 | Denomination | Score per trick |
 |-------------|----------------|
@@ -55,8 +56,8 @@ The fundamental scoring unit is the trick score — points awarded for each tric
 | Diamonds (♦) | 20 points |
 | Hearts (♥) | 30 points |
 | Spades (♠) | 30 points |
-| No-Trump — first trick | 40 points |
-| No-Trump — each subsequent | 30 points |
+| No-Trump - first trick | 40 points |
+| No-Trump - each subsequent | 30 points |
 
 ### Examples
 
@@ -124,8 +125,8 @@ In rubber bridge, scoring is cumulative across multiple deals.
 
 ### Above and Below the Line
 
-- **Below the line**: trick scores from bid-and-made contracts — these count toward game
-- **Above the line**: bonuses, overtricks, penalties, honours — these do not count toward game
+- **Below the line**: trick scores from bid-and-made contracts - these count toward game
+- **Above the line**: bonuses, overtricks, penalties, honours - these do not count toward game
 
 ### Winning the Rubber
 
@@ -141,7 +142,7 @@ In rubber bridge (not duplicate), holding 4 of the 5 top trump honours (A K Q J 
 
 ## Duplicate Bridge Scoring
 
-Duplicate bridge uses the same trick scores, bonuses, and penalties as rubber bridge — but the **scoring comparison is different**.
+Duplicate bridge uses the same trick scores, bonuses, and penalties as rubber bridge - but the **scoring comparison is different**.
 
 ### Matchpoints
 
@@ -152,7 +153,7 @@ For each board:
 - **1 matchpoint** for every pair you tied
 - **0 matchpoints** for every pair who outscored you
 
-The goal in matchpoints is not to score high in absolute terms, but to score better than other pairs. This changes strategy significantly — bidding a game worth +620 when others score +600 in part-score is a top board.
+The goal in matchpoints is not to score high in absolute terms, but to score better than other pairs. This changes strategy significantly - bidding a game worth +620 when others score +600 in part-score is a top board.
 
 ### IMPs (International Match Points)
 
@@ -167,7 +168,7 @@ IMPs are used in team events (Swiss pairs and Knockouts). Your score on each boa
 | 750–990 | 13 IMPs |
 | 2000+ | 24 IMPs |
 
-IMPs reduce the impact of large swings. Bidding a thin vulnerable game worth +600 vs +170 is only 10 IMPs — not worth the risk in many situations.
+IMPs reduce the impact of large swings. Bidding a thin vulnerable game worth +600 vs +170 is only 10 IMPs - not worth the risk in many situations.
 
 ---
 
